@@ -2,18 +2,16 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Sparkles, Code, Smartphone, Cloud, Brain, Zap,
-  ArrowRight, Send,
+  ArrowRight,
   Rocket, Shield, TrendingUp, Users
 } from "lucide-react";
-import toast from "react-hot-toast";
-import { sendEmail } from "../utils/sendEmail.js";
-import { validateContactForm } from "../utils/validateForm.js";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
 import PricingCard from "../components/PricingCard.jsx";
 import StatCard from "../components/StatCard.jsx";
 import ContactInfo from "../components/ContactInfo.jsx";
+import ContactForm from "../components/ContactForm.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
 import WordPressPricingCard from "../components/WordPressPricingCard.jsx";
@@ -138,41 +136,7 @@ const pricingPlans = [
 ];
 
 export default function LandingPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
-  const [loading, setLoading] = useState(false);
   const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: undefined }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const fieldErrors = validateContactForm(formData);
-    if (Object.keys(fieldErrors).length > 0) {
-      setErrors(fieldErrors);
-      return;
-    }
-    setLoading(true);
-    try {
-      await sendEmail(formData);
-      toast.success("Message sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setErrors({});
-    } catch {
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setLoading(false);
-    }
-  };
 
   return (
     <div id="src_pages_LandingPage_f3dp" className="min-h-screen bg-white dark:bg-gray-950">
@@ -636,101 +600,14 @@ export default function LandingPage() {
                 <ContactInfo />
               </motion.div>
 
-              <motion.form
+              <motion.div
                 id="src_pages_LandingPage_2riq"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                onSubmit={handleSubmit}
-                className="space-y-6"
               >
-                <div id="src_pages_LandingPage_2mqh">
-                  <label 
-                    id="src_pages_LandingPage_lz5f" 
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Name
-                  </label>
-                  <input
-                    id="src_pages_LandingPage_ijp8"
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={`input-field ${errors.name ? "!border-red-500 focus:!ring-red-500/20" : ""}`}
-                    placeholder="Your name"
-                  />
-                  {errors.name && <p className="mt-1 text-xs text-red-500">{errors.name}</p>}
-                </div>
-                <div id="src_pages_LandingPage_6rrv">
-                  <label
-                    id="src_pages_LandingPage_whs8"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="src_pages_LandingPage_cnz8"
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={`input-field ${errors.email ? "!border-red-500 focus:!ring-red-500/20" : ""}`}
-                    placeholder="your@email.com"
-                  />
-                  {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email}</p>}
-                </div>
-                <div id="src_pages_LandingPage_nl1a">
-                  <label
-                    id="src_pages_LandingPage_y6hv"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    id="src_pages_LandingPage_e6fm"
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className={`input-field ${errors.subject ? "!border-red-500 focus:!ring-red-500/20" : ""}`}
-                    placeholder="How can we help?"
-                  />
-                  {errors.subject && <p className="mt-1 text-xs text-red-500">{errors.subject}</p>}
-                </div>
-                <div id="src_pages_LandingPage_6yoi">
-                  <label
-                    id="src_pages_LandingPage_gnq6"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="src_pages_LandingPage_gzr8"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={5}
-                    className={`input-field resize-none ${errors.message ? "!border-red-500 focus:!ring-red-500/20" : ""}`}
-                    placeholder="Tell us about your project..."
-                  />
-                  {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
-                </div>
-                <button
-                  id="src_pages_LandingPage_2ynu"
-                  type="submit"
-                  disabled={loading}
-                  className="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loading ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message <Send className="w-5 h-5" />
-                    </>
-                  )}
-                </button>
-              </motion.form>
+                <ContactForm />
+              </motion.div>
             </div>
           </div>
         </section>
