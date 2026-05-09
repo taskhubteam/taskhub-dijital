@@ -238,30 +238,57 @@ export default function AIReadinessPage() {
               transition={{ duration: 0.8 }}
               className="relative"
             >
-              <div id="src_pages_AIReadinessPage_aqf4" className="glass-card p-8 relative overflow-hidden">
+              <div id="src_pages_AIReadinessPage_aqf4" className="relative overflow-hidden">
                 <motion.div
-                  id="src_pages_AIReadinessPage_nvs3" animate={{
-                    rotate: [0, 360],
-                  }}
-                  transition={{
-                    duration: 20,
-                    repeat: Infinity,
-                    ease: "linear"
-                  }}
-                  className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-purple-500/10 to-blue-500/10 blur-2xl"
+                  id="src_pages_AIReadinessPage_nvs3" animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="absolute inset-0 bg-gradient-to-br from-primary-500/10 via-purple-500/10 to-blue-500/10 blur-2xl pointer-events-none"
                 />
                 <div id="src_pages_AIReadinessPage_7rjh" className="relative z-10 grid grid-cols-2 gap-4">
-                  {[Brain, Zap, Shield, Layers].map((Icon, idx) => (
+                  {[
+                    {
+                      icon: Brain,
+                      title: "AI Integration",
+                      desc: "Embed intelligent features — NLP, vision, recommendations, and agents — directly into your stack.",
+                      gradient: "from-violet-500 to-purple-600",
+                    },
+                    {
+                      icon: Zap,
+                      title: "Performance First",
+                      desc: "Sub-second response times with SSR, edge caching, and optimised API layers.",
+                      gradient: "from-amber-400 to-orange-500",
+                    },
+                    {
+                      icon: Shield,
+                      title: "Enterprise Security",
+                      desc: "JWT, OAuth 2.0, encrypted data-at-rest, and SOC 2-aligned security practices built in.",
+                      gradient: "from-emerald-400 to-green-600",
+                    },
+                    {
+                      icon: Layers,
+                      title: "Scalable by Design",
+                      desc: "Microservices-ready architecture that grows from MVP to millions of users without re-platforming.",
+                      gradient: "from-primary-500 to-red-600",
+                    },
+                  ].map((item, idx) => (
                     <motion.div
                       id="src_pages_AIReadinessPage_op7z" key={idx}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: idx * 0.1 }}
-                      whileHover={{ scale: 1.05, rotate: 5 }}
-                      className="aspect-square rounded-2xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-200/50 dark:border-gray-700/50 flex items-center justify-center"
+                      transition={{ delay: idx * 0.12, duration: 0.5 }}
+                      whileHover={{ y: -4, scale: 1.02 }}
+                      className="rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-md hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 cursor-default"
                     >
-                      <Icon className="w-12 h-12 text-primary-600 dark:text-primary-400" />
+                      <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} mb-3 shadow-lg`}>
+                        <item.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-1.5">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+                        {item.desc}
+                      </p>
                     </motion.div>
                   ))}
                 </div>

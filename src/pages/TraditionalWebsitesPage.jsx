@@ -20,6 +20,8 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
+import FlipStat from "../components/FlipStat.jsx";
+import ProcessTimeline3D from "../components/ProcessTimeline3D.jsx";
 import { scrollToContact } from "../utils/scrollToContact.js";
 
 const services = [
@@ -91,29 +93,6 @@ const whyChooseUs = [
   },
 ];
 
-const processSteps = [
-  {
-    number: "01",
-    title: "Discovery",
-    description: "We learn about your business, goals, and target audience to create the perfect strategy.",
-  },
-  {
-    number: "02",
-    title: "Design",
-    description: "Our designers craft beautiful mockups that align with your brand identity.",
-  },
-  {
-    number: "03",
-    title: "Development",
-    description: "Expert developers bring the design to life with clean, efficient code.",
-  },
-  {
-    number: "04",
-    title: "Launch",
-    description: "We deploy your website and provide training and ongoing support.",
-  },
-];
-
 export default function TraditionalWebsitesPage() {
   return (
     <div id="src_pages_TraditionalWebsitesPage_kr8l" className="min-h-screen bg-white dark:bg-gray-950">
@@ -171,35 +150,22 @@ export default function TraditionalWebsitesPage() {
               </motion.button>
             </motion.div>
 
-            {/* Stats */}
-            <motion.div
-              id="src_pages_TraditionalWebsitesPage_nt2v" initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.8 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
-            >
+            {/* Stats — 3D flip-in on scroll */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
               {[
                 { value: "500+", label: "Websites Built" },
-                { value: "98%", label: "Client Satisfaction" },
-                { value: "<2s", label: "Load Time" },
+                { value: "98%",  label: "Client Satisfaction" },
+                { value: "<2s",  label: "Load Time" },
                 { value: "24/7", label: "Support" },
               ].map((stat, idx) => (
-                <motion.div
-                  id="src_pages_TraditionalWebsitesPage_l9xl" key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.8 + idx * 0.1 }}
-                  className="text-center"
-                >
-                  <div id="src_pages_TraditionalWebsitesPage_o8cx" className="text-3xl md:text-4xl font-bold text-primary-600 dark:text-primary-400 mb-2">
-                    {stat.value}
-                  </div>
-                  <div id="src_pages_TraditionalWebsitesPage_cb3u" className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                    {stat.label}
-                  </div>
-                </motion.div>
+                <FlipStat
+                  key={stat.label}
+                  value={stat.value}
+                  label={stat.label}
+                  delay={idx * 0.12}
+                />
               ))}
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -230,11 +196,32 @@ export default function TraditionalWebsitesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -8 }}
+                  whileHover={{ scale: 1.04, y: -8 }}
                   className="glass-card p-8 text-center group cursor-pointer"
                 >
-                  <div id="src_pages_TraditionalWebsitesPage_tdp6" className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-primary-100 dark:bg-primary-900/30 mb-6 group-hover:bg-primary-600 dark:group-hover:bg-primary-600 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
-                    <service.icon id="src_pages_TraditionalWebsitesPage_zrv6" className="w-8 h-8 text-primary-600 dark:text-primary-400 group-hover:text-white transition-colors duration-300" />
+                  {/* 3D floating icon */}
+                  <div
+                    className="icon-3d-stage mx-auto mb-6"
+                    style={{
+                      width: 72,
+                      height: 72,
+                      perspective: '220px',
+                      animationDelay: `${idx * 0.4}s`,
+                    }}
+                  >
+                    <div
+                      className="icon-3d-inner w-full h-full rounded-2xl flex items-center justify-center"
+                      style={{
+                        background: 'linear-gradient(135deg, #fef2f2, #fee2e2)',
+                        boxShadow:
+                          '0 8px 24px rgba(220,38,38,0.18), 0 2px 6px rgba(220,38,38,0.1)',
+                        transformStyle: 'preserve-3d',
+                        animation: `icon3dFloat ${3.5 + idx * 0.5}s ease-in-out infinite`,
+                        animationDelay: `${idx * 0.4}s`,
+                      }}
+                    >
+                      <service.icon className="w-8 h-8 text-primary-600 dark:text-primary-400" />
+                    </div>
                   </div>
                   <h3 id="src_pages_TraditionalWebsitesPage_i1yt" className="text-xl font-bold text-gray-900 dark:text-white mb-3">
                     {service.title}
@@ -308,13 +295,14 @@ export default function TraditionalWebsitesPage() {
           </div>
         </section>
 
-        {/* Process Section */}
+        {/* Process Section — 3D Ribbon Timeline */}
         <section id="src_pages_TraditionalWebsitesPage_1hvc" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950 overflow-hidden">
           <AnimatedBackground />
-          
+
           <div id="src_pages_TraditionalWebsitesPage_qs8h" className="max-w-7xl mx-auto relative z-10">
             <motion.div
-              id="src_pages_TraditionalWebsitesPage_1voa" initial={{ opacity: 0, y: 20 }}
+              id="src_pages_TraditionalWebsitesPage_1voa"
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="text-center mb-16"
@@ -327,38 +315,7 @@ export default function TraditionalWebsitesPage() {
               </p>
             </motion.div>
 
-            <div id="src_pages_TraditionalWebsitesPage_sw0s" className="grid md:grid-cols-4 gap-8">
-              {processSteps.map((step, idx) => (
-                <motion.div
-                  id="src_pages_TraditionalWebsitesPage_blq7" key={step.number}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="relative"
-                >
-                  {/* Connector Line */}
-                  {idx < processSteps.length - 1 && (
-                    <div id="src_pages_TraditionalWebsitesPage_7qep" className="hidden md:block absolute top-12 left-full w-full h-0.5 bg-gradient-to-r from-primary-600 to-primary-300 dark:from-primary-500 dark:to-primary-800 -translate-x-1/2 z-0" />
-                  )}
-                  
-                  <div id="src_pages_TraditionalWebsitesPage_cwe2" className="relative z-10 text-center">
-                    <motion.div
-                      id="src_pages_TraditionalWebsitesPage_y3ki" whileHover={{ scale: 1.1, rotate: 5 }}
-                      className="inline-flex items-center justify-center w-24 h-24 rounded-2xl bg-gradient-to-br from-primary-600 to-primary-700 text-white font-bold text-3xl mb-4 shadow-xl shadow-primary-500/30"
-                    >
-                      {step.number}
-                    </motion.div>
-                    <h3 id="src_pages_TraditionalWebsitesPage_2cpk" className="text-xl font-bold text-gray-900 dark:text-white mb-3">
-                      {step.title}
-                    </h3>
-                    <p id="src_pages_TraditionalWebsitesPage_cjn8" className="text-sm text-gray-600 dark:text-gray-400">
-                      {step.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+            <ProcessTimeline3D />
           </div>
         </section>
 

@@ -10,11 +10,13 @@ import ManagedHostingServicesPage from "./pages/ManagedHostingServicesPage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
 import ContactUsPage from "./pages/ContactUsPage.jsx";
 import FreeAICallToAction from "./components/FreeAICallToAction.jsx";
+import CustomCursor from "./components/CustomCursor.jsx";
 
 export default function App() {
   return (
     <ThemeProvider>
-      <BrowserRouter>
+      <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+        <CustomCursor />
         <Toaster
           position="top-right"
           toastOptions={{

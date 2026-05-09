@@ -14,6 +14,7 @@ import ContactInfo from "../components/ContactInfo.jsx";
 import ContactForm from "../components/ContactForm.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
+import HeroSphere from "../components/HeroSphere.jsx";
 import WordPressPricingCard from "../components/WordPressPricingCard.jsx";
 import AddonsRevisionsPricingCard from "../components/AddonsRevisionsPricingCard.jsx";
 import IntegrationsSection from "../components/IntegrationsSection.jsx";
@@ -144,11 +145,11 @@ export default function LandingPage() {
 
       <main id="src_pages_LandingPage_en3k">
         {/* Hero Section */}
-        <section 
-          id="hero" 
+        <section
+          id="hero"
           className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-white dark:bg-gray-950"
         >
-          <PlexusBackground />
+          <HeroSphere />
           
           <div id="src_pages_LandingPage_npq3" className="max-w-6xl mx-auto relative z-10 text-center pt-32 pb-20">
             <motion.div

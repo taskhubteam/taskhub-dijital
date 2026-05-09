@@ -91,6 +91,19 @@
   background-size: 200% 200%;
 }
 
+/* ─── 3D icon float (services section) ─── */
+@keyframes icon3dFloat {
+  0%   { transform: rotateY(-12deg) rotateX(8deg) translateZ(0px); }
+  33%  { transform: rotateY(12deg)  rotateX(-4deg) translateZ(10px); }
+  66%  { transform: rotateY(4deg)   rotateX(10deg) translateZ(5px); }
+  100% { transform: rotateY(-12deg) rotateX(8deg) translateZ(0px); }
+}
+
+/* ─── GSAP 3D helpers ─── */
+[style*="preserve-3d"] {
+  transform-style: preserve-3d;
+}
+
 @layer components {
   .btn-primary {
     @apply inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-primary-500/50 hover:scale-105 active:scale-95 relative overflow-hidden whitespace-nowrap;
