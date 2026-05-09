@@ -177,7 +177,7 @@ export default function TraditionalWebsitesPage() {
             <motion.div
               id="src_pages_TraditionalWebsitesPage_qmm8" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_TraditionalWebsitesPage_jr1k" className="section-title mb-4">
@@ -194,7 +194,7 @@ export default function TraditionalWebsitesPage() {
                   id="src_pages_TraditionalWebsitesPage_lsw2" key={service.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.04, y: -8 }}
                   className="glass-card p-8 text-center group cursor-pointer"
@@ -254,7 +254,7 @@ export default function TraditionalWebsitesPage() {
             <motion.div
               id="src_pages_TraditionalWebsitesPage_oe3g" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_TraditionalWebsitesPage_3rej" className="section-title mb-4">
@@ -271,7 +271,7 @@ export default function TraditionalWebsitesPage() {
                   id="src_pages_TraditionalWebsitesPage_gpp2" key={item.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.02, y: -5 }}
                   className="glass-card p-6 group cursor-pointer"
@@ -304,7 +304,7 @@ export default function TraditionalWebsitesPage() {
               id="src_pages_TraditionalWebsitesPage_1voa"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_TraditionalWebsitesPage_skw7" className="section-title mb-4">
@@ -329,7 +329,7 @@ export default function TraditionalWebsitesPage() {
             <motion.div
               id="src_pages_TraditionalWebsitesPage_auc6" initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <h2 id="src_pages_TraditionalWebsitesPage_1tzd" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Build Your Website with Us

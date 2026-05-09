@@ -6,7 +6,7 @@ export default function ClientLogo({ logo, index }) {
     <motion.div
       id="src_components_ClientLogo_h9bp" initial={{ opacity: 0, scale: 0.8 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: index * 0.05 }}
       whileHover={{ scale: 1.1, y: -5 }}
       className="group relative flex-shrink-0 w-40 h-24 mx-6 cursor-pointer"

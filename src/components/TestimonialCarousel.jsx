@@ -70,7 +70,7 @@ export default function TestimonialCarousel() {
         <motion.div
           id="src_components_TestimonialCarousel_3pcz" initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="text-center mb-16"
         >
           <h2 id="src_components_TestimonialCarousel_ts6o" className="text-4xl md:text-5xl font-bold mb-4">

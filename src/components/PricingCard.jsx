@@ -9,7 +9,7 @@ export default function PricingCard({ plan, index }) {
       id="src_components_PricingCard_q0yo" 
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
       whileHover={{ scale: plan.popular || plan.starter || plan.bestForStarters ? 1.05 : 1.02, y: -8 }}
       className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col ${
@@ -101,7 +101,7 @@ export default function PricingCard({ plan, index }) {
               key={idx}
               initial={{ opacity: 0, x: -10 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: index * 0.1 + idx * 0.05 }}
               className="bg-primary-600 dark:bg-primary-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors duration-200"
             >

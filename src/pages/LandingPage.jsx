@@ -209,7 +209,7 @@ export default function LandingPage() {
               id="src_pages_LandingPage_isy7"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_LandingPage_l6kg" className="section-title mb-4">
@@ -239,7 +239,7 @@ export default function LandingPage() {
               id="src_pages_LandingPage_mhs2"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_LandingPage_mhs3" className="section-title mb-4">
@@ -255,7 +255,7 @@ export default function LandingPage() {
                 id="src_pages_LandingPage_mhs6"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <h3 id="src_pages_LandingPage_mhs7" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   Why Choose Our Managed Hosting?
@@ -292,7 +292,7 @@ export default function LandingPage() {
                       key={item.title}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: idx * 0.1 }}
                       className="flex gap-4 group hover:translate-x-2 transition-transform duration-300"
                     >
@@ -316,7 +316,7 @@ export default function LandingPage() {
                 id="src_pages_LandingPage_mhs14"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 className="glass-card p-8"
               >
                 <h3 id="src_pages_LandingPage_mhs15" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
@@ -346,7 +346,7 @@ export default function LandingPage() {
                       key={plan.name}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: idx * 0.1 }}
                       className={`p-6 rounded-xl border-2 transition-all duration-300 hover:shadow-lg ${
                         plan.popular
@@ -400,7 +400,7 @@ export default function LandingPage() {
             <motion.div
               id="src_pages_LandingPage_h3ly" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_LandingPage_q0pv" className="section-title mb-4">
@@ -415,7 +415,7 @@ export default function LandingPage() {
               <motion.div
                 id="src_pages_LandingPage_o6jr" initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <h3 id="src_pages_LandingPage_bd3u" className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   What's Included
@@ -451,7 +451,7 @@ export default function LandingPage() {
                       id="src_pages_LandingPage_g7ay" key={item.title}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: idx * 0.1 }}
                       className="flex gap-4 group hover:translate-x-2 transition-transform duration-300"
                     >
@@ -486,7 +486,7 @@ export default function LandingPage() {
               id="src_pages_LandingPage_fh8x"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <h2 id="src_pages_LandingPage_zvm7" className="section-title mb-6">
                 Why Choose TaskHub Dijital?
@@ -512,7 +512,7 @@ export default function LandingPage() {
                     key={item}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ delay: idx * 0.1 }}
                     className="flex items-center gap-3 p-4 rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300"
                   >
@@ -548,7 +548,7 @@ export default function LandingPage() {
               id="src_pages_LandingPage_6xbc"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_LandingPage_oc4d" className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -580,7 +580,7 @@ export default function LandingPage() {
               id="src_pages_LandingPage_4djz"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_LandingPage_0ktf" className="section-title mb-4">
@@ -596,7 +596,7 @@ export default function LandingPage() {
                 id="src_pages_LandingPage_mye3"
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <ContactInfo />
               </motion.div>
@@ -605,7 +605,7 @@ export default function LandingPage() {
                 id="src_pages_LandingPage_2riq"
                 initial={{ opacity: 0, x: 30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
               >
                 <ContactForm />
               </motion.div>

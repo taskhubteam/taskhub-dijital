@@ -101,7 +101,7 @@ export default function IntegrationsSection() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.7 }}
           className="text-center mb-10"
         >
@@ -112,15 +112,47 @@ export default function IntegrationsSection() {
         </motion.div>
       </div>
 
-      {/* Orbit — full-width, breaks out of max-w constraint */}
+      {/* Mobile / tablet: static 2-col grid (hidden on lg+) */}
+      <div className="lg:hidden max-w-2xl mx-auto px-4 sm:px-6 grid grid-cols-2 sm:grid-cols-4 gap-2 relative z-10">
+        {tech.map((t) => (
+          <motion.div
+            key={t.name}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false }}
+            transition={{ duration: 0.4 }}
+            className="flex flex-col items-center justify-center gap-2 p-4 rounded-2xl shadow-md"
+            style={{
+              background: t.bg,
+              border: '1px solid rgba(255,255,255,0.1)',
+            }}
+          >
+            <img
+              src={t.logo}
+              alt={t.name}
+              className="w-12 h-12 object-contain"
+              loading="lazy"
+              onError={(e) => { e.currentTarget.style.display = 'none'; }}
+            />
+            <span
+              className="text-xs font-semibold text-center"
+              style={{ color: t.light ? '#111827' : '#ffffff' }}
+            >
+              {t.name}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Desktop: 3D orbit (hidden below lg) */}
       <div
-        className="relative mx-auto"
+        className="hidden lg:block relative mx-auto"
         style={{
           width: `${STAGE_W}px`,
           height: `${STAGE_H}px`,
           perspective: '1400px',
           maxWidth: '100vw',
-          overflow: 'hidden',   // clips orbit on all sides, no scrollbar
+          overflow: 'hidden',
         }}
       >
         {/* Rotating ring */}
@@ -192,7 +224,7 @@ export default function IntegrationsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.7, delay: 0.3 }}
           className="flex flex-wrap gap-3 justify-center mt-10"
         >
@@ -211,7 +243,7 @@ export default function IntegrationsSection() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ delay: 0.5 }}
           className="mt-5 text-sm text-center text-gray-500 dark:text-gray-400"
         >

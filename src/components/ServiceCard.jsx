@@ -7,7 +7,7 @@ export default function ServiceCard({ service, index }) {
     <motion.div
       id="src_components_ServiceCard_jne2" initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ delay: index * 0.1 }}
       whileHover={{ scale: 1.02, y: -8 }}
       className="card group cursor-pointer"

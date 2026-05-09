@@ -201,7 +201,7 @@ export default function ProductsPage() {
           <motion.div
             id="src_pages_ProductsPage_ltd9" initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-center mb-16"
           >
             <h2 id="src_pages_ProductsPage_i5md" className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -218,7 +218,7 @@ export default function ProductsPage() {
                 id="src_pages_ProductsPage_wcc7" key={service.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="relative group"
@@ -277,7 +277,7 @@ export default function ProductsPage() {
           <motion.div
             id="src_pages_ProductsPage_gqb3" initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-center"
           >
             <h2 id="src_pages_ProductsPage_ni1j" className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -293,7 +293,7 @@ export default function ProductsPage() {
                   id="src_pages_ProductsPage_tu8q" key={label}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05, y: -5 }}
                   className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
@@ -316,7 +316,7 @@ export default function ProductsPage() {
           <motion.div
             id="src_pages_ProductsPage_ae0b" initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-center mb-16"
           >
             <h2 id="src_pages_ProductsPage_w5yn" className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -333,7 +333,7 @@ export default function ProductsPage() {
                 id="src_pages_ProductsPage_toh1" key={point.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -8 }}
                 className="glass-card p-6 text-center group"
@@ -377,7 +377,7 @@ export default function ProductsPage() {
           <motion.div
             id="src_pages_ProductsPage_ast3" initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
             <h2 id="src_pages_ProductsPage_dw6k" className="text-4xl md:text-5xl font-bold text-white mb-6">

@@ -18,7 +18,6 @@ export default function FlipStat({ value, label, delay = 0 }) {
     const trigger = ScrollTrigger.create({
       trigger: containerRef.current,
       start: 'top 88%',
-      once: true,
       onEnter: () => {
         gsap.to(els, {
           rotateY: 0,
@@ -28,6 +27,10 @@ export default function FlipStat({ value, label, delay = 0 }) {
           delay,
           ease: 'back.out(1.5)',
         });
+      },
+      // Reset when scrolled back above so it replays on re-entry
+      onLeaveBack: () => {
+        gsap.set(els, { rotateY: -90, opacity: 0 });
       },
     });
 

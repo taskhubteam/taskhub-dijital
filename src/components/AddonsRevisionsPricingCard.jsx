@@ -8,7 +8,7 @@ export default function AddonsRevisionsPricingCard() {
     <motion.div
       id="src_components_AddonsRevisionsPricingCard_1esx" initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       transition={{ duration: 0.6 }}
       whileHover={{ scale: 1.02, y: -5 }}
       className="relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
@@ -21,7 +21,7 @@ export default function AddonsRevisionsPricingCard() {
         <motion.div
           id="src_components_AddonsRevisionsPricingCard_1zow" initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300"
         >
@@ -60,7 +60,7 @@ export default function AddonsRevisionsPricingCard() {
               id="src_components_AddonsRevisionsPricingCard_vfb2" key={feature}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ delay: 0.3 + idx * 0.1 }}
               className="flex items-center gap-3"
             >

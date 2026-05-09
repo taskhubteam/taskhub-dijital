@@ -195,7 +195,7 @@ export default function AIReadinessPage() {
             <motion.div
               id="src_pages_AIReadinessPage_9sik" initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8 }}
               className="space-y-6"
             >
@@ -217,7 +217,7 @@ export default function AIReadinessPage() {
                       id="src_pages_AIReadinessPage_7khr" key={idx}
                       initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: idx * 0.1 }}
                       className="flex items-center gap-3 text-gray-700 dark:text-gray-300"
                     >
@@ -234,7 +234,7 @@ export default function AIReadinessPage() {
             <motion.div
               id="src_pages_AIReadinessPage_g0zx" initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.8 }}
               className="relative"
             >
@@ -275,7 +275,7 @@ export default function AIReadinessPage() {
                       id="src_pages_AIReadinessPage_op7z" key={idx}
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
+                      viewport={{ once: false }}
                       transition={{ delay: idx * 0.12, duration: 0.5 }}
                       whileHover={{ y: -4, scale: 1.02 }}
                       className="rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/60 p-5 shadow-md hover:shadow-xl hover:shadow-primary-500/10 transition-all duration-300 cursor-default"
@@ -304,7 +304,7 @@ export default function AIReadinessPage() {
           <motion.div
             id="src_pages_AIReadinessPage_zf6s" initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-center mb-16"
           >
             <h2 id="src_pages_AIReadinessPage_qjx8" className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -321,7 +321,7 @@ export default function AIReadinessPage() {
                 id="src_pages_AIReadinessPage_guv5" key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -8, scale: 1.02 }}
                 className="relative"
@@ -372,7 +372,7 @@ export default function AIReadinessPage() {
           <motion.div
             id="src_pages_AIReadinessPage_tpj4" initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="text-center mb-16"
           >
             <h2 id="src_pages_AIReadinessPage_k4cj" className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
@@ -389,7 +389,7 @@ export default function AIReadinessPage() {
                 id="src_pages_AIReadinessPage_9uhu" key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: false }}
                 transition={{ delay: idx * 0.1 }}
                 whileHover={{ y: -8 }}
                 className="glass-card p-6 text-center group"
@@ -433,7 +433,7 @@ export default function AIReadinessPage() {
           <motion.div
             id="src_pages_AIReadinessPage_bm1o" initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
             <h2 id="src_pages_AIReadinessPage_f4fu" className="text-4xl md:text-5xl font-bold text-white mb-6">

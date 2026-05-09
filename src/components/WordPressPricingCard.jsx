@@ -56,7 +56,7 @@ export default function WordPressPricingCard() {
     <motion.div
       id="src_components_WordPressPricingCard_ltp1" initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="relative max-w-md mx-auto"
     >
       {/* Limited Time Badge */}

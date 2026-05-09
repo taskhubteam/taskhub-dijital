@@ -185,7 +185,7 @@ export default function CareersPage() {
             <motion.div
               id="src_pages_CareersPage_dwk3" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_CareersPage_itd6" className="section-title mb-6">
@@ -210,7 +210,7 @@ export default function CareersPage() {
                   id="src_pages_CareersPage_tmi5" key={feature.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05, y: -8 }}
                   className="glass-card p-8 text-center group cursor-pointer"
@@ -238,7 +238,7 @@ export default function CareersPage() {
             <motion.div
               id="src_pages_CareersPage_3dqm" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_CareersPage_k8xs" className="section-title mb-4">
@@ -255,7 +255,7 @@ export default function CareersPage() {
                   id="src_pages_CareersPage_5ote" key={benefit.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.02, y: -8 }}
                   className="glass-card p-8 group cursor-pointer"
@@ -283,7 +283,7 @@ export default function CareersPage() {
             <motion.div
               id="src_pages_CareersPage_yqq4" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_CareersPage_htw4" className="section-title mb-4">
@@ -297,7 +297,7 @@ export default function CareersPage() {
             <motion.div
               id="src_pages_CareersPage_p9qi" initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="max-w-3xl mx-auto"
             >
               <div id="src_pages_CareersPage_p2js" className="glass-card p-12 text-center">
@@ -332,7 +332,7 @@ export default function CareersPage() {
             <motion.div
               id="src_pages_CareersPage_f1nu" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_CareersPage_1suy" className="section-title mb-4">
@@ -353,7 +353,7 @@ export default function CareersPage() {
                     id="src_pages_CareersPage_dm8t" key={step.title}
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ delay: idx * 0.15 }}
                     className="relative"
                   >
@@ -388,7 +388,7 @@ export default function CareersPage() {
             <motion.div
               id="src_pages_CareersPage_t6kd" initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <h2 id="src_pages_CareersPage_vpm9" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Ready to Make an Impact?

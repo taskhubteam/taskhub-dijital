@@ -33,8 +33,8 @@ const steps = [
 
 export default function ProcessTimeline3D() {
   const sectionRef = useRef(null);
-  const cardRefs = useRef([]);
-  const ribbonRef = useRef(null);
+  const cardRefs   = useRef([]);
+  const ribbonRef  = useRef(null);
 
   useEffect(() => {
     const cards = cardRefs.current.filter(Boolean);
@@ -42,11 +42,10 @@ export default function ProcessTimeline3D() {
 
     const localTriggers = [];
 
-    // Ribbon draw-in
+    // Ribbon draw-in — resets when scrolled back above
     const ribbonST = ScrollTrigger.create({
       trigger: sectionRef.current,
       start: 'top 75%',
-      once: true,
       onEnter: () => {
         gsap.fromTo(
           ribbonRef.current,
@@ -54,34 +53,40 @@ export default function ProcessTimeline3D() {
           { scaleX: 1, duration: 1.2, ease: 'power3.out' }
         );
       },
+      onLeaveBack: () => {
+        gsap.set(ribbonRef.current, { scaleX: 0, transformOrigin: 'left center' });
+      },
     });
     localTriggers.push(ribbonST);
 
-    // Cards arrive from depth
+    // Card initial hidden state
+    const initialState = (i) => ({
+      rotateY: i % 2 === 0 ? -35 : 35,
+      z: i % 2 === 0 ? 80 : -80,
+      y: 40,
+      opacity: 0,
+    });
+
     cards.forEach((card, i) => {
+      gsap.set(card, initialState(i));
+
       const st = ScrollTrigger.create({
         trigger: card,
         start: 'top 88%',
-        once: true,
         onEnter: () => {
-          gsap.fromTo(
-            card,
-            {
-              rotateY: i % 2 === 0 ? -35 : 35,
-              z: i % 2 === 0 ? 80 : -80,
-              y: 40,
-              opacity: 0,
-            },
-            {
-              rotateY: 0,
-              z: 0,
-              y: 0,
-              opacity: 1,
-              duration: 0.8,
-              delay: i * 0.18,
-              ease: 'power3.out',
-            }
-          );
+          gsap.to(card, {
+            rotateY: 0,
+            z: 0,
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            delay: i * 0.18,
+            ease: 'power3.out',
+          });
+        },
+        // Reset to initial 3D state so the animation replays on re-entry
+        onLeaveBack: () => {
+          gsap.set(card, initialState(i));
         },
       });
       localTriggers.push(st);
@@ -101,9 +106,8 @@ export default function ProcessTimeline3D() {
         <div
           ref={ribbonRef}
           className="h-px bg-gradient-to-r from-transparent via-primary-500 to-transparent"
-          style={{ opacity: 0.5 }}
+          style={{ opacity: 0.5, transform: 'scaleX(0)', transformOrigin: 'left center' }}
         />
-        {/* Glow pulse on ribbon */}
         <div className="absolute inset-0 h-[3px] -mt-[1px] bg-gradient-to-r from-transparent via-primary-400/30 to-transparent blur-sm" />
       </div>
 
@@ -130,7 +134,6 @@ export default function ProcessTimeline3D() {
               >
                 {step.number}
               </div>
-              {/* Glow ring behind badge */}
               <div
                 className="absolute inset-0 rounded-2xl"
                 style={{
@@ -161,7 +164,7 @@ export default function ProcessTimeline3D() {
               </p>
             </div>
 
-            {/* Step number dot on ribbon */}
+            {/* Dot on ribbon */}
             <div
               className="hidden md:block absolute top-[calc(2rem+48px)] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary-600 ring-2 ring-primary-200 dark:ring-primary-800 -mt-[26px] z-20"
               style={{ transform: 'translateX(-50%) translateZ(20px)' }}

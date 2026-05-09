@@ -178,7 +178,7 @@ export default function ManagedHostingServicesPage() {
             <motion.div
               id="src_pages_ManagedHostingServicesPage_w5du" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_ManagedHostingServicesPage_rr1x" className="section-title mb-4">
@@ -195,7 +195,7 @@ export default function ManagedHostingServicesPage() {
                   id="src_pages_ManagedHostingServicesPage_l5su" key={feature.title}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.05, y: -8 }}
                   className="glass-card p-8 text-center group cursor-pointer"
@@ -223,7 +223,7 @@ export default function ManagedHostingServicesPage() {
             <motion.div
               id="src_pages_ManagedHostingServicesPage_z7jz" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_ManagedHostingServicesPage_obd6" className="section-title mb-4">
@@ -240,7 +240,7 @@ export default function ManagedHostingServicesPage() {
                   id="src_pages_ManagedHostingServicesPage_lt8n" key={plan.name}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.2 }}
                   whileHover={{ scale: 1.02, y: -8 }}
                   className={`relative glass-card p-8 ${
@@ -315,7 +315,7 @@ export default function ManagedHostingServicesPage() {
             <motion.div
               id="src_pages_ManagedHostingServicesPage_q3np" initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="text-center mb-16"
             >
               <h2 id="src_pages_ManagedHostingServicesPage_z1gz" className="section-title mb-4">
@@ -332,7 +332,7 @@ export default function ManagedHostingServicesPage() {
                   id="src_pages_ManagedHostingServicesPage_1hrl" key={logo.name}
                   initial={{ opacity: 0, scale: 0.8 }}
                   whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   transition={{ delay: idx * 0.1 }}
                   whileHover={{ scale: 1.1, y: -5 }}
                   className="flex items-center justify-center p-6 glass-card group cursor-pointer"
@@ -353,7 +353,7 @@ export default function ManagedHostingServicesPage() {
             <motion.div
               id="src_pages_ManagedHostingServicesPage_lpv5" initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               className="mt-16 max-w-3xl mx-auto"
             >
               <div id="src_pages_ManagedHostingServicesPage_ke5d" className="glass-card p-8 text-center">
@@ -400,7 +400,7 @@ export default function ManagedHostingServicesPage() {
             <motion.div
               id="src_pages_ManagedHostingServicesPage_mac1" initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               <h2 id="src_pages_ManagedHostingServicesPage_v2nr" className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
                 Launch Your Website with Confidence
