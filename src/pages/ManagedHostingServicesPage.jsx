@@ -370,7 +370,7 @@ export default function ManagedHostingServicesPage() {
                   ))}
                 </div>
                 <p id="src_pages_ManagedHostingServicesPage_dwa9" className="text-lg text-gray-700 dark:text-gray-300 mb-6 italic">
-                  "TaskHub Dijital's managed hosting has been a game-changer for our business. Lightning-fast performance and exceptional support!"
+                  "TASKHUB Dijital's managed hosting has been a game-changer for our business. Lightning-fast performance and exceptional support!"
                 </p>
                 <div id="src_pages_ManagedHostingServicesPage_a7mv" className="flex items-center justify-center gap-4">
                   <div id="src_pages_ManagedHostingServicesPage_kz6g" className="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">

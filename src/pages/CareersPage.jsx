@@ -196,7 +196,7 @@ export default function CareersPage() {
                   We're building the future of AI-powered solutions, and we're looking for passionate individuals who want to be part of something extraordinary.
                 </p>
                 <p id="src_pages_CareersPage_2cdp">
-                  At TaskHub Dijital, you'll work on challenging projects that push the boundaries of technology while collaborating with some of the brightest minds in the industry.
+                  At TASKHUB Dijital, you'll work on challenging projects that push the boundaries of technology while collaborating with some of the brightest minds in the industry.
                 </p>
                 <p id="src_pages_CareersPage_wfy7">
                   Our culture is built on innovation, collaboration, and a shared commitment to excellence. We believe in empowering our team members to do their best work and grow their careers.

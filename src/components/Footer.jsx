@@ -97,10 +97,10 @@ export default function Footer() {
         {/* Copyright */}
         <div id="src_components_Footer_6zml" className="text-center border-t border-gray-200 dark:border-gray-800 pt-8">
           <p id="src_components_Footer_cfk2" className="text-gray-600 dark:text-gray-400 text-sm">
-            © {currentYear} TaskHub Recruitment Solutions. All rights reserved.
+            © {currentYear} TASKHUB Recruitment Solutions. All rights reserved.
           </p>
           <p id="src_components_Footer_6cdg" className="text-gray-500 dark:text-gray-500 text-xs mt-2">
-            Powered by TaskHub Recruitment Solutions
+            Powered by TASKHUB Recruitment Solutions
           </p>
         </div>
       </div>

@@ -489,7 +489,7 @@ export default function LandingPage() {
               viewport={{ once: false }}
             >
               <h2 id="src_pages_LandingPage_zvm7" className="section-title mb-6">
-                Why Choose TaskHub Dijital?
+                Why Choose TASKHUB Dijital?
               </h2>
               <p 
                 id="src_pages_LandingPage_woa6" 

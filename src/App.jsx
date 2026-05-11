@@ -9,6 +9,7 @@ import TraditionalWebsitesPage from "./pages/TraditionalWebsitesPage.jsx";
 import ManagedHostingServicesPage from "./pages/ManagedHostingServicesPage.jsx";
 import CareersPage from "./pages/CareersPage.jsx";
 import ContactUsPage from "./pages/ContactUsPage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import FreeAICallToAction from "./components/FreeAICallToAction.jsx";
 import CustomCursor from "./components/CustomCursor.jsx";
 
@@ -36,6 +37,7 @@ export default function App() {
           <Route path="/managed-hosting" element={<ManagedHostingServicesPage />} />
           <Route path="/careers" element={<CareersPage />} />
           <Route path="/contact" element={<ContactUsPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

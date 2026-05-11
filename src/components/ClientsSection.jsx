@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-// Premium brand logos - using TaskHub logo
+// Premium brand logos - using TASKHUB logo
 const clients = [
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TaskHub Dijital" },
+  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Dijital" },
   { src: "/images/1777323694703_WE-DEM-BOS-LOGO-image.webp", alt: "WE DEM BOS" },
   { src: "/images/1777324227641_WE-DEM-BOS-LOGO-image.webp", alt: "WE DEM BOS New" },
   { src: "/images/1777917084483_1000299329-image.jpg", alt: "Partner Company" },
   { src: "/images/1777917477293_1000299328-image.jpg", alt: "Partner Company New" },
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TaskHub Partner 1" },
+  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Partner 1" },
   { src: "/images/1777323694703_WE-DEM-BOS-LOGO-image.webp", alt: "WE DEM BOS Partner" },
   { src: "/images/1777917084483_1000299329-image.jpg", alt: "Partner Company 2" },
   { src: "/images/1777917477293_1000299328-image.jpg", alt: "Partner Company New 2" },
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TaskHub Partner 2" },
+  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Partner 2" },
   { src: "/images/1777323694703_WE-DEM-BOS-LOGO-image.webp", alt: "Client Partner 1" },
   { src: "/images/1777917084483_1000299329-image.jpg", alt: "Partner Company 3" },
   { src: "/images/1777917477293_1000299328-image.jpg", alt: "Partner Company New 3" },
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TaskHub Partner 3" },
+  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Partner 3" },
 ];
 
 export default function ClientsSection() {

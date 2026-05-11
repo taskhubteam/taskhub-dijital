@@ -66,7 +66,7 @@ export default function Navbar() {
           >
             <img
               src="/images/logo.png"
-              alt="TaskHub Recruitment Solutions AI"
+              alt="TASKHUB Recruitment Solutions AI"
               className="h-14 w-auto object-contain select-none"
             />
           </motion.div>
