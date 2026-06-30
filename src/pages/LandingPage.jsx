@@ -326,7 +326,7 @@ export default function LandingPage() {
                   {[
                     {
                       name: "Starter Hosting",
-                      price: "$29.99/mo",
+                      price: "$49.99/mo",
                       features: ["10 GB SSD Storage", "100 GB Bandwidth", "Free SSL Certificate", "Daily Backups", "Email Support"],
                     },
                     {

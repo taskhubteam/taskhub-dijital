@@ -100,7 +100,15 @@ export default function Footer() {
             © {currentYear} TASKHUB Recruitment Solutions. All rights reserved.
           </p>
           <p id="src_components_Footer_6cdg" className="text-gray-500 dark:text-gray-500 text-xs mt-2">
-            Powered by TASKHUB Recruitment Solutions
+            Powered by{" "}
+            <a
+              href="https://taskhubrecruitmentsolutions.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+            >
+              TASKHUB Recruitment Solutions
+            </a>
           </p>
         </div>
       </div>

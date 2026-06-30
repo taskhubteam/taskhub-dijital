@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
   console.log(envWithImportMeta, 'this is the file')
 
   return {
+  base: '/',
   plugins: [react()],
   define: envWithImportMeta,
   server: {

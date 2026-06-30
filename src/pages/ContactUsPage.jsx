@@ -11,19 +11,19 @@ export default function ContactUsPage() {
     {
       icon: Mail,
       label: "Email",
-      value: "hello@taskhub-dijital.agency",
-      href: "mailto:hello@taskhub-dijital.agency",
+      value: "taskhubdijital@gmail.com",
+      href: "mailto:taskhubdijital@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "469-577-0392",
+      href: "tel:+14695770392",
     },
     {
       icon: MapPin,
       label: "Office",
-      value: "123 Innovation Street, San Francisco, CA 94102",
+      value: "PO Box 494995, Dallas, TX 75044",
       href: null,
     },
   ];

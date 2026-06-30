@@ -60,6 +60,83 @@ const services = [
   },
 ];
 
+const traditionalPricingPlans = [
+  {
+    name: "Diamond",
+    subtitle: "Essential Web Presence",
+    setupPrice: "$2,500",
+    monthlyPrice: "$69.99/month",
+    monthlyLabel: "hosting",
+    features: [
+      "Custom design tailored to brand",
+      "Responsive design on all devices",
+      "20 pages only",
+      "Tracking & 5 management system",
+      "Website management",
+      "SEO-ready",
+    ],
+    popular: false,
+  },
+  {
+    name: "Gold",
+    subtitle: "Growing Business Solution",
+    setupPrice: "$4,500",
+    monthlyPrice: "$69.99/month",
+    monthlyLabel: "hosting",
+    features: [
+      "Custom design tailored to brand",
+      "Responsive design on all devices",
+      "Up to 40 pages",
+      "Tracking & analytics dashboard",
+      "Advanced SEO optimization",
+      "Blog & news section",
+      "Social media integration",
+      "Website management",
+    ],
+    popular: false,
+  },
+  {
+    name: "Platinum",
+    subtitle: "Professional Business Suite",
+    setupPrice: "$6,500",
+    monthlyPrice: "$69.99/month",
+    monthlyLabel: "hosting",
+    features: [
+      "Custom design tailored to brand",
+      "Responsive design on all devices",
+      "Up to 75 pages",
+      "E-commerce (up to 100 products)",
+      "Payment gateway integration",
+      "Advanced SEO & Google Analytics",
+      "Blog, news & events section",
+      "Monthly performance report",
+      "Website management",
+    ],
+    popular: true,
+  },
+  {
+    name: "Enterprise",
+    subtitle: "Full-Scale Digital Solution",
+    setupPrice: "$9,500",
+    monthlyPrice: "$69.99/month",
+    monthlyLabel: "hosting",
+    features: [
+      "Custom design tailored to brand",
+      "Responsive design on all devices",
+      "Unlimited pages",
+      "Full e-commerce (unlimited products)",
+      "Custom API integrations",
+      "Multi-language support",
+      "Advanced SEO & marketing tools",
+      "Dedicated account manager",
+      "Priority 24/7 support",
+      "Unlimited revisions",
+      "Website management",
+    ],
+    popular: false,
+  },
+];
+
 const whyChooseUs = [
   {
     icon: Target,
@@ -316,6 +393,114 @@ export default function TraditionalWebsitesPage() {
             </motion.div>
 
             <ProcessTimeline3D />
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900 overflow-hidden">
+          <AnimatedBackground />
+
+          <div className="max-w-7xl mx-auto relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              className="text-center mb-16"
+            >
+              <h2 className="section-title mb-4">Pricing Packages</h2>
+              <p className="section-subtitle">
+                Transparent, one-time setup pricing with simple monthly hosting
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
+              {traditionalPricingPlans.map((plan, idx) => (
+                <motion.div
+                  key={plan.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false }}
+                  transition={{ delay: idx * 0.1, duration: 0.5 }}
+                  whileHover={{ scale: plan.popular ? 1.05 : 1.02, y: -8 }}
+                  className={`relative bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col ${
+                    plan.popular ? "ring-2 ring-primary-600 xl:scale-105" : ""
+                  }`}
+                  style={plan.popular ? { boxShadow: "0 0 30px rgba(220,38,38,0.3)" } : {}}
+                >
+                  {plan.popular && (
+                    <div
+                      className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2.5 text-white text-sm font-bold rounded-full shadow-2xl z-20 tracking-wide uppercase whitespace-nowrap"
+                      style={{
+                        boxShadow: "0 8px 24px rgba(220,38,38,0.4), 0 0 20px rgba(220,38,38,0.3)",
+                        background: "linear-gradient(135deg,#dc2626 0%,#ef4444 50%,#dc2626 100%)",
+                        letterSpacing: "0.05em",
+                      }}
+                    >
+                      Most Popular
+                    </div>
+                  )}
+
+                  <div className="p-6 sm:p-8 flex flex-col h-full">
+                    {/* Name & subtitle */}
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                        {plan.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">{plan.subtitle}</p>
+                    </div>
+
+                    {/* Pricing */}
+                    <div className="text-center mb-8">
+                      <div className="text-5xl font-bold text-gray-900 dark:text-white mb-1">
+                        {plan.setupPrice}
+                      </div>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 mb-3">
+                        one-time setup
+                      </p>
+                      <p className="text-lg font-semibold text-gray-700 dark:text-gray-300">
+                        {plan.monthlyPrice}
+                      </p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{plan.monthlyLabel}</p>
+                    </div>
+
+                    {/* Features */}
+                    <ul className="space-y-2 mb-8 flex-grow">
+                      {plan.features.map((feature, fIdx) => (
+                        <motion.li
+                          key={fIdx}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: false }}
+                          transition={{ delay: idx * 0.1 + fIdx * 0.05 }}
+                          className="bg-primary-600 dark:bg-primary-700 text-white px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-primary-700 dark:hover:bg-primary-800 transition-colors duration-200"
+                        >
+                          {feature}
+                        </motion.li>
+                      ))}
+                    </ul>
+
+                    {/* CTA */}
+                    <a
+                      href="https://taskhubrecruitmentsolutions.com/schedule/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`w-full py-3.5 px-6 rounded-lg font-bold text-base transition-all duration-300 text-center mt-auto block ${
+                        plan.popular
+                          ? "bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl hover:shadow-primary-500/50 hover:scale-105"
+                          : "bg-gray-100 hover:bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-gray-900 dark:text-white hover:scale-105"
+                      }`}
+                    >
+                      LET'S TALK →
+                    </a>
+
+                    {/* Footer note */}
+                    <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-4">
+                      Domain &amp; Hosting Available
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
