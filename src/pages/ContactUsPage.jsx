@@ -4,7 +4,8 @@ import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
-import ContactForm from "../components/ContactForm.jsx";
+// import ContactForm from "../components/ContactForm.jsx";
+import GHLContactForm from "../components/GHLContactForm.jsx";
 
 export default function ContactUsPage() {
   const contactDetails = [
@@ -149,7 +150,8 @@ export default function ContactUsPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              <ContactForm />
+              {/* <ContactForm /> */}
+              <GHLContactForm />
             </motion.div>
           </div>
         </div>
