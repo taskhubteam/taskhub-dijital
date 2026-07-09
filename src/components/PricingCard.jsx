@@ -27,18 +27,6 @@ export default function PricingCard({ plan, index }) {
           : {}
       }
     >
-      {plan.bestForStarters && (
-        <div id="src_components_PricingCard_starter" className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2.5 bg-gradient-to-r from-primary-400 via-primary-300 to-primary-400 text-white text-sm font-bold rounded-full shadow-lg z-20 tracking-wide uppercase whitespace-nowrap" style={{ 
-          boxShadow: '0 6px 20px rgba(239, 68, 68, 0.25), 0 0 15px rgba(239, 68, 68, 0.2)',
-          background: 'linear-gradient(135deg, #f87171 0%, #fca5a5 50%, #f87171 100%)',
-          letterSpacing: '0.05em'
-        }}>
-          <span id="src_components_PricingCard_starter_text" className="relative">
-            Best for Starters
-            <span id="src_components_PricingCard_starter_underline" className="absolute -bottom-0.5 left-0 right-0 h-0.5 bg-white/30 rounded-full"></span>
-          </span>
-        </div>
-      )}
       {plan.starter && !plan.bestForStarters && (
         <div id="src_components_PricingCard_starter_alt" className="absolute -top-5 left-1/2 -translate-x-1/2 px-8 py-2.5 bg-gradient-to-r from-blue-500 via-blue-400 to-blue-500 text-white text-sm font-bold rounded-full shadow-2xl z-20 tracking-wide uppercase whitespace-nowrap" style={{ 
           boxShadow: '0 8px 24px rgba(59, 130, 246, 0.4), 0 0 20px rgba(59, 130, 246, 0.3)',
