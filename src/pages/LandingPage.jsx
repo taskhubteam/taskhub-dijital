@@ -60,7 +60,7 @@ const pricingPlans = [
   {
     name: "Starter Plan",
     subtitle: "Basic Website",
-    setupPrice: "$600",
+    setupPrice: "$800",
     monthlyPrice: "$49.99/month",
     monthlyDescription: "for domain & hosting",
     description: "Perfect for small businesses and startups",
@@ -74,27 +74,27 @@ const pricingPlans = [
     ],
     popular: false,
   },
-  {
-    name: "Basic Plan",
-    subtitle: "Everything you need to get started",
-    setupPrice: "$800",
-    monthlyPrice: "$49.99/month",
-    monthlyDescription: "for domain & hosting",
-    description: "Perfect entry-level package for new users and small businesses",
-    features: [
-      "Custom design tailored to brand",
-      "Responsive design on all devices",
-      "10 pages",
-      "E-commerce functionality",
-      "Integration of 50 products",
-      "Order tracking & management system",
-      "Shop management",
-      "SEO ready",
-    ],
-    popular: false,
-    starter: true,
-    bestForStarters: true,
-  },
+  // {
+  //   name: "Basic Plan",
+  //   subtitle: "Everything you need to get started",
+  //   setupPrice: "$800",
+  //   monthlyPrice: "$49.99/month",
+  //   monthlyDescription: "for domain & hosting",
+  //   description: "Perfect entry-level package for new users and small businesses",
+  //   features: [
+  //     "Custom design tailored to brand",
+  //     "Responsive design on all devices",
+  //     "10 pages",
+  //     "E-commerce functionality",
+  //     "Integration of 50 products",
+  //     "Order tracking & management system",
+  //     "Shop management",
+  //     "SEO ready",
+  //   ],
+  //   popular: false,
+  //   starter: true,
+  //   bestForStarters: true,
+  // },
   {
     name: "Gold Plan",
     subtitle: "Modern Website",
@@ -554,9 +554,11 @@ export default function LandingPage() {
               </p>
             </motion.div>
 
-            <div id="src_pages_LandingPage_mfv9" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto mb-12">
+            <div id="src_pages_LandingPage_mfv9" className="flex flex-wrap justify-center gap-8 max-w-7xl mx-auto mb-12">
               {pricingPlans.map((plan, idx) => (
-                <PricingCard key={plan.name} plan={plan} index={idx} />
+                <div key={plan.name} className="w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+                  <PricingCard plan={plan} index={idx} />
+                </div>
               ))}
             </div>
 
