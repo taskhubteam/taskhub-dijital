@@ -326,13 +326,13 @@ export default function LandingPage() {
                     },
                     {
                       name: "Business Hosting",
-                      price: "$59.99/mo",
+                      price: "$69.99/mo",
                       features: ["50 GB SSD Storage", "Unlimited Bandwidth", "Free SSL Certificate", "Hourly Backups", "Priority Support", "CDN Integration"],
                       popular: true,
                     },
                     {
                       name: "Enterprise Hosting",
-                      price: "Custom",
+                      price: "$99.99",
                       features: ["Unlimited Storage", "Unlimited Bandwidth", "Dedicated Resources", "Real-time Backups", "24/7 Phone Support", "Custom Configuration"],
                     },
                   ].map((plan, idx) => (
