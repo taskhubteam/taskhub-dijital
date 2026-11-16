@@ -51,17 +51,17 @@ export default function SiteSearch({ compact = false }: { compact?: boolean }) {
         className={
           compact
             ? "flex items-center justify-center w-9 h-9 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all duration-200"
-            : "flex items-center gap-2 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-all duration-200 w-10 justify-center xl:w-auto xl:justify-start xl:pl-3.5 xl:pr-2"
+            : "flex items-center gap-2 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-600 dark:text-gray-300 transition-all duration-200 w-10 justify-center 2xl:w-auto 2xl:justify-start 2xl:pl-3.5 2xl:pr-2"
         }
       >
         <Search
-          className={compact ? "w-4 h-4 text-red-600 dark:text-red-400" : "w-5 h-5 xl:w-4 xl:h-4 text-red-600 dark:text-red-400"}
+          className={compact ? "w-4 h-4 text-red-600 dark:text-red-400" : "w-5 h-5 2xl:w-4 2xl:h-4 text-red-600 dark:text-red-400"}
           aria-hidden="true"
         />
         {!compact && (
           <>
-            <span className="hidden text-sm xl:inline">Search</span>
-            <kbd className="hidden rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-1.5 py-0.5 font-sans text-[11px] xl:inline">
+            <span className="hidden text-sm 2xl:inline">Search</span>
+            <kbd className="hidden rounded-md border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-900 px-1.5 py-0.5 font-sans text-[11px] 2xl:inline">
               {mac ? "⌘K" : "Ctrl K"}
             </kbd>
           </>

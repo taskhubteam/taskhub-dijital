@@ -13,8 +13,6 @@ const navItems = [
   { label: "Traditional Websites", href: "/traditional-websites", isRoute: true },
   { label: "Managed Hosting Services", href: "/managed-hosting", isRoute: true },
   { label: "Portfolio", href: "/portfolio", isRoute: true },
-  { label: "Blog", href: "/blog", isRoute: true },
-  { label: "Careers", href: "/careers", isRoute: true },
 ];
 
 const MotionLink = motion.create(Link);
@@ -67,7 +65,7 @@ export default function Navbar() {
           </MotionLink>
 
           {/* Desktop nav — centered */}
-          <nav aria-label="Main" className="hidden lg:flex items-center gap-1">
+          <nav aria-label="Main" className="hidden lg:flex items-center gap-0.5">
             {navItems.map((item, idx) => (
               <MotionLink
                 key={item.label}
@@ -75,7 +73,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + idx * 0.07 }}
-                className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-gray-100/60 dark:hover:bg-gray-800/60 transition-all duration-200 whitespace-nowrap"
+                className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-gray-100/60 dark:hover:bg-gray-800/60 transition-all duration-200 whitespace-nowrap"
               >
                 {item.label}
               </MotionLink>
@@ -83,7 +81,7 @@ export default function Navbar() {
           </nav>
 
           {/* Right side: theme toggle + contact button */}
-          <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+          <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
             <SiteSearch />
             <motion.button
               whileHover={{ scale: 1.05 }}
