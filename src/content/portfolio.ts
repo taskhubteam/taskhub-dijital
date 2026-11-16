@@ -54,14 +54,24 @@ export const WORKS: Work[] = [
     url: "https://istoreworks.com/",
   },
   {
-    slug: "istoreworksgearup",
-    title: "iStore Works Gear Up",
-    category: "Gear & Accessories Store",
-    type: "ecommerce",
+    slug: "studentathletesuccesssummit",
+    title: "Student-Athlete Success Summit",
+    category: "Event Website",
+    type: "sports",
     summary:
-      "Online store for premium gear and accessories with secure checkout and fast shipping.",
-    tags: ["WooCommerce", "WordPress", "Retail"],
-    url: "https://istoreworksgearup.com/",
+      "Event site for a summit that prepares student-athletes for success in sports, school, careers and life — with an event countdown, success sessions and networking.",
+    tags: ["WordPress", "Events", "Education"],
+    url: "https://studentathletesuccesssummit.org/",
+  },
+  {
+    slug: "novel-network",
+    title: "Novel TV",
+    category: "Streaming Platform",
+    type: "media",
+    summary:
+      "A streaming platform for movies, TV shows, live TV and originals, with subscription plans and watchlists.",
+    tags: ["Streaming", "Web app", "Subscriptions"],
+    url: "https://www.novel-network.com/",
   },
   {
     slug: "kcpsuppliesinc",
@@ -84,26 +94,6 @@ export const WORKS: Work[] = [
     url: "https://kustomcreativeprints.com/",
   },
   {
-    slug: "kcpgearupstore",
-    title: "KCP Gear Up",
-    category: "Official Gear Store",
-    type: "ecommerce",
-    summary:
-      "The official KCP Gear Up store for premium gear, accessories and featured collections, with fast shipping.",
-    tags: ["WooCommerce", "WordPress", "Retail"],
-    url: "https://kcpgearupstore.com/",
-  },
-  {
-    slug: "kcptriostore",
-    title: "KCP Trio Store",
-    category: "Promotional Products Store",
-    type: "ecommerce",
-    summary:
-      "Online store for custom promotional products and branded merchandise for businesses, events and marketing campaigns, with secure checkout.",
-    tags: ["WooCommerce", "WordPress", "Merchandise"],
-    url: "https://kcptriostore.com/",
-  },
-  {
     slug: "kcpsports",
     title: "KCP Sports",
     category: "Sports Services Agency",
@@ -112,16 +102,6 @@ export const WORKS: Work[] = [
       "Website for an all-in-one partner to sports organizations — websites, grants, media, branding, recruiting, events, operations and merchandise, with services from $10 per hour.",
     tags: ["WordPress", "Sports", "Services"],
     url: "https://kcpsports.com/",
-  },
-  {
-    slug: "recruita-bulls",
-    title: "Recruita-BULLS",
-    category: "Marketing Team Service",
-    type: "business",
-    summary:
-      "Website for a dedicated marketing team service covering e-commerce, lead generation, GoHighLevel and WordPress SEO, with a no-obligation strategy call.",
-    tags: ["WordPress", "Marketing", "GoHighLevel"],
-    url: "https://recruita-bulls.com/",
   },
   {
     slug: "tvfl-media",
@@ -134,16 +114,6 @@ export const WORKS: Work[] = [
     url: "https://tvfl-media.com/",
   },
   {
-    slug: "wedembos",
-    title: "We Dem Bos",
-    category: "Sports Talent Media",
-    type: "media",
-    summary:
-      "A home for young sports talent with a spotlight series, top headlines and highlight videos of standout players.",
-    tags: ["WordPress", "Sports media", "Video"],
-    url: "https://wedembos.com/",
-  },
-  {
     slug: "supersports-elite",
     title: "Super Sports Elite",
     category: "Youth Sports Organization",
@@ -154,6 +124,56 @@ export const WORKS: Work[] = [
     url: "https://supersports-elite.com/",
   },
   {
+    slug: "kcpgearupstore",
+    title: "KCP Gear Up",
+    category: "Official Gear Store",
+    type: "ecommerce",
+    summary:
+      "The official KCP Gear Up store for premium gear, accessories and featured collections, with fast shipping.",
+    tags: ["WooCommerce", "WordPress", "Retail"],
+    url: "https://kcpgearupstore.com/",
+  },
+  {
+    slug: "istoreworksgearup",
+    title: "iStore Works Gear Up",
+    category: "Gear & Accessories Store",
+    type: "ecommerce",
+    summary:
+      "Online store for premium gear and accessories with secure checkout and fast shipping.",
+    tags: ["WooCommerce", "WordPress", "Retail"],
+    url: "https://istoreworksgearup.com/",
+  },
+  {
+    slug: "kcptriostore",
+    title: "KCP Trio Store",
+    category: "Promotional Products Store",
+    type: "ecommerce",
+    summary:
+      "Online store for custom promotional products and branded merchandise for businesses, events and marketing campaigns, with secure checkout.",
+    tags: ["WooCommerce", "WordPress", "Merchandise"],
+    url: "https://kcptriostore.com/",
+  },
+  {
+    slug: "wedembos",
+    title: "We Dem Bos",
+    category: "Sports Talent Media",
+    type: "media",
+    summary:
+      "A home for young sports talent with a spotlight series, top headlines and highlight videos of standout players.",
+    tags: ["WordPress", "Sports media", "Video"],
+    url: "https://wedembos.com/",
+  },
+  {
+    slug: "recruita-bulls",
+    title: "Recruita-BULLS",
+    category: "Marketing Team Service",
+    type: "business",
+    summary:
+      "Website for a dedicated marketing team service covering e-commerce, lead generation, GoHighLevel and WordPress SEO, with a no-obligation strategy call.",
+    tags: ["WordPress", "Marketing", "GoHighLevel"],
+    url: "https://recruita-bulls.com/",
+  },
+  {
     slug: "goteambuzz",
     title: "Go Team Buzz",
     category: "Basketball Tournaments",
@@ -162,26 +182,6 @@ export const WORKS: Work[] = [
       "Website for a Georgia youth basketball tournament host, with upcoming events and team sign-ups.",
     tags: ["WordPress", "Events", "Basketball"],
     url: "https://goteambuzz.com/",
-  },
-  {
-    slug: "studentathletesuccesssummit",
-    title: "Student-Athlete Success Summit",
-    category: "Event Website",
-    type: "sports",
-    summary:
-      "Event site for a summit that prepares student-athletes for success in sports, school, careers and life — with an event countdown, success sessions and networking.",
-    tags: ["WordPress", "Events", "Education"],
-    url: "https://studentathletesuccesssummit.org/",
-  },
-  {
-    slug: "novel-network",
-    title: "Novel TV",
-    category: "Streaming Platform",
-    type: "media",
-    summary:
-      "A streaming platform for movies, TV shows, live TV and originals, with subscription plans and watchlists.",
-    tags: ["Streaming", "Web app", "Subscriptions"],
-    url: "https://www.novel-network.com/",
   },
 ];
 
