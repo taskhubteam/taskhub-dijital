@@ -13,6 +13,11 @@
 		"directory": ".open-next/assets",
 		"binding": "ASSETS"
 	},
+	// Custom domains (DNS records are created by Cloudflare). www 301s to the apex in next.config.ts.
+	"routes": [
+		{ "pattern": "taskhubdijital.com", "custom_domain": true },
+		{ "pattern": "www.taskhubdijital.com", "custom_domain": true }
+	],
 	"observability": {
 		"enabled": true
 	},

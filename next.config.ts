@@ -14,6 +14,17 @@ const nextConfig: NextConfig = {
   images: { unoptimized: true },
   trailingSlash: false,
   poweredByHeader: false,
+  async redirects() {
+    // One canonical host: www → apex (301).
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.taskhubdijital.com" }],
+        destination: "https://taskhubdijital.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
