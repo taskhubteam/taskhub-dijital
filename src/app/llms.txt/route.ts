@@ -1,4 +1,5 @@
 import { HOME_FAQS } from "@/content/faqs";
+import { WORKS } from "@/content/portfolio";
 import { FEED_CACHE, listFeedPosts } from "@/lib/feeds";
 import { absoluteUrl } from "@/lib/seo";
 import {
@@ -40,6 +41,10 @@ export async function GET() {
 ## Pages
 
 ${PAGES.map((p) => `- [${p.name}](${absoluteUrl(p.path)}): ${p.description}`).join("\n")}
+
+## Portfolio (websites built by ${SITE_NAME})
+
+${WORKS.map((w) => `- [${w.title}](${w.url}) — ${w.category}: ${w.summary}`).join("\n")}
 
 ## Frequently asked questions
 

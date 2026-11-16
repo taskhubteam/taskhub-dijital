@@ -5,6 +5,7 @@ import { Command } from "cmdk";
 import {
   ArrowUpRight,
   BookOpen,
+  Briefcase,
   CircleDollarSign,
   CircleHelp,
   CornerDownLeft,
@@ -35,6 +36,7 @@ const KIND_ICON: Record<SearchKind, LucideIcon> = {
   Service: Layers,
   Pricing: CircleDollarSign,
   FAQ: CircleHelp,
+  Portfolio: Briefcase,
   Blog: BookOpen,
 };
 

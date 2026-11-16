@@ -12,6 +12,7 @@ const navItems = [
   { label: "VA Expert", href: "https://taskhubrecruitmentsolutions.com/", isRoute: false, isExternal: true },
   { label: "Traditional Websites", href: "/traditional-websites", isRoute: true },
   { label: "Managed Hosting Services", href: "/managed-hosting", isRoute: true },
+  { label: "Portfolio", href: "/portfolio", isRoute: true },
   { label: "Blog", href: "/blog", isRoute: true },
   { label: "Careers", href: "/careers", isRoute: true },
 ];

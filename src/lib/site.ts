@@ -47,6 +47,7 @@ export const PAGES = [
   { path: "/traditional-websites", name: "Traditional Websites", description: "Custom business websites with fixed-price packages." },
   { path: "/managed-hosting", name: "Managed Hosting Services", description: "Managed hosting plans with backups, SSL, CDN and support." },
   { path: "/products", name: "Products", description: "TaskHub Dijital products and services overview." },
+  { path: "/portfolio", name: "Portfolio", description: "Websites, online stores, sports and media sites built by TaskHub Dijital." },
   { path: "/blog", name: "Blog", description: "Guides on AI websites, web development, SEO and hosting." },
   { path: "/careers", name: "Careers", description: "Open positions at TaskHub Dijital." },
   { path: "/contact", name: "Contact", description: "Contact TaskHub Dijital for a project quote." },

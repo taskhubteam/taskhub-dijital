@@ -8,6 +8,7 @@ const navItems = [
   { label: "Traditional Websites", href: "/traditional-websites" },
   { label: "Managed Hosting Services", href: "/managed-hosting" },
   { label: "VA Expert", href: PARENT_URL, isExternal: true },
+  { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
   { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },

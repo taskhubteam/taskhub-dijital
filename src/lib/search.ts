@@ -1,11 +1,12 @@
 import { HOME_FAQS } from "@/content/faqs";
+import { WORKS } from "@/content/portfolio";
 import { PAGES } from "@/lib/site";
 
 // Site search (⌘K / Ctrl+K / "/"): a small in-memory index built from the same facts as the
 // pages, plus published blog posts fetched when the dialog opens. Plain word matching is plenty
 // for a site this size and needs no search service.
 
-export type SearchKind = "Page" | "Service" | "Pricing" | "FAQ" | "Blog";
+export type SearchKind = "Page" | "Service" | "Pricing" | "FAQ" | "Portfolio" | "Blog";
 
 export type SearchEntry = {
   kind: SearchKind;
@@ -24,6 +25,7 @@ const PAGE_KEYWORDS: Record<string, string> = {
   "/traditional-websites": "business website sports website ecommerce store diamond gold platinum enterprise",
   "/managed-hosting": "hosting domain ssl backups cdn support starter setup growth plus",
   "/products": "wordpress shopify mern mobile apps products",
+  "/portfolio": "work projects examples clients websites stores case studies",
   "/blog": "articles guides posts",
   "/careers": "jobs hiring work with us positions apply",
   "/contact":
@@ -69,12 +71,21 @@ const FAQS: SearchEntry[] = HOME_FAQS.map((f) => ({
   href: "/#faq",
 }));
 
-export const STATIC_ENTRIES: SearchEntry[] = [...PAGE_ENTRIES, ...SERVICES, ...PRICING, ...FAQS];
+const PORTFOLIO: SearchEntry[] = WORKS.map((w) => ({
+  kind: "Portfolio",
+  title: w.title,
+  desc: w.summary,
+  href: w.url,
+  external: true,
+  keywords: [w.category, w.tags.join(" ")].join(" "),
+}));
+
+export const STATIC_ENTRIES: SearchEntry[] = [...PAGE_ENTRIES, ...SERVICES, ...PRICING, ...FAQS, ...PORTFOLIO];
 
 export const QUICK_LINKS: SearchEntry[] = [
   SERVICES[0],
   ...PAGE_ENTRIES.filter((p) =>
-    ["/ai-readiness", "/traditional-websites", "/managed-hosting", "/blog", "/contact"].includes(p.href),
+    ["/ai-readiness", "/traditional-websites", "/managed-hosting", "/portfolio", "/blog", "/contact"].includes(p.href),
   ),
   PRICING[0],
 ];
@@ -115,7 +126,7 @@ function prepare(entry: SearchEntry): Prepared {
   return p;
 }
 
-const KIND_BOOST: Record<SearchKind, number> = { Service: 3, Page: 2, Pricing: 2, FAQ: 1, Blog: 1 };
+const KIND_BOOST: Record<SearchKind, number> = { Service: 3, Page: 2, Pricing: 2, FAQ: 1, Portfolio: 1, Blog: 1 };
 
 /** Entries containing every word of the query (word starts count), best matches first. */
 export function searchEntries(entries: SearchEntry[], query: string, limit = 12): SearchEntry[] {
