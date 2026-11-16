@@ -13,7 +13,7 @@ const quickLinks = [
   { label: "Traditional Websites", href: "/traditional-websites" },
   { label: "AI Readiness", href: "/ai-readiness" },
   { label: "Managed Hosting", href: "/managed-hosting" },
-  { label: "Products", href: "/products" },
+  { label: "Services", href: "/products" },
   { label: "Contact Us", href: "/contact" },
 ];
 

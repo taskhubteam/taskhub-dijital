@@ -12,7 +12,6 @@ import {
   Clock,
   Award,
   TrendingUp,
-  Users
 } from "lucide-react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
@@ -94,11 +93,11 @@ export default function ManagedHostingServicesPage() {
           <PlexusBackground />
           
           <div className="max-w-6xl mx-auto relative z-10 text-center pt-32 pb-20">
-            <motion.div initial={{ opacity: 0, y: 30 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div initial={{ opacity: 0, scale: 0.9 }}
+              <motion.div initial={false}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="inline-block mb-6"
@@ -108,22 +107,22 @@ export default function ManagedHostingServicesPage() {
                 </span>
               </motion.div>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+              <h1 className="hero-rise text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
                 Managed Hosting{' '}
                 <span className="text-primary-600 dark:text-primary-500">
                   Services
                 </span>
               </h1>
 
-              <motion.p initial={{ opacity: 0, y: 20 }}
+              <motion.p initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-12 max-w-4xl mx-auto font-light"
               >
-                We provide the best Hosting &amp; Domain solutions in the United States with unmatched performance and support.
+                Fully managed hosting and domain setup for US businesses — fast, secure and backed by real support.
               </motion.p>
 
-              <motion.button initial={{ opacity: 0, y: 20 }}
+              <motion.button initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
@@ -137,19 +136,19 @@ export default function ManagedHostingServicesPage() {
             </motion.div>
 
             {/* Stats */}
-            <motion.div initial={{ opacity: 0, y: 30 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.7, duration: 0.8 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto"
             >
               {[
-                { value: "99.9%", label: "Uptime" },
-                { value: "<100ms", label: "Response Time" },
+                { value: "99.9%", label: "Uptime Target" },
+                { value: "Free", label: "SSL Certificate" },
                 { value: "24/7", label: "Support" },
-                { value: "500+", label: "Happy Clients" },
+                { value: "Daily", label: "Backups" },
               ].map((stat, idx) => (
                 <motion.div key={stat.label}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={false}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.8 + idx * 0.1 }}
                   className="text-center"
@@ -344,33 +343,15 @@ export default function ManagedHostingServicesPage() {
               className="mt-16 max-w-3xl mx-auto"
             >
               <div className="glass-card p-8 text-center">
-                <div className="flex justify-center mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i}
-                      className="w-6 h-6 text-primary-500"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6 italic">
-                  "TASKHUB Dijital's managed hosting has been a game-changer for our business. Lightning-fast performance and exceptional support!"
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Our hosting promise</h3>
+                <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
+                  Your site runs on secure, monitored infrastructure with free SSL, regular backups and a real
+                  team to contact when you need help. We handle updates and maintenance, so you can focus on
+                  your business.
                 </p>
-                <div className="flex items-center justify-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-primary-600 dark:text-primary-400" />
-                  </div>
-                  <div className="text-left">
-                    <p className="font-semibold text-gray-900 dark:text-white">
-                      Sarah Johnson
-                    </p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      CEO, TechStart Inc.
-                    </p>
-                  </div>
-                </div>
+                <a href="/contact" className="btn-primary inline-flex">
+                  Talk to our hosting team
+                </a>
               </div>
             </motion.div>
           </div>

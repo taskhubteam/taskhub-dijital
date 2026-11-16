@@ -24,7 +24,12 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
-import { scrollToContact } from "../utils/scrollToContact.js";
+import { EMAIL } from "@/lib/site";
+
+// No form on this page: general applications go straight to the team inbox.
+const applyByEmail = () => {
+  window.location.href = `mailto:${EMAIL}?subject=${encodeURIComponent("General application — TaskHub Dijital")}`;
+};
 
 export default function CareersPage() {
   const scrollToPositions = () => {
@@ -119,11 +124,11 @@ export default function CareersPage() {
           <PlexusBackground />
           
           <div className="max-w-6xl mx-auto relative z-10 text-center pt-32 pb-20">
-            <motion.div initial={{ opacity: 0, y: 30 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div initial={{ opacity: 0, scale: 0.9 }}
+              <motion.div initial={false}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="inline-block mb-6"
@@ -133,14 +138,14 @@ export default function CareersPage() {
                 </span>
               </motion.div>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+              <h1 className="hero-rise text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
                 Join Our{' '}
                 <span className="text-primary-600 dark:text-primary-500">
                   Team
                 </span>
               </h1>
 
-              <motion.p initial={{ opacity: 0, y: 20 }}
+              <motion.p initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-12 max-w-4xl mx-auto font-light"
@@ -148,7 +153,7 @@ export default function CareersPage() {
                 Shape the future of AI and data-driven innovation. Work with talented teams on cutting-edge projects that make a real impact.
               </motion.p>
 
-              <motion.div initial={{ opacity: 0, y: 20 }}
+              <motion.div initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 className="flex flex-col sm:flex-row items-center justify-center gap-4"
@@ -158,7 +163,7 @@ export default function CareersPage() {
                   onClick={scrollToPositions}
                   className="btn-primary text-lg px-10 py-5"
                 >
-                  View Open Positions
+                  Send Your Résumé
                   <ArrowRight className="w-6 h-6" />
                 </motion.button>
                 <motion.button whileHover={{ scale: 1.05 }}
@@ -191,7 +196,7 @@ export default function CareersPage() {
                   We're building the future of AI-powered solutions, and we're looking for passionate individuals who want to be part of something extraordinary.
                 </p>
                 <p>
-                  At TASKHUB Dijital, you'll work on challenging projects that push the boundaries of technology while collaborating with some of the brightest minds in the industry.
+                  At TaskHub Dijital, you'll work on challenging projects that push the boundaries of technology while collaborating with some of the brightest minds in the industry.
                 </p>
                 <p>
                   Our culture is built on innovation, collaboration, and a shared commitment to excellence. We believe in empowering our team members to do their best work and grow their careers.
@@ -302,10 +307,10 @@ export default function CareersPage() {
                 </p>
                 <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={scrollToContact}
+                  onClick={applyByEmail}
                   className="btn-primary"
                 >
-                  Send General Application
+                  Email Your Application
                   <Send className="w-5 h-5" />
                 </motion.button>
               </div>
@@ -393,10 +398,10 @@ export default function CareersPage() {
                 </motion.button>
                 <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  onClick={scrollToContact}
+                  onClick={applyByEmail}
                   className="inline-flex items-center gap-3 px-10 py-5 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 transition-all duration-300 text-lg"
                 >
-                  Send General Application
+                  Email Your Application
                   <Send className="w-6 h-6" />
                 </motion.button>
               </div>

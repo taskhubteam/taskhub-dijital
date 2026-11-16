@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { BookOpen } from "lucide-react";
+import Eyebrow from "@/components/Eyebrow";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { PostCard } from "@/components/blog/PostCard";
@@ -56,7 +58,8 @@ export default async function BlogIndex({
       <main>
         <section className="relative px-4 sm:px-6 lg:px-8 pt-36 pb-12 text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <Eyebrow icon={BookOpen}>Insights &amp; Guides</Eyebrow>
+            <h1 className="hero-rise text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               The TaskHub Dijital <span className="text-primary-600 dark:text-primary-500">Blog</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">
@@ -100,11 +103,14 @@ export default async function BlogIndex({
                 .
               </p>
             ) : (
+              <>
+              <h2 className="sr-only">{active ? `${active} articles` : "Latest articles"}</h2>
               <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {shown.map((post, i) => (
                   <PostCard key={post.slug} post={post} priority={i < 3} />
                 ))}
               </div>
+              </>
             )}
           </div>
         </section>

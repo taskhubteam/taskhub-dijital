@@ -6,20 +6,16 @@ import { useRef } from "react";
 
 // Premium brand logos - using TASKHUB logo
 const clients = [
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Dijital" },
-  { src: "/images/1777323694703_WE-DEM-BOS-LOGO-image.webp", alt: "WE DEM BOS" },
-  { src: "/images/1777324227641_WE-DEM-BOS-LOGO-image.webp", alt: "WE DEM BOS New" },
-  { src: "/images/1777917084483_1000299329-image.jpg", alt: "Partner Company" },
-  { src: "/images/1777917477293_1000299328-image.jpg", alt: "Partner Company New" },
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Partner 1" },
-  { src: "/images/1777323694703_WE-DEM-BOS-LOGO-image.webp", alt: "WE DEM BOS Partner" },
-  { src: "/images/1777917084483_1000299329-image.jpg", alt: "Partner Company 2" },
-  { src: "/images/1777917477293_1000299328-image.jpg", alt: "Partner Company New 2" },
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Partner 2" },
-  { src: "/images/1777323694703_WE-DEM-BOS-LOGO-image.webp", alt: "Client Partner 1" },
-  { src: "/images/1777917084483_1000299329-image.jpg", alt: "Partner Company 3" },
-  { src: "/images/1777917477293_1000299328-image.jpg", alt: "Partner Company New 3" },
-  { src: "/images/1777324078022_TASKHUB__logo-image.webp", alt: "TASKHUB Partner 3" },
+  { src: "/images/clients/kcp-supplies.webp", alt: "KCP Supplies & Logistics" },
+  { src: "/images/clients/killa-lips.webp", alt: "Killa Lips" },
+  { src: "/images/clients/we-dem-bos.webp", alt: "We Dem Bos" },
+  { src: "/images/clients/super-sports-elite.webp", alt: "Super Sports Elite" },
+  { src: "/images/clients/kcp-sports.webp", alt: "KCP Sports" },
+  { src: "/images/clients/sass.webp", alt: "Student-Athlete Success Summit" },
+  { src: "/images/clients/kcp-gear-up.webp", alt: "KCP Gear Up" },
+  { src: "/images/clients/go-team-buzz.webp", alt: "Go Team Buzz" },
+  { src: "/images/clients/novel-tv.webp", alt: "Novel TV" },
+  { src: "/images/clients/dir-sports-wear.webp", alt: "D.I.R Sports Wear" },
 ];
 
 export default function ClientsSection() {
@@ -53,16 +49,16 @@ export default function ClientsSection() {
           >
             Trusted by{" "}
             <span className="bg-gradient-to-r from-primary-600 via-primary-500 to-primary-700 bg-clip-text text-transparent">
-              Leading Companies
+              Businesses &amp; Teams
             </span>{" "}
-            Worldwide
+            Across the US
           </motion.h2>
           <motion.p initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto"
           >
-            Join thousands of businesses using our platform to scale faster
+            Brands, online stores and sports organizations whose websites we designed, built and launched
           </motion.p>
         </motion.div>
 
@@ -112,9 +108,9 @@ export default function ClientsSection() {
                       <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
                       
                       {/* Logo image with monochrome to color transition */}
-                      <img src={logo.src === "/images/1777324227641_WE-DEM-BOS-LOGO-image.webp" ? "/images/1777918260032_Gemini_Generated_Image_66ydua66ydua66yd-image.png" : logo.src}
+                      <img src={logo.src}
                         alt={logo.alt}
-                        className="relative z-10 w-full h-full object-contain filter grayscale brightness-0 dark:brightness-100 opacity-40 dark:opacity-30 group-hover:grayscale-0 group-hover:brightness-100 group-hover:opacity-100 transition-all duration-500"
+                        className="relative z-10 w-full h-full object-contain filter grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
                         loading="lazy"
                       />
                     </div>

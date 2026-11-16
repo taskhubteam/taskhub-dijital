@@ -58,7 +58,7 @@ const PRICING: SearchEntry[] = [
   { title: "Gold Plan — $1,500 + $69.99/mo", desc: "Modern website, up to 15 pages, hosting & SEO", href: "/#pricing" },
   { title: "Diamond Plan — $2,500 + $69.99/mo", desc: "Modern website, up to 20 pages, hosting & SEO", href: "/#pricing" },
   { title: "Add-ons & Revisions — $10/hour", desc: "Updates and changes, no minimum commitment", href: "/#pricing", keywords: "changes edits updates hourly" },
-  { title: "Traditional website packages — from $2,500", desc: "Diamond, Gold, Platinum and Enterprise builds up to unlimited pages", href: "/traditional-websites", keywords: "ecommerce products platinum enterprise" },
+  { title: "Traditional website packages — from $2,500", desc: "Essential, Growth, Professional and Enterprise builds up to unlimited pages", href: "/traditional-websites", keywords: "ecommerce products essential growth professional enterprise" },
   { title: "Hosting plans — from $49.99/mo", desc: "Starter, Business and Enterprise hosting", href: "/#managed-hosting", keywords: "hosting price cost monthly" },
   { title: "Hosting setup — from $49.99", desc: "Starter Setup and Growth Plus packages", href: "/managed-hosting", keywords: "setup domain registration email" },
   { title: "Custom web apps — from $2.5k", desc: "MERN websites, business apps and SaaS; $60–$120/hr", href: "/ai-readiness", keywords: "hourly rate saas cost" },

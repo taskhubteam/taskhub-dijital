@@ -144,12 +144,12 @@ export default function ProductsPage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }}
+          <motion.div initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <motion.div initial={{ opacity: 0, scale: 0.9 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 mb-6"
@@ -160,10 +160,10 @@ export default function ProductsPage() {
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              Premium Digital Products
+            <h1 className="hero-rise text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+              WordPress, Shopify &amp;{" "}
               <br/>
-              <span className="gradient-text">& Services</span>
+              <span className="gradient-text">MERN Development</span>
             </h1>
 
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10">

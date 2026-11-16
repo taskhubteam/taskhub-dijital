@@ -10,11 +10,11 @@ export default function PortfolioGrid() {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <h2 id="projects-heading" className="text-2xl font-bold text-gray-900 dark:text-white">
+      <div className="mb-8 sm:mb-10 flex flex-col gap-3 sm:gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <h2 id="projects-heading" className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
           {works.length} {works.length === 1 ? "project" : "projects"}
         </h2>
-        <div role="group" aria-label="Filter projects" className="flex flex-wrap gap-2">
+        <div role="group" aria-label="Filter projects" className="-mx-4 flex gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {WORK_FILTERS.map((f) => {
             const active = filter === f.type;
             return (
@@ -23,7 +23,7 @@ export default function PortfolioGrid() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => setFilter(f.type)}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-200 ${
+                className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 text-[13px] sm:px-4 sm:py-2 sm:text-sm font-medium transition-all duration-200 ${
                   active
                     ? "bg-primary-600 text-white shadow-md"
                     : "bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400"

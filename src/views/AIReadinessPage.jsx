@@ -137,12 +137,12 @@ export default function AIReadinessPage() {
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <motion.div initial={{ opacity: 0, y: 30 }}
+          <motion.div initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <motion.div initial={{ opacity: 0, scale: 0.9 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-gray-200/50 dark:border-gray-700/50 mb-6"
@@ -153,8 +153,8 @@ export default function AIReadinessPage() {
               </span>
             </motion.div>
 
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              AI Readiness for Modern
+            <h1 className="hero-rise text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+              AI-Ready Websites &amp;{" "}
               <br/>
               <span className="gradient-text">MERN Stack Development</span>
             </h1>
@@ -274,9 +274,9 @@ export default function AIReadinessPage() {
                       <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} mb-3 shadow-lg`}>
                         <item.icon className="w-5 h-5 text-white" />
                       </div>
-                      <h4 className="text-sm font-bold text-gray-900 dark:text-white mb-1.5">
+                      <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-1.5">
                         {item.title}
-                      </h4>
+                      </h3>
                       <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
                         {item.desc}
                       </p>

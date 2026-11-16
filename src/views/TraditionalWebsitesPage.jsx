@@ -64,7 +64,7 @@ const services = [
 
 const traditionalPricingPlans = [
   {
-    name: "Diamond",
+    name: "Essential",
     subtitle: "Essential Web Presence",
     setupPrice: "$2,500",
     monthlyPrice: "$69.99/month",
@@ -73,14 +73,14 @@ const traditionalPricingPlans = [
       "Custom design tailored to brand",
       "Responsive design on all devices",
       "20 pages only",
-      "Tracking & 5 management system",
+      "Visitor tracking & analytics",
       "Website management",
       "SEO-ready",
     ],
     popular: false,
   },
   {
-    name: "Gold",
+    name: "Growth",
     subtitle: "Growing Business Solution",
     setupPrice: "$4,500",
     monthlyPrice: "$69.99/month",
@@ -98,7 +98,7 @@ const traditionalPricingPlans = [
     popular: false,
   },
   {
-    name: "Platinum",
+    name: "Professional",
     subtitle: "Professional Business Suite",
     setupPrice: "$6,500",
     monthlyPrice: "$69.99/month",
@@ -183,11 +183,11 @@ export default function TraditionalWebsitesPage() {
           <PlexusBackground />
           
           <div className="max-w-6xl mx-auto relative z-10 text-center pt-32 pb-20">
-            <motion.div initial={{ opacity: 0, y: 30 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <motion.div initial={{ opacity: 0, scale: 0.9 }}
+              <motion.div initial={false}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2, duration: 0.6 }}
                 className="inline-block mb-6"
@@ -197,14 +197,14 @@ export default function TraditionalWebsitesPage() {
                 </span>
               </motion.div>
 
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+              <h1 className="hero-rise text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
                 Premium Traditional Websites{' '}
                 <span className="text-primary-600 dark:text-primary-500">
                   for Modern Businesses
                 </span>
               </h1>
 
-              <motion.p initial={{ opacity: 0, y: 20 }}
+              <motion.p initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-12 max-w-4xl mx-auto font-light"
@@ -212,7 +212,7 @@ export default function TraditionalWebsitesPage() {
                 Built with trust, performance, and scalability at the core. Designed for the US market.
               </motion.p>
 
-              <motion.button initial={{ opacity: 0, y: 20 }}
+              <motion.button initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
@@ -228,9 +228,9 @@ export default function TraditionalWebsitesPage() {
             {/* Stats — 3D flip-in on scroll */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
               {[
-                { value: "500+", label: "Websites Built" },
-                { value: "98%",  label: "Client Satisfaction" },
-                { value: "<2s",  label: "Load Time" },
+                { value: "16+", label: "Client Sites Live" },
+                { value: "100%", label: "Custom Design" },
+                { value: "<2s",  label: "Target Load Time" },
                 { value: "24/7", label: "Support" },
               ].map((stat, idx) => (
                 <FlipStat

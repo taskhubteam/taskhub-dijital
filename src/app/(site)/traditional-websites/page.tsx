@@ -24,9 +24,9 @@ export default function Page() {
             path: "/traditional-websites",
             serviceType: "Website design and development",
             offers: [
-              { name: "Diamond (setup)", price: 2500 },
-              { name: "Gold (setup)", price: 4500 },
-              { name: "Platinum (setup)", price: 6500 },
+              { name: "Essential (setup)", price: 2500 },
+              { name: "Growth (setup)", price: 4500 },
+              { name: "Professional (setup)", price: 6500 },
               { name: "Enterprise (setup)", price: 9500 },
             ],
           }),

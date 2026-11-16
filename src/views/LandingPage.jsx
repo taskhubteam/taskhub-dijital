@@ -51,12 +51,6 @@ const services = [
   },
 ];
 
-const stats = [
-  { icon: Users, value: "500+", label: "Happy Clients" },
-  { icon: Rocket, value: "1000+", label: "Projects Delivered" },
-  { icon: TrendingUp, value: "98%", label: "Success Rate" },
-  { icon: Shield, value: "24/7", label: "Support" },
-];
 
 const pricingPlans = [
   {
@@ -70,7 +64,7 @@ const pricingPlans = [
       "Custom design tailored to brand",
       "Responsive design on all devices",
       "5 pages only",
-      "Tracking 5 management system",
+      "Visitor tracking & analytics",
       "Website management",
       "SEO-ready",
     ],
@@ -108,7 +102,7 @@ const pricingPlans = [
       "Custom design tailored to brand",
       "Responsive design on all devices",
       "15 pages only",
-      "Tracking 5 management system",
+      "Visitor tracking & analytics",
       "Website management",
       "SEO-ready",
     ],
@@ -125,7 +119,7 @@ const pricingPlans = [
       "Custom design tailored to brand",
       "Responsive design on all devices",
       "20 pages only",
-      "Tracking 5 management system",
+      "Visitor tracking & analytics",
       "Website management",
       "SEO-ready",
     ],
@@ -151,19 +145,19 @@ export default function LandingPage({ faq = null }) {
           
           <div className="max-w-6xl mx-auto relative z-10 text-center pt-32 pb-20">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+              <h1 className="hero-rise text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 dark:text-white mb-8 leading-tight">
                 Conceive – Build – Deploy{' '}
                 <span className="text-primary-600 dark:text-primary-500">
                   Agentic Systems
                 </span>{' '}
-                that Super Charge Your Business
+                that Supercharge Your Business
               </h1>
 
-              <motion.p initial={{ opacity: 0, y: 20 }}
+              <motion.p initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
                 className="text-xl sm:text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-12 font-light"
@@ -171,7 +165,7 @@ export default function LandingPage({ faq = null }) {
                 Unlock the Future with Agent-powered Solutions
               </motion.p>
 
-              <motion.div initial={{ opacity: 0, y: 20 }}
+              <motion.div initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center items-center"
@@ -326,7 +320,7 @@ export default function LandingPage({ faq = null }) {
                     },
                     {
                       name: "Enterprise Hosting",
-                      price: "$99.99",
+                      price: "$99.99/mo",
                       features: ["Unlimited Storage", "Unlimited Bandwidth", "Dedicated Resources", "Real-time Backups", "24/7 Phone Support", "Custom Configuration"],
                     },
                   ].map((plan, idx) => (
@@ -472,7 +466,7 @@ export default function LandingPage({ faq = null }) {
               viewport={{ once: false }}
             >
               <h2 className="section-title mb-6">
-                Why Choose TASKHUB Dijital?
+                Why Choose TaskHub Dijital?
               </h2>
               <p 
                 className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-3xl mx-auto"

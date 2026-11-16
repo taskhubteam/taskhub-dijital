@@ -568,3 +568,15 @@
 .post-content .selectedCell {
   background: rgb(254 226 226);
 }
+
+/* Hero headline entrance: transform only (never opacity), so the H1 paints immediately for LCP. */
+@keyframes hero-rise {
+  from { transform: translateY(18px); }
+  to { transform: none; }
+}
+.hero-rise {
+  animation: hero-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-rise { animation: none; }
+}

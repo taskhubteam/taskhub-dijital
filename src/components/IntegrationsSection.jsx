@@ -10,49 +10,49 @@ gsap.registerPlugin(ScrollTrigger);
 const tech = [
   {
     name: 'React',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg',
     bg: '#20232a',
     light: false,
   },
   {
     name: 'Next.js',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nextjs/nextjs-original.svg',
     bg: '#000000',
     light: false,
   },
   {
     name: 'Node.js',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg',
     bg: '#f9fafb',
     light: true,
   },
   {
     name: 'MongoDB',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mongodb/mongodb-original.svg',
     bg: '#f9fafb',
     light: true,
   },
   {
     name: 'TypeScript',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg',
     bg: '#3178c6',
     light: false,
   },
   {
     name: 'WordPress',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/wordpress/wordpress-plain.svg',
     bg: '#21759b',
     light: false,
   },
   {
     name: 'Tailwind',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tailwindcss/tailwindcss-original.svg',
     bg: '#f9fafb',
     light: true,
   },
   {
     name: 'AWS',
-    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
     bg: '#232f3e',
     light: false,
   },
@@ -132,6 +132,8 @@ export default function IntegrationsSection() {
             <img
               src={t.logo}
               alt={t.name}
+              width={48}
+              height={48}
               className="w-12 h-12 object-contain"
               loading="lazy"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
@@ -193,6 +195,8 @@ export default function IntegrationsSection() {
                 <img
                   src={t.logo}
                   alt={t.name}
+                  width={LOGO_PX}
+                  height={LOGO_PX}
                   style={{
                     width: LOGO_PX,
                     height: LOGO_PX,

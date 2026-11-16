@@ -73,7 +73,7 @@ export function AdminShell({ user, children }: { user: CurrentUser; children: Re
       <aside className="sticky top-0 z-30 flex shrink-0 flex-col border-b border-neutral-200 bg-white md:h-screen md:w-60 md:border-b-0 md:border-r">
         <div className="flex items-center justify-between gap-3 px-4 py-3 md:px-5 md:py-5">
           <Link href="/admin" className="flex items-center gap-2.5">
-            <img src="/images/logo.png" alt="" width={36} height={36} className="size-9 object-contain" />
+            <img src="/images/logo.webp" alt="" width={36} height={36} className="size-9 object-contain" />
             <span className="leading-tight">
               <span className="block text-sm font-semibold tracking-tight">{SITE_NAME}</span>
               <span className="block text-xs text-neutral-500">Admin</span>

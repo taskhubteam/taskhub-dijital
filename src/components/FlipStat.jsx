@@ -15,6 +15,11 @@ export default function FlipStat({ value, label, delay = 0 }) {
     const els = charRefs.current.filter(Boolean);
     if (!els.length) return;
 
+    // Already on screen at load (e.g. in a hero): leave the numbers visible — never hide content
+    // that's above the fold. Otherwise flip them in when they scroll into view.
+    const rect = containerRef.current?.getBoundingClientRect();
+    if (rect && rect.top < window.innerHeight) return;
+
     gsap.set(els, { rotateY: -90, opacity: 0 });
 
     const trigger = ScrollTrigger.create({

@@ -15,7 +15,7 @@ export const HOME_FAQS: Faq[] = [
   },
   {
     q: "Do you offer managed website hosting?",
-    a: "Yes. Managed hosting plans include Starter Hosting at $49.99/month (10 GB SSD, free SSL, daily backups), Business Hosting at $69.99/month (50 GB SSD, unlimited bandwidth, hourly backups, CDN) and Enterprise Hosting at $99.99 with dedicated resources and real-time backups.",
+    a: "Yes. Managed hosting plans include Starter Hosting at $49.99/month (10 GB SSD, free SSL, daily backups), Business Hosting at $69.99/month (50 GB SSD, unlimited bandwidth, hourly backups, CDN) and Enterprise Hosting at $99.99/month with dedicated resources and real-time backups.",
   },
   {
     q: "What is an agentic AI system?",

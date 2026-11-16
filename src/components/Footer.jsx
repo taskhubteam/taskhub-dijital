@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Facebook, Instagram } from "lucide-react";
-import { ADDRESS, EMAIL, LEGAL_NAME, PARENT_URL, PHONE, PHONE_DISPLAY, SOCIALS } from "@/lib/site";
+import { ADDRESS, EMAIL, LEGAL_NAME, PARENT_URL, PHONE, PHONE_DISPLAY, SITE_NAME, SOCIALS } from "@/lib/site";
 
 const navItems = [
   { label: "AI Websites", href: "/ai-readiness" },
-  { label: "Products", href: "/products" },
+  { label: "Services", href: "/products" },
   { label: "Traditional Websites", href: "/traditional-websites" },
   { label: "Managed Hosting Services", href: "/managed-hosting" },
   { label: "VA Expert", href: PARENT_URL, isExternal: true },
@@ -29,9 +29,9 @@ export default function Footer() {
         <div className="flex flex-col items-center mb-8">
           <Link href="/" aria-label="TaskHub Dijital home">
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="TaskHub Dijital logo"
-              width="137"
+              width="78"
               height="48"
               loading="lazy"
               className="h-12 w-auto object-contain mb-4 cursor-pointer hover:scale-105 transition-transform duration-300"
@@ -97,9 +97,9 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center border-t border-gray-200 dark:border-gray-800 pt-8">
           <p className="text-gray-600 dark:text-gray-400 text-sm">
-            © {currentYear} {LEGAL_NAME}. All rights reserved.
+            © {currentYear} {SITE_NAME}. All rights reserved.
           </p>
-          <p className="text-gray-500 dark:text-gray-500 text-xs mt-2">
+          <p className="text-gray-600 dark:text-gray-400 text-xs mt-2">
             Powered by{" "}
             <a
               href={PARENT_URL}

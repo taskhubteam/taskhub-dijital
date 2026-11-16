@@ -37,7 +37,7 @@ export default function Navbar() {
     <>
       {/* Single horizontal header bar */}
       <motion.header
-        initial={{ y: -80, opacity: 0 }}
+        initial={false}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
@@ -56,10 +56,11 @@ export default function Navbar() {
             className="cursor-pointer flex-shrink-0"
           >
             <img
-              src="/images/logo.png"
+              src="/images/logo.webp"
               alt="TaskHub Dijital logo"
-              width="160"
+              width="91"
               height="56"
+              fetchPriority="high"
               className="h-14 w-auto object-contain select-none"
             />
           </MotionLink>
@@ -70,7 +71,7 @@ export default function Navbar() {
               <MotionLink
                 key={item.label}
                 {...linkProps(item)}
-                initial={{ opacity: 0, y: -8 }}
+                initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + idx * 0.07 }}
                 className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-gray-100/60 dark:hover:bg-gray-800/60 transition-all duration-200 whitespace-nowrap"

@@ -16,7 +16,7 @@ export default function Page() {
           webPageLd({ name: title, description, path: "/products" }),
           breadcrumbLd([
             { name: "Home", path: "/" },
-            { name: "Products", path: "/products" },
+            { name: "Services", path: "/products" },
           ]),
         ]}
       />

@@ -40,12 +40,12 @@ export default function ContactUsPage() {
 
         <div className="max-w-7xl mx-auto relative z-10">
           {/* Header Section */}
-          <motion.div initial={{ opacity: 0, y: 20 }}
+          <motion.div initial={false}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <motion.div initial={{ opacity: 0, scale: 0.9 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 mb-6"
@@ -56,7 +56,7 @@ export default function ContactUsPage() {
               </span>
             </motion.div>
 
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="hero-rise text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
               Let's Work{" "}
               <span className="gradient-text">Together</span>
             </h1>
@@ -68,7 +68,7 @@ export default function ContactUsPage() {
           {/* Two Column Layout */}
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             {/* Left Column - Contact Information */}
-            <motion.div initial={{ opacity: 0, x: -30 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
               className="space-y-8"
@@ -80,7 +80,7 @@ export default function ContactUsPage() {
                 <div className="space-y-6">
                   {contactDetails.map((item, idx) => (
                     <motion.div key={item.label}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={false}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.4 + idx * 0.1, duration: 0.5 }}
                       className="flex items-start gap-4 group hover:translate-x-2 transition-transform duration-300"
@@ -110,7 +110,7 @@ export default function ContactUsPage() {
               </div>
 
               {/* Additional Info Card */}
-              <motion.div initial={{ opacity: 0, y: 20 }}
+              <motion.div initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
                 className="glass-card p-8 bg-gradient-to-br from-primary-50 to-white dark:from-primary-900/20 dark:to-gray-900 border-2 border-primary-200 dark:border-primary-800"
@@ -126,7 +126,7 @@ export default function ContactUsPage() {
                     "Proven Track Record",
                   ].map((item, idx) => (
                     <motion.li key={item}
-                      initial={{ opacity: 0, x: -10 }}
+                      initial={false}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: 0.8 + idx * 0.1, duration: 0.4 }}
                       className="flex items-center gap-3 text-gray-700 dark:text-gray-300"
@@ -140,7 +140,7 @@ export default function ContactUsPage() {
             </motion.div>
 
             {/* Right Column - Contact Form */}
-            <motion.div initial={{ opacity: 0, x: 30 }}
+            <motion.div initial={false}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >

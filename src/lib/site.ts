@@ -9,7 +9,7 @@ export const SITE_DESCRIPTION =
   "TaskHub Dijital builds AI-ready websites, agentic systems, WordPress sites and managed hosting for small and growing businesses in the US.";
 
 export const LOGO = "/images/logo.png";
-export const OG_IMAGE = "/images/logo.png";
+export const OG_IMAGE = "/images/og-image.jpg";
 
 export const EMAIL = "taskhubdijital@gmail.com";
 export const PHONE = "+1-469-577-0392";
@@ -46,7 +46,7 @@ export const PAGES = [
   { path: "/ai-readiness", name: "AI Websites", description: "AI-ready websites and custom MERN web applications." },
   { path: "/traditional-websites", name: "Traditional Websites", description: "Custom business websites with fixed-price packages." },
   { path: "/managed-hosting", name: "Managed Hosting Services", description: "Managed hosting plans with backups, SSL, CDN and support." },
-  { path: "/products", name: "Products", description: "TaskHub Dijital products and services overview." },
+  { path: "/products", name: "Services", description: "WordPress, Shopify, MERN stack and mobile app development services." },
   { path: "/portfolio", name: "Portfolio", description: "Websites, online stores, sports and media sites built by TaskHub Dijital." },
   { path: "/blog", name: "Blog", description: "Guides on AI websites, web development, SEO and hosting." },
   { path: "/careers", name: "Careers", description: "Open positions at TaskHub Dijital." },
