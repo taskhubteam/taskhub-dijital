@@ -14,7 +14,9 @@ function edgeCache(): Cache | null {
 export async function GET(request: Request, { params }: { params: Promise<{ filename: string }> }) {
   const { filename } = await params;
   const cache = edgeCache();
-  const cached = await cache?.match(request);
+  // Key the edge cache by URL: Next's request object isn't accepted by the Workers Cache API.
+  const cacheKey = new Request(request.url, { method: "GET" });
+  const cached = await cache?.match(cacheKey).catch(() => undefined);
   if (cached) return cached;
 
   // ?w=<width> serves the pre-generated WebP variant when one exists.
@@ -34,6 +36,6 @@ export async function GET(request: Request, { params }: { params: Promise<{ file
       "X-Content-Type-Options": "nosniff",
     },
   });
-  await cache?.put(request, response.clone()).catch(() => {});
+  await cache?.put(cacheKey, response.clone()).catch(() => {});
   return response;
 }
