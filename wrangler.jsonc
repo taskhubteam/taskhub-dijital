@@ -32,7 +32,9 @@
 		}
 	],
 	"vars": {
-		"SITE_ENV": "production"
+		"SITE_ENV": "production",
+		// Search Console Domain property (verified through Cloudflare DNS).
+		"GSC_SITE_URL": "sc-domain:taskhubdijital.com"
 	}
 	// Secrets (set with `npx wrangler secret put <NAME>`, never committed):
 	//   SESSION_SECRET   — signs the admin session cookie (required)
