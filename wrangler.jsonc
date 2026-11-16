@@ -1,31 +1,37 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  // Must match the Worker name in the Cloudflare dashboard (Workers & Pages).
-  "name": "taskhub-dijital",
-  "main": ".open-next/worker.js",
-  "compatibility_date": "2026-11-01",
-  // node:crypto / Buffer for the admin session cookie; also exposes vars + secrets on process.env.
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
-  "assets": { "directory": ".open-next/assets", "binding": "ASSETS" },
-  "observability": { "enabled": true },
-
-  // Blog posts, categories, admin users, contact messages and uploaded images (chunked blobs).
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "taskhub-dijital",
-      // Replace with the id printed by `npx wrangler d1 create taskhub-dijital`.
-      "database_id": "00000000-0000-0000-0000-000000000000",
-      "migrations_dir": "migrations"
-    }
-  ],
-
-  "vars": {
-    "SITE_ENV": "production"
-  }
-  // Secrets (set with `npx wrangler secret put <NAME>`, never committed):
-  //   SESSION_SECRET   — signs the admin session cookie (required)
-  //   GROQ_API_KEY     — AI chat assistant (server-side; never exposed to the browser)
-  //   BREVO_API_KEY    — optional: email contact-form messages via Brevo (+ BREVO_SENDER)
-  //   GA_* / GSC_*     — optional Search Console / GA4 dashboard widgets
+	"$schema": "node_modules/wrangler/config-schema.json",
+	// Must match the Worker name in the Cloudflare dashboard (Workers & Pages).
+	"name": "taskhub-dijital",
+	"main": ".open-next/worker.js",
+	"compatibility_date": "2026-11-01",
+	// node:crypto / Buffer for the admin session cookie; also exposes vars + secrets on process.env.
+	"compatibility_flags": [
+		"nodejs_compat",
+		"global_fetch_strictly_public"
+	],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"observability": {
+		"enabled": true
+	},
+	// Blog posts, categories, admin users, contact messages and uploaded images (chunked blobs).
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "taskhub-dijital",
+			// Created 2026-11-16 in the taskhubteam1 Cloudflare account.
+			"database_id": "3fa88e0c-422e-4ac5-a260-b4966cc2112c",
+			"migrations_dir": "migrations"
+		}
+	],
+	"vars": {
+		"SITE_ENV": "production"
+	}
+	// Secrets (set with `npx wrangler secret put <NAME>`, never committed):
+	//   SESSION_SECRET   — signs the admin session cookie (required)
+	//   GROQ_API_KEY     — AI chat assistant (server-side; never exposed to the browser)
+	//   BREVO_API_KEY    — optional: email contact-form messages via Brevo (+ BREVO_SENDER)
+	//   GA_* / GSC_*     — optional Search Console / GA4 dashboard widgets
 }
