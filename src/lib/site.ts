@@ -22,6 +22,13 @@ export const ADDRESS = {
   addressCountry: "US",
 };
 
+/** WhatsApp (US number, international format without "+"). */
+export const WHATSAPP_NUMBER = "14693964221";
+export const WHATSAPP_DISPLAY = "+1 (469) 396-4221";
+export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  "Hi TaskHub Dijital, I found you on taskhubdijital.com and I'd like to talk about a project.",
+)}`;
+
 export const SCHEDULE_URL = "https://taskhubrecruitmentsolutions.com/schedule/";
 export const PARENT_URL = "https://taskhubrecruitmentsolutions.com/";
 

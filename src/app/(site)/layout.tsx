@@ -1,7 +1,7 @@
 import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import CustomCursor from "@/components/CustomCursor";
-import FreeAICallToAction from "@/components/FreeAICallToAction";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ORGANIZATION_LD, WEBSITE_LD } from "@/lib/seo";
@@ -16,7 +16,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         position="top-right"
         toastOptions={{ duration: 4000, style: { borderRadius: "12px", fontFamily: "Inter, sans-serif" } }}
       />
-      <FreeAICallToAction />
+      <WhatsAppButton />
       {children}
       {GA_MEASUREMENT_ID && (
         <>

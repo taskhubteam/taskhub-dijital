@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X, Mail } from "lucide-react";
 import Link from "next/link";
+import SiteSearch from "@/components/search/SiteSearch";
 import { useTheme } from "../context/ThemeContext.jsx";
 
 const navItems = [
@@ -82,6 +83,7 @@ export default function Navbar() {
 
           {/* Right side: theme toggle + contact button */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
+            <SiteSearch />
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -115,6 +117,7 @@ export default function Navbar() {
 
           {/* Mobile right side */}
           <div className="lg:hidden flex items-center gap-2">
+            <SiteSearch compact />
             <MotionLink
               href="/contact"
               whileHover={{ scale: 1.05 }}
