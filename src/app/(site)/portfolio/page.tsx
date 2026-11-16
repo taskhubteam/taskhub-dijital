@@ -64,14 +64,14 @@ export default function PortfolioPage() {
               businesses and organizations. Click any project to see it in action.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 sm:gap-4 justify-center">
-              <Link href="/contact" className="btn-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm sm:px-8 sm:py-4 sm:text-lg">
-                Start your project <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+              <Link href="/contact" className="btn-primary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm sm:px-6 sm:py-3 sm:text-base">
+                Start your project <ArrowRight className="w-4 h-4" />
               </Link>
               <a
                 href={SCHEDULE_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-secondary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm sm:px-8 sm:py-4 sm:text-lg"
+                className="btn-secondary inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm sm:px-6 sm:py-3 sm:text-base"
               >
                 Book a free call
               </a>
