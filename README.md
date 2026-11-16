@@ -30,8 +30,7 @@ npm run preview                       # production build inside the real Workers
 ```
 
 Public env vars (build time) go in `.env`: `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_GA_ID`,
-`NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, `NEXT_PUBLIC_BING_SITE_VERIFICATION`,
-`NEXT_PUBLIC_EMAILJS_SERVICE_ID / _TEMPLATE_ID / _PUBLIC_KEY`.
+`NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION`, `NEXT_PUBLIC_BING_SITE_VERIFICATION`.
 
 ## Deploy to Cloudflare (one-time setup)
 
@@ -49,13 +48,14 @@ Next.js on Cloudflare runs as a **Worker** (Cloudflare's dashboard lists it unde
    ```bash
    npx wrangler secret put SESSION_SECRET   # any long random string: openssl rand -hex 32
    npx wrangler secret put GROQ_API_KEY     # AI chat assistant
-   # optional: BREVO_API_KEY + BREVO_SENDER (email for contact messages), GA_*/GSC_* (dashboard)
+   npx wrangler secret put BREVO_API_KEY    # emails form messages to taskhubdijital@gmail.com (cc taskhubteam1@gmail.com)
+   # optional: BREVO_SENDER (verified Brevo sender), GA_*/GSC_* (dashboard)
    ```
 4. Production admin: `npm run admin:create -- --remote`
 5. Deploy: `npm run deploy` — or connect the GitHub repo in the dashboard
    (**Workers & Pages → Create → Import a repository**): build command
    `npx opennextjs-cloudflare build`, deploy command `npx opennextjs-cloudflare deploy`,
-   Worker name `taskhub-dijital`. Add the `NEXT_PUBLIC_*` values as build variables.
+   Worker name `taskhub-dijital`. Add any `NEXT_PUBLIC_*` values as build variables.
 6. Add the domain: Worker → **Settings → Domains & Routes → Custom domain**.
 7. After launch: submit `https://<domain>/sitemap.xml` in Google Search Console and Bing Webmaster
    Tools.

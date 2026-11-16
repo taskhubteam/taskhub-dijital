@@ -3,8 +3,13 @@
 import { EMAIL, SITE_NAME, SITE_URL } from "@/lib/site";
 
 const BREVO_URL = "https://api.brevo.com/v3/smtp/email";
-// Sender must be a verified sender/domain in Brevo (set BREVO_SENDER, e.g. no-reply@yourdomain).
-const SENDER = () => ({ name: `${SITE_NAME} — Contact form`, email: process.env.BREVO_SENDER || EMAIL });
+// Sender must be a verified sender (or an address on a verified domain) in Brevo.
+// Override with the BREVO_SENDER var/secret, e.g. no-reply@taskhubdijital.com once the domain is verified.
+const SENDER = () => ({ name: `${SITE_NAME} — Website`, email: process.env.BREVO_SENDER || EMAIL });
+
+/** Leads go to the main inbox, with the team inbox in CC. */
+const TO = [{ email: "taskhubdijital@gmail.com", name: SITE_NAME }];
+const CC = [{ email: "taskhubteam1@gmail.com", name: `${SITE_NAME} Team` }];
 
 export type ContactEmail = {
   name: string;
@@ -50,7 +55,8 @@ export async function sendContactEmail(msg: ContactEmail): Promise<void> {
     headers: { "api-key": apiKey, "content-type": "application/json", accept: "application/json" },
     body: JSON.stringify({
       sender: SENDER(),
-      to: [{ email: process.env.CONTACT_TO_EMAIL || EMAIL, name: SITE_NAME }],
+      to: TO,
+      cc: CC,
       replyTo: { email: msg.email, name: msg.name },
       subject,
       htmlContent,
