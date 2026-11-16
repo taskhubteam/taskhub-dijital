@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sun, Moon, Menu, X, Mail } from "lucide-react";
-import { useNavigate, useLocation } from "react-router-dom";
+import Link from "next/link";
 import { useTheme } from "../context/ThemeContext.jsx";
 
 const navItems = [
@@ -9,13 +11,14 @@ const navItems = [
   { label: "VA Expert", href: "https://taskhubrecruitmentsolutions.com/", isRoute: false, isExternal: true },
   { label: "Traditional Websites", href: "/traditional-websites", isRoute: true },
   { label: "Managed Hosting Services", href: "/managed-hosting", isRoute: true },
+  { label: "Blog", href: "/blog", isRoute: true },
   { label: "Careers", href: "/careers", isRoute: true },
 ];
 
+const MotionLink = motion.create(Link);
+
 export default function Navbar() {
   const { isDark, toggleTheme } = useTheme();
-  const navigate = useNavigate();
-  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -25,23 +28,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNav = (href, isRoute = false, isExternal = false) => {
-    setMobileOpen(false);
-    if (isExternal) {
-      window.open(href, "_blank", "noopener,noreferrer");
-    } else if (isRoute) {
-      navigate(href);
-    } else if (location.pathname !== "/") {
-      navigate("/");
-      setTimeout(() => {
-        const el = document.querySelector(href);
-        if (el) el.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    } else {
-      const el = document.querySelector(href);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const linkProps = (item) =>
+    item.isExternal
+      ? { href: item.href, target: "_blank", rel: "noopener noreferrer" }
+      : { href: item.href };
 
   return (
     <>
@@ -58,32 +48,35 @@ export default function Navbar() {
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
 
           {/* Logo */}
-          <motion.div
+          <MotionLink
+            href="/"
+            aria-label="TaskHub Dijital home"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => navigate("/")}
             className="cursor-pointer flex-shrink-0"
           >
             <img
               src="/images/logo.png"
-              alt="TASKHUB Recruitment Solutions AI"
+              alt="TaskHub Dijital logo"
+              width="160"
+              height="56"
               className="h-14 w-auto object-contain select-none"
             />
-          </motion.div>
+          </MotionLink>
 
           {/* Desktop nav — centered */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav aria-label="Main" className="hidden lg:flex items-center gap-1">
             {navItems.map((item, idx) => (
-              <motion.button
+              <MotionLink
                 key={item.label}
+                {...linkProps(item)}
                 initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 + idx * 0.07 }}
-                onClick={() => handleNav(item.href, item.isRoute, item.isExternal)}
                 className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 rounded-lg hover:bg-gray-100/60 dark:hover:bg-gray-800/60 transition-all duration-200 whitespace-nowrap"
               >
                 {item.label}
-              </motion.button>
+              </MotionLink>
             ))}
           </nav>
 
@@ -109,28 +102,28 @@ export default function Navbar() {
               </motion.div>
             </motion.button>
 
-            <motion.button
+            <MotionLink
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate("/contact")}
               className="flex items-center gap-2 bg-red-600 hover:bg-red-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 shadow-md hover:shadow-lg"
             >
               <Mail className="w-4 h-4" />
               Contact Us
-            </motion.button>
+            </MotionLink>
           </div>
 
           {/* Mobile right side */}
           <div className="lg:hidden flex items-center gap-2">
-            <motion.button
+            <MotionLink
+              href="/contact"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => navigate("/contact")}
               className="flex items-center gap-1.5 bg-red-600 hover:bg-red-700 text-white px-3 py-2 rounded-full text-xs font-semibold transition-all duration-200 shadow-sm"
             >
               <Mail className="w-3.5 h-3.5" />
               Contact
-            </motion.button>
+            </MotionLink>
 
             <motion.button
               whileHover={{ scale: 1.05 }}
@@ -181,16 +174,17 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-1">
               {navItems.map((item, idx) => (
-                <motion.button
+                <MotionLink
                   key={item.label}
+                  {...linkProps(item)}
+                  onClick={() => setMobileOpen(false)}
                   initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.05 }}
-                  onClick={() => handleNav(item.href, item.isRoute, item.isExternal)}
-                  className="w-full px-4 py-3 rounded-xl text-left text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-gray-800/50 transition-all duration-200"
+                  className="block w-full px-4 py-3 rounded-xl text-left text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-gray-800/50 transition-all duration-200"
                 >
                   {item.label}
-                </motion.button>
+                </MotionLink>
               ))}
             </div>
           </motion.div>

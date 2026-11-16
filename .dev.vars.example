@@ -1,0 +1,10 @@
+SITE_ENV=development
+NEXTJS_ENV=development
+SESSION_SECRET=replace-with-a-long-random-string
+
+# AI chat assistant (https://console.groq.com/keys)
+GROQ_API_KEY=
+
+# Optional: Brevo transactional email for contact-form notifications
+BREVO_API_KEY=
+BREVO_SENDER=

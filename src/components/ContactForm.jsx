@@ -1,8 +1,10 @@
+"use client";
+
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import toast from "react-hot-toast";
-import { sendEmail } from "../utils/sendEmail.js";
+import { sendEmail } from "../utils/sendEmail";
 import { validateContactForm } from "../utils/validateForm.js";
 
 export default function ContactForm() {

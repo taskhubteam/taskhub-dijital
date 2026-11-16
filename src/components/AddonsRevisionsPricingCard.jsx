@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 import { Wrench, Clock, CheckCircle } from "lucide-react";
@@ -5,8 +7,7 @@ import { scrollToContact } from "../utils/scrollToContact.js";
 
 export default function AddonsRevisionsPricingCard() {
   return (
-    <motion.div
-      id="src_components_AddonsRevisionsPricingCard_1esx" initial={{ opacity: 0, y: 30 }}
+    <motion.div initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false }}
       transition={{ duration: 0.6 }}
@@ -14,12 +15,11 @@ export default function AddonsRevisionsPricingCard() {
       className="relative bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-200 dark:border-gray-700"
     >
       {/* Decorative gradient overlay */}
-      <div id="src_components_AddonsRevisionsPricingCard_tyq7" className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full blur-3xl -z-0"></div>
+      <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-primary-500/10 to-transparent rounded-full blur-3xl -z-0"></div>
       
-      <div id="src_components_AddonsRevisionsPricingCard_8vin" className="relative z-10 p-8">
+      <div className="relative z-10 p-8">
         {/* Icon */}
-        <motion.div
-          id="src_components_AddonsRevisionsPricingCard_1zow" initial={{ scale: 0 }}
+        <motion.div initial={{ scale: 0 }}
           whileInView={{ scale: 1 }}
           viewport={{ once: false }}
           transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
@@ -29,35 +29,34 @@ export default function AddonsRevisionsPricingCard() {
         </motion.div>
 
         {/* Heading */}
-        <h3 id="src_components_AddonsRevisionsPricingCard_fqn6" className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
+        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-3">
           Add-ons & Revisions
         </h3>
 
         {/* Pricing */}
-        <div id="src_components_AddonsRevisionsPricingCard_nw1q" className="flex items-baseline gap-2 mb-4">
-          <span id="src_components_AddonsRevisionsPricingCard_4bbs" className="text-5xl font-bold text-primary-600 dark:text-primary-400">
+        <div className="flex items-baseline gap-2 mb-4">
+          <span className="text-5xl font-bold text-primary-600 dark:text-primary-400">
             $10
           </span>
-          <span id="src_components_AddonsRevisionsPricingCard_4dnb" className="text-2xl text-gray-600 dark:text-gray-400 font-medium">
+          <span className="text-2xl text-gray-600 dark:text-gray-400 font-medium">
             /hour
           </span>
         </div>
 
         {/* Description */}
-        <p id="src_components_AddonsRevisionsPricingCard_p6rw" className="text-lg text-gray-600 dark:text-gray-400 mb-6">
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
           Flexible updates and revisions whenever you need
         </p>
 
         {/* Features */}
-        <div id="src_components_AddonsRevisionsPricingCard_ulu4" className="space-y-3 mb-8">
+        <div className="space-y-3 mb-8">
           {[
             "Quick turnaround time",
             "Professional quality work",
             "No minimum commitment",
             "Pay only for what you use"
           ].map((feature, idx) => (
-            <motion.div
-              id="src_components_AddonsRevisionsPricingCard_vfb2" key={feature}
+            <motion.div key={feature}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: false }}
@@ -65,7 +64,7 @@ export default function AddonsRevisionsPricingCard() {
               className="flex items-center gap-3"
             >
               <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 flex-shrink-0" />
-              <span id="src_components_AddonsRevisionsPricingCard_xiy3" className="text-gray-700 dark:text-gray-300 text-sm font-medium">
+              <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
                 {feature}
               </span>
             </motion.div>
@@ -73,8 +72,7 @@ export default function AddonsRevisionsPricingCard() {
         </div>
 
         {/* CTA Button */}
-        <motion.button
-          id="src_components_AddonsRevisionsPricingCard_4swf" whileHover={{ scale: 1.05 }}
+        <motion.button whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToContact}
           className="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary-500/50 flex items-center justify-center gap-2"

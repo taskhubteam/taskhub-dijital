@@ -1,31 +1,31 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+"use client";
 
-const ThemeContext = createContext();
+import React, { createContext, useCallback, useContext, useEffect, useState } from "react";
+
+import { THEME_KEY } from "@/lib/theme";
+
+const ThemeContext = createContext({ isDark: false, toggleTheme: () => {} });
 
 export function ThemeProvider({ children }) {
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem("taskhub-dijital-theme");
-    if (saved) return saved === "dark";
-    return window.matchMedia("(prefers-color-scheme: dark)").matches;
-  });
+  // The boot script already set the class; read it after hydration.
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.classList.add("dark");
-    } else {
-      root.classList.remove("dark");
-    }
-    localStorage.setItem("taskhub-dijital-theme", isDark ? "dark" : "light");
-  }, [isDark]);
+    setIsDark(document.documentElement.classList.contains("dark"));
+  }, []);
 
-  const toggleTheme = () => setIsDark((prev) => !prev);
+  const toggleTheme = useCallback(() => {
+    setIsDark((prev) => {
+      const next = !prev;
+      document.documentElement.classList.toggle("dark", next);
+      try {
+        localStorage.setItem(THEME_KEY, next ? "dark" : "light");
+      } catch {}
+      return next;
+    });
+  }, []);
 
-  return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ isDark, toggleTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

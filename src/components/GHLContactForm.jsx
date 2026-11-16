@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 
 const FORM_EMBED_SCRIPT_SRC = "https://link.msgsndr.com/js/form_embed.js";

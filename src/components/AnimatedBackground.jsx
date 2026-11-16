@@ -1,12 +1,13 @@
+"use client";
+
 import React from "react";
 import { motion } from "framer-motion";
 
 export default function AnimatedBackground() {
   return (
-    <div id="src_components_AnimatedBackground_n4wc" className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {/* Animated gradient orbs */}
-      <motion.div
-        id="src_components_AnimatedBackground_ljv8" animate={{
+      <motion.div animate={{
           scale: [1, 1.2, 1],
           x: [0, 50, 0],
           y: [0, 30, 0],
@@ -19,8 +20,7 @@ export default function AnimatedBackground() {
         className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-primary-500/30 to-primary-700/20 rounded-full blur-3xl"
       />
       
-      <motion.div
-        id="src_components_AnimatedBackground_8tin" animate={{
+      <motion.div animate={{
           scale: [1, 1.3, 1],
           x: [0, -30, 0],
           y: [0, 50, 0],
@@ -35,8 +35,7 @@ export default function AnimatedBackground() {
       />
 
       {/* Floating geometric shapes */}
-      <motion.div
-        id="src_components_AnimatedBackground_y9ax" animate={{
+      <motion.div animate={{
           rotate: [0, 360],
           scale: [1, 1.1, 1],
         }}
@@ -48,8 +47,7 @@ export default function AnimatedBackground() {
         className="absolute top-1/4 right-1/4 w-32 h-32 border-2 border-primary-500/20 rounded-lg"
       />
 
-      <motion.div
-        id="src_components_AnimatedBackground_knu3" animate={{
+      <motion.div animate={{
           rotate: [360, 0],
           y: [0, -20, 0],
         }}
@@ -63,8 +61,7 @@ export default function AnimatedBackground() {
 
       {/* Particle dots */}
       {[...Array(20)].map((_, i) => (
-        <motion.div
-          id="src_components_AnimatedBackground_di4c" key={i}
+        <motion.div key={i}
           animate={{
             y: [0, -30, 0],
             opacity: [0.2, 0.5, 0.2],
@@ -83,13 +80,11 @@ export default function AnimatedBackground() {
       ))}
 
       {/* Animated wave lines */}
-      <svg
-        id="src_components_AnimatedBackground_r8tp" className="absolute bottom-0 left-0 w-full h-64 opacity-10"
+      <svg className="absolute bottom-0 left-0 w-full h-64 opacity-10"
         viewBox="0 0 1440 320"
         preserveAspectRatio="none"
       >
         <motion.path
-          id="src_components_AnimatedBackground_g7ni"
           d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
           animate={{
             d: [

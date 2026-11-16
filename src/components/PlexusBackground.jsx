@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef } from 'react';
 
 export default function PlexusBackground() {
@@ -93,8 +95,7 @@ export default function PlexusBackground() {
   }, []);
 
   return (
-    <canvas
-      id="src_components_PlexusBackground_t0ww" ref={canvasRef}
+    <canvas ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
       style={{ opacity: 0.4 }}
     />

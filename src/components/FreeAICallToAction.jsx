@@ -1,96 +1,16 @@
+"use client";
+
 import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Sparkles, X, Send, Bot, User } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-const SYSTEM_PROMPT = `You are the AI assistant for TASKHUB Dijital, a professional web agency. Answer questions about services, pricing, tech stack, process, careers, and how we help businesses grow online.
 
-=== RESPONSE RULES ===
-- Keep responses SHORT (3-6 lines max unless user asks for detail).
-- Use **bold** for plan names, prices, key terms. Use bullet lists for features.
-- Always end with ALL relevant page links. Format EVERY link as a markdown hyperlink: [Page Name](full_url). NEVER output a bare URL like http://... — always wrap it: [Label](url).
-- If multiple pages apply, list each on its own line under a "**Useful links:**" heading.
-- Use full URLs with ${window.location.origin} prefix.
-- ONLY use the exact page URLs listed in the PAGES section below. Never invent URLs like /services, /about, /pricing, /blog — they do not exist.
-- All prices are in USD. Never invent prices not listed here.
-- Always write the brand name as "TASKHUB Dijital" — TASKHUB is always fully capitalised.
-- Never make up information not in this prompt.
-- For off-topic questions reply: "That's outside what I can help with here! At TASKHUB Dijital I specialise in web development, AI integration, and digital growth. Feel free to ask about our services, pricing, or how we can grow your business online — I'm happy to help!"
 
-=== PAGES ===
-- Home: ${window.location.origin}
-- Traditional Websites: ${window.location.origin}/traditional-websites
-- AI Readiness & MERN: ${window.location.origin}/ai-readiness
-- Products: ${window.location.origin}/products
-- Managed Hosting: ${window.location.origin}/managed-hosting
-- Careers: ${window.location.origin}/careers
-- Contact: ${window.location.origin}/contact
-
-=== ABOUT TASKHUB DIJITAL ===
-A modern US-standard web agency building high-performance, scalable digital solutions for startups to enterprises. 500+ happy clients, 1,000+ projects delivered, 98% satisfaction rate, 24/7 support.
-
-=== SERVICES ===
-- **Web Development**: Custom websites & apps — React, Next.js, responsive, SEO-optimized, fast loading.
-- **UI/UX Design**: User research, wireframing, prototyping, design systems.
-- **SEO Optimization**: Keyword research, on-page/technical SEO, analytics, Google ranking improvement.
-- **Digital Marketing**: Social media, content strategy, PPC campaigns, email marketing, data-driven ROI.
-- **Traditional Websites**: Business sites, sports sites, e-commerce stores, WordPress, landing pages.
-- **Custom Web Apps (MERN)**: Full-stack MongoDB/Express/React/Node.js, Next.js SSR/SSG, SaaS platforms, APIs, dashboards.
-- **AI Readiness & Integration**: AI assessments, chatbots, OpenAI/Gemini integrations, workflow automation, AI analytics.
-- **Managed Hosting**: AWS cloud (EC2, S3, CloudFront, Lambda), SSL, DDoS protection, backups, 24/7 monitoring.
-- **WordPress Development**: Custom themes, WooCommerce, plugins, speed/SEO optimized.
-- **Shopify Development**: Custom themes, app integrations, payment setup, store optimization.
-- **Mobile & Web Apps**: iOS & Android cross-platform, responsive, cloud integration.
-
-=== PRICING (USD) ===
-
-**Traditional Website Packages** (${window.location.origin}/traditional-websites):
-- **Basic Plan**: $500 setup + $49.99/mo — custom design, responsive, SEO, contact forms. No eCommerce.
-- **Starter Plan**: $600 setup + $49.99/mo — e-commerce, up to 50 products, order tracking.
-- **Gold Plan** (Most Popular): $800 setup + $69.99/mo — up to 100 products, domain + hosting + SEO included.
-- **Diamond Plan**: $1,000 setup + $69.99/mo — up to 300 products, unlimited revisions, full SEO.
-- **WordPress Package**: $49.99/mo — custom WordPress, free domain 1 yr, free SSL, 24/7 support.
-- **Add-ons & Revisions**: $10/hr — no minimum commitment, pay per use.
-
-**Managed Hosting Monthly** (${window.location.origin}/managed-hosting):
-- **Starter**: $29.99/mo — 10 GB SSD, 100 GB bandwidth, free SSL, daily backups, email support.
-- **Business**: $59.99/mo — 50 GB SSD, unlimited bandwidth, hourly backups, priority support, CDN.
-- **Enterprise**: Custom — unlimited storage/bandwidth, dedicated resources, real-time backups, 24/7 phone support.
-
-**Managed Hosting Setup Packages** (${window.location.origin}/managed-hosting):
-- **Starter Setup**: $49.99 — domain, hosting, SSL, email, 1 month free support.
-- **Growth Plus** (Popular): $69.99 — domain, hosting, monthly SEO, performance monitoring, analytics dashboard, weekly backups, priority support.
-
-**Custom Web Apps & MERN** (${window.location.origin}/ai-readiness):
-- **Small MERN Website**: $2,500–$10,000 — responsive, MongoDB, REST API, basic auth, 3 months support.
-- **Business Application**: $10,000–$60,000 — custom features, integrations, real-time, analytics, 6 months support.
-- **Full SaaS / Enterprise**: $60,000–$150,000+ — AI integration, multi-tenant, microservices, dedicated team, 12 months support.
-- **Hourly Rate**: $60–$120/hr — flexible, expert developers, agile, direct communication.
-
-=== TECH STACK ===
-React, Next.js, TypeScript, Tailwind CSS, Node.js, Express.js, MongoDB, WordPress, Shopify, AWS (EC2, S3, CloudFront, Lambda), Google Cloud, Cloudflare, OpenAI API, Google Gemini, CI/CD pipelines, Docker.
-
-=== PROCESS ===
-1. **Discovery** — understand your goals and audience
-2. **Design** — custom UI/UX mockups aligned with your brand
-3. **Development** — clean, scalable, modern code
-4. **Launch** — deployment, training, ongoing support
-
-=== CAREERS ===
-No open positions currently, but general applications are always welcome. Benefits: competitive salaries, performance bonuses, health insurance, unlimited PTO, annual learning budget, career growth paths, collaborative culture.
-Apply at: ${window.location.origin}/careers
-
-=== CONTACT ===
-- Email: hello@taskhub-dijital.agency
-- Phone: +1 (555) 123-4567
-- Office: 123 Innovation Street, San Francisco, CA 94102
-- Contact form: ${window.location.origin}/contact`;
-
-const VALID_PATHS = ["/", "/traditional-websites", "/ai-readiness", "/products", "/managed-hosting", "/careers", "/contact"];
+const VALID_PATHS = ["/", "/traditional-websites", "/ai-readiness", "/products", "/managed-hosting", "/careers", "/contact", "/blog"];
 
 function sanitizeLinks(text) {
-  const origin = window.location.origin;
 
   // Fix markdown links [label](url) — keep only approved paths
   text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (match, label, url) => {
@@ -118,70 +38,52 @@ function sanitizeLinks(text) {
   return text.trim();
 }
 
-async function askGroq(apiKey, history, userMessage) {
-  const res = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+async function askAssistant(history, userMessage) {
+  const res = await fetch("/api/chat", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model: "llama-3.1-8b-instant",
-      messages: [
-        { role: "system", content: SYSTEM_PROMPT },
-        ...history,
-        { role: "user", content: userMessage },
-      ],
-      temperature: 0.7,
-      max_tokens: 1024,
-    }),
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ history, message: userMessage }),
   });
-
-  if (!res.ok) {
-    const errData = await res.json().catch(() => ({}));
-    throw new Error(errData?.error?.message || `HTTP ${res.status}`);
-  }
-
-  const data = await res.json();
-  return data.choices?.[0]?.message?.content ?? "No response received.";
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) throw new Error(data?.error || `HTTP ${res.status}`);
+  return data.reply ?? "No response received.";
 }
+
+const INITIAL_MESSAGES = [
+  { role: "assistant", text: "Hi! I'm the TASKHUB Dijital AI assistant. Ask me anything about our web development services, tech stack, process, or how we can help your business grow online. 🚀" },
+];
 
 export default function FreeAICallToAction() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState(() => {
-    try {
-      const saved = localStorage.getItem("taskhub_chat_messages");
-      return saved ? JSON.parse(saved) : [
-        { role: "assistant", text: "Hi! I'm the TASKHUB Dijital AI assistant. Ask me anything about our web development services, tech stack, process, or how we can help your business grow online. 🚀" },
-      ];
-    } catch {
-      return [{ role: "assistant", text: "Hi! I'm the TASKHUB Dijital AI assistant. Ask me anything about our web development services, tech stack, process, or how we can help your business grow online. 🚀" }];
-    }
-  });
+  const [messages, setMessages] = useState(INITIAL_MESSAGES);
   // OpenAI-format history: [{role:'user'|'assistant', content:'...'}]
-  const [chatHistory, setChatHistory] = useState(() => {
-    try {
-      const saved = localStorage.getItem("taskhub_chat_api_history");
-      return saved ? JSON.parse(saved) : [];
-    } catch {
-      return [];
-    }
-  });
+  const [chatHistory, setChatHistory] = useState([]);
+  const [restored, setRestored] = useState(false);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  const apiKey = import.meta.env.VITE_GROQ_API_KEY;
-  const isKeyMissing = !apiKey || apiKey === "your_groq_api_key_here";
+  // Restore the saved conversation after hydration (localStorage doesn't exist on the server).
+  useEffect(() => {
+    try {
+      const savedMessages = localStorage.getItem("taskhub_chat_messages");
+      const savedHistory = localStorage.getItem("taskhub_chat_api_history");
+      if (savedMessages) setMessages(JSON.parse(savedMessages));
+      if (savedHistory) setChatHistory(JSON.parse(savedHistory));
+    } catch {}
+    setRestored(true);
+  }, []);
 
   useEffect(() => {
+    if (!restored) return;
     try { localStorage.setItem("taskhub_chat_messages", JSON.stringify(messages)); } catch {}
-  }, [messages]);
+  }, [messages, restored]);
 
   useEffect(() => {
+    if (!restored) return;
     try { localStorage.setItem("taskhub_chat_api_history", JSON.stringify(chatHistory)); } catch {}
-  }, [chatHistory]);
+  }, [chatHistory, restored]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -199,20 +101,8 @@ export default function FreeAICallToAction() {
     setMessages((prev) => [...prev, { role: "user", text }]);
     setLoading(true);
 
-    if (isKeyMissing) {
-      setMessages((prev) => [
-        ...prev,
-        {
-          role: "assistant",
-          text: "⚠️ AI is not configured. Please add VITE_GROQ_API_KEY to the .env file and restart the server.",
-        },
-      ]);
-      setLoading(false);
-      return;
-    }
-
     try {
-      const raw = await askGroq(apiKey, chatHistory, text);
+      const raw = await askAssistant(chatHistory, text);
       const reply = sanitizeLinks(raw);
 
       setChatHistory((prev) => [
@@ -223,7 +113,7 @@ export default function FreeAICallToAction() {
 
       setMessages((prev) => [...prev, { role: "assistant", text: reply }]);
     } catch (err) {
-      console.error("Groq API error:", err);
+      console.error("Chat assistant error:", err);
       setMessages((prev) => [
         ...prev,
         {
