@@ -6,6 +6,8 @@ import { uploadSrc } from "@/lib/images";
 
 export const dynamic = "force-dynamic";
 
+const LEGAL = new Set(["/privacy-policy", "/terms-of-service"]);
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let posts: Awaited<ReturnType<typeof listFeedPosts>> = [];
   try {
@@ -16,8 +18,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const pages: MetadataRoute.Sitemap = PAGES.map((p) => ({
     url: absoluteUrl(p.path),
-    changeFrequency: p.path === "/blog" ? "daily" : "monthly",
-    priority: p.path === "/" ? 1 : p.path === "/blog" ? 0.8 : 0.7,
+    changeFrequency: p.path === "/blog" ? "daily" : LEGAL.has(p.path) ? "yearly" : "monthly",
+    priority: p.path === "/" ? 1 : p.path === "/blog" ? 0.8 : LEGAL.has(p.path) ? 0.3 : 0.7,
     ...(p.path === "/blog" && posts[0] ? { lastModified: lastModified(posts[0]) } : {}),
   }));
 

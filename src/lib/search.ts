@@ -27,6 +27,8 @@ const PAGE_KEYWORDS: Record<string, string> = {
   "/products": "wordpress shopify mern mobile apps products",
   "/portfolio": "work projects examples clients websites stores case studies",
   "/blog": "articles guides posts",
+  "/privacy-policy": "privacy data cookies gdpr personal information",
+  "/terms-of-service": "terms conditions legal agreement payments refunds",
   "/careers": "jobs hiring work with us positions apply",
   "/contact":
     "quote estimate price cost hire call book meeting schedule email phone whatsapp get in touch address dallas",

@@ -99,6 +99,15 @@ export default function Footer() {
           <p className="text-gray-600 dark:text-gray-400 text-sm">
             © {currentYear} {SITE_NAME}. All rights reserved.
           </p>
+          <p className="mt-2 flex justify-center gap-4 text-xs">
+            <Link href="/privacy-policy" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+              Privacy Policy
+            </Link>
+            <span aria-hidden="true" className="text-gray-400">·</span>
+            <Link href="/terms-of-service" className="text-gray-600 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400">
+              Terms of Service
+            </Link>
+          </p>
           <p className="text-gray-600 dark:text-gray-400 text-xs mt-2">
             Powered by{" "}
             <a

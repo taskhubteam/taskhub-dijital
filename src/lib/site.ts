@@ -51,4 +51,6 @@ export const PAGES = [
   { path: "/blog", name: "Blog", description: "Guides on AI websites, web development, SEO and hosting." },
   { path: "/careers", name: "Careers", description: "Open positions at TaskHub Dijital." },
   { path: "/contact", name: "Contact", description: "Contact TaskHub Dijital for a project quote." },
+  { path: "/privacy-policy", name: "Privacy Policy", description: "How TaskHub Dijital collects, uses and protects personal information." },
+  { path: "/terms-of-service", name: "Terms of Service", description: "Terms for using the website and TaskHub Dijital services." },
 ] as const;
