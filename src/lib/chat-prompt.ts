@@ -44,22 +44,29 @@ A modern US-standard web agency building high-performance, scalable digital solu
 
 === PRICING (USD) ===
 
-**Traditional Website Packages** (${SITE_URL}/traditional-websites):
-- **Basic Plan**: $500 setup + $49.99/mo — custom design, responsive, SEO, contact forms. No eCommerce.
-- **Starter Plan**: $600 setup + $49.99/mo — e-commerce, up to 50 products, order tracking.
-- **Gold Plan** (Most Popular): $800 setup + $69.99/mo — up to 100 products, domain + hosting + SEO included.
-- **Diamond Plan**: $1,000 setup + $69.99/mo — up to 300 products, unlimited revisions, full SEO.
-- **WordPress Package**: $49.99/mo — custom WordPress, free domain 1 yr, free SSL, 24/7 support.
-- **Add-ons & Revisions**: $10/hr — no minimum commitment, pay per use.
+**Website Plans** (shown on the home page, ${SITE_URL}):
+- **Starter Plan** (Basic Website): $800 one-time setup + $49.99/month for domain & hosting — up to 5 pages, custom responsive design, website management, SEO-ready.
+- **Gold Plan** (Modern Website, most popular): $1,500 one-time setup + $69.99/month for domain, hosting & SEO optimization — up to 15 pages.
+- **Diamond Plan** (Modern Website): $2,500 one-time setup + $69.99/month for domain, hosting & SEO optimization — up to 20 pages.
+- **Add-ons & Revisions**: $10/hour — no minimum commitment, pay only for what you use.
 
-**Managed Hosting Monthly** (${SITE_URL}/managed-hosting):
-- **Starter**: $29.99/mo — 10 GB SSD, 100 GB bandwidth, free SSL, daily backups, email support.
-- **Business**: $59.99/mo — 50 GB SSD, unlimited bandwidth, hourly backups, priority support, CDN.
-- **Enterprise**: Custom — unlimited storage/bandwidth, dedicated resources, real-time backups, 24/7 phone support.
+**Traditional Website Packages** (larger builds, ${SITE_URL}/traditional-websites):
+- **Diamond**: $2,500 setup + $69.99/month — up to 20 pages.
+- **Gold**: $4,500 setup + $69.99/month — up to 40 pages.
+- **Platinum**: $6,500 setup + $69.99/month — up to 75 pages, e-commerce up to 100 products.
+- **Enterprise**: $9,500 setup + $69.99/month — unlimited pages, full e-commerce (unlimited products).
+- Note: plan names repeat between the home page and the Traditional Websites page; always say which page a price comes from.
+
+**WordPress Package**: $49.99/month — custom WordPress design, hosting, free domain for 1 year.
+
+**Managed Hosting Monthly Plans** (${SITE_URL}/#managed-hosting):
+- **Starter Hosting**: $49.99/mo — 10 GB SSD, 100 GB bandwidth, free SSL, daily backups, email support.
+- **Business Hosting** (most popular): $69.99/mo — 50 GB SSD, unlimited bandwidth, free SSL, hourly backups, priority support, CDN.
+- **Enterprise Hosting**: $99.99 — unlimited storage and bandwidth, dedicated resources, real-time backups, 24/7 phone support, custom configuration.
 
 **Managed Hosting Setup Packages** (${SITE_URL}/managed-hosting):
-- **Starter Setup**: $49.99 — domain, hosting, SSL, email, 1 month free support.
-- **Growth Plus** (Popular): $69.99 — domain, hosting, monthly SEO, performance monitoring, analytics dashboard, weekly backups, priority support.
+- **Starter Setup**: $49.99 — domain registration, hosting setup, basic configuration, SSL certificate, email setup, 1 month free support.
+- **Growth Plus** (popular): $69.99 — domain registration, hosting setup, monthly SEO optimization, performance monitoring, SSL certificate, priority support, weekly backups, analytics dashboard.
 
 **Custom Web Apps & MERN** (${SITE_URL}/ai-readiness):
 - **Small MERN Website**: $2,500–$10,000 — responsive, MongoDB, REST API, basic auth, 3 months support.

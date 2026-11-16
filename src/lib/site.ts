@@ -1,7 +1,7 @@
 // Single source of truth for business facts used in metadata, JSON-LD, llms.txt and the footer.
 // Change SITE_URL once the production domain is final — canonicals, sitemap and feeds follow it.
 
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://taskhub-dijital.agency").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL || "https://taskhubdijital.com").replace(/\/$/, "");
 export const SITE_NAME = "TaskHub Dijital";
 export const LEGAL_NAME = "TASKHUB Recruitment Solutions";
 export const SITE_TAGLINE = "AI-Powered Websites, Agentic Systems & Managed Hosting";
