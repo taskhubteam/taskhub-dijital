@@ -1,11 +1,14 @@
 // Server-only: transactional email through Brevo's HTTP API (Workers can't speak SMTP).
 
-import { EMAIL, SITE_NAME, SITE_URL } from "@/lib/site";
+import { SITE_NAME, SITE_URL } from "@/lib/site";
 
 const BREVO_URL = "https://api.brevo.com/v3/smtp/email";
-// Sender must be a verified sender (or an address on a verified domain) in Brevo.
-// Override with the BREVO_SENDER var/secret, e.g. no-reply@taskhubdijital.com once the domain is verified.
-const SENDER = () => ({ name: `${SITE_NAME} — Website`, email: process.env.BREVO_SENDER || EMAIL });
+// taskhubdijital.com is an authenticated domain in Brevo, so any @taskhubdijital.com sender works.
+// Override with the BREVO_SENDER var if needed.
+const SENDER = () => ({
+  name: `${SITE_NAME} — Website`,
+  email: process.env.BREVO_SENDER || "no-reply@taskhubdijital.com",
+});
 
 /** Leads go to the main inbox, with the team inbox in CC. */
 const TO = [{ email: "taskhubdijital@gmail.com", name: SITE_NAME }];
