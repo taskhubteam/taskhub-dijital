@@ -173,7 +173,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="lg:hidden fixed top-20 left-1/2 -translate-x-1/2 w-80 max-w-[90vw] bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl z-40 overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
+            className="lg:hidden fixed top-20 inset-x-0 mx-auto w-80 max-w-[calc(100vw-2rem)] bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-2xl shadow-2xl z-40 overflow-hidden border border-gray-200/50 dark:border-gray-700/50"
           >
             <div className="px-4 py-4 space-y-1">
               {navItems.map((item, idx) => (

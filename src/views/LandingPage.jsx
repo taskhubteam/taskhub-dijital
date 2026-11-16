@@ -16,7 +16,10 @@ import ContactInfo from "../components/ContactInfo.jsx";
 import ContactForm from "../components/ContactForm.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
-import HeroSphere from "../components/HeroSphere.jsx";
+import dynamic from "next/dynamic";
+
+// Three.js is heavy: load the decorative hero sphere after first paint so the headline renders fast.
+const HeroSphere = dynamic(() => import("../components/HeroSphere.jsx"), { ssr: false });
 import WordPressPricingCard from "../components/WordPressPricingCard.jsx";
 import AddonsRevisionsPricingCard from "../components/AddonsRevisionsPricingCard.jsx";
 import IntegrationsSection from "../components/IntegrationsSection.jsx";

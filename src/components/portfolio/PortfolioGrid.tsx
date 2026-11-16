@@ -49,6 +49,7 @@ export default function PortfolioGrid() {
                   width={640}
                   height={400}
                   loading={i < 3 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : undefined}
                   decoding="async"
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                 />
