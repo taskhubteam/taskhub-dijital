@@ -107,13 +107,17 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   opacity 0. Heavy visuals (Three.js `HeroSphere`) load via `next/dynamic` with `ssr: false`.
 - **No main-thread animation loops**: decorative motion uses CSS keyframes (transform/opacity only —
   see `.ab-*` and `.marquee-track` in globals.css). `HeroSphere` (Three.js) loads via
-  `DeferredHeroSphere` on first interaction or 4 s after load and pauses off-screen/hidden; the
+  `DeferredHeroSphere` ONLY on first real interaction (never a timer) and only with a hardware GPU
+  (software WebGL gave PSI desktop 12.7 s TBT); it pauses off-screen/hidden; the
   integrations orbit only spins while on screen; `CustomCursor` is off on touch devices and idles.
-  PSI mobile was 71 (TBT 870 ms, main-thread 40 s) before this; after: 92–97, TBT ~10 ms.
+  Lighthouse 2026-11-17 (live, home): desktop 100/100/100/100, mobile 100/100/100/100.
 - Don't enable `experimental.inlineCss`: Next repeats the 123 KB CSS ~6× in the RSC payload (3× bigger HTML).
 - - One H1 per page, no skipped heading levels, titles ≤ 60 chars, descriptions 120–158 chars, images
   with width/height + alt. Logo is `public/images/logo.webp` (17 KB); OG image `images/og-image.jpg`.
 - Structured data must match visible content. Never add reviews/ratings to schema.
+- No fake urgency: no restarting countdowns or "limited time" claims (one was removed from the WordPress card).
+- Mobile: big hero/CTA buttons use `px-6 py-3 text-base` below `sm`; badges that hang over a card edge
+  need `whitespace-nowrap`.
 - Pricing (source of truth = live pages): home **Starter $800 / Gold $1,500 / Diamond $2,500** + monthly;
   `/traditional-websites` **Essential $2,500 / Growth $4,500 / Professional $6,500 / Enterprise $9,500**
   (renamed so they don't clash); hosting $49.99 / $69.99 / $99.99 per month; setup $49.99 / $69.99;
