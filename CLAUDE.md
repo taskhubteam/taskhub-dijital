@@ -70,8 +70,13 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   `src/components/WhatsAppButton.tsx`). It replaced the AI chat (Groq) at the owner's request.
 - **Google Search Console**: Domain property `sc-domain:taskhubdijital.com`; service account
   `taskhub-dijital-seo@taskhub-dijital.iam.gserviceaccount.com` (full user). Sitemap submitted via API.
-  Admin dashboard shows GSC data. **GA4 not connected yet** (needs property ID + measurement ID, and the
-  Analytics Data/Admin APIs enabled in GCP project `taskhub-dijital`).
+  Admin dashboard shows GSC data.
+- **GA4** live since 2026-11-17: measurement ID `G-DTHV71Q962` (stream 16356367532), hard-coded default in
+  `src/lib/site.ts`; tag in `src/app/(site)/layout.tsx` loads lazily and only on `taskhubdijital.com`
+  (never admin/localhost). Events: `generate_lead` (WhatsApp click, home contact form, assessment form),
+  `search`. Owner's GTM container `GTM-5PMNWX76` is intentionally NOT loaded (would double-count).
+  Dashboard GA widget still needs the numeric **property ID** (`GA_PROPERTY_ID` secret, plus
+  `GA_CLIENT_EMAIL`/`GA_PRIVATE_KEY` = same service account) and the Analytics Data API enabled.
 - **Bing**: owner to import from GSC. **IndexNow** key file `public/<key>.txt` = `INDEXNOW_KEY` in
   `src/lib/indexnow.ts`; publishing from the admin pings it. Scheduled posts are NOT pinged.
 - DNS is on Cloudflare (nameservers `eric`/`surina.ns.cloudflare.com`); email is Hostinger (MX/SPF kept).
@@ -141,10 +146,11 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
 
 - [ ] Owner: style the GHL form in GoHighLevel to match the site.
 - [ ] Owner: decide on `GROQ_API_KEY` (delete with `npx wrangler secret delete GROQ_API_KEY` or rotate).
-- [ ] Owner: send GA4 property ID + measurement ID; enable Analytics Data API (+ Admin API).
+- [ ] Owner: send GA4 numeric property ID; add the service account as Viewer; enable Analytics Data API.
+- [ ] Owner: in GA4 mark `generate_lead` as a key event once it appears (Admin → Events).
 - [x] 2026-11-17: Bing verification file `public/BingSiteAuth.xml` (copied from `creds/`) is live.
 - [ ] Owner: in Bing Webmaster Tools verify + submit `https://taskhubdijital.com/sitemap.xml`.
-- [ ] Optional: turn off Cloudflare Web Analytics auto-injection (extra `beacon.min.js` flagged by PSI) if GA4 is used instead.
+- Cloudflare still injects `beacon.min.js` (RUM) for browsers even though RUM shows as off — negligible (~4 KB, async); left as is.
 - [ ] Fix Cloudflare Workers Builds (GitHub auto-deploy) or keep deploying manually.
 - [ ] Optional: daily cron that pings IndexNow for posts that went live that day.
 - [ ] Optional: set Hostinger mail CNAMEs (autoconfig, autodiscover, hostingermail-a/b/c) to DNS only.

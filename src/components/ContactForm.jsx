@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import toast from "react-hot-toast";
 import { sendEmail } from "../utils/sendEmail";
+import { trackLead } from "@/lib/analytics";
 import { validateContactForm } from "../utils/validateForm.js";
 
 export default function ContactForm() {
@@ -35,6 +36,7 @@ export default function ContactForm() {
     try {
       await sendEmail(formData);
       toast.success("Message sent successfully!");
+      trackLead("contact_form");
       setFormData({ name: "", email: "", subject: "", message: "" });
       setErrors({});
     } catch {

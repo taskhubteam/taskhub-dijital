@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Send } from "lucide-react";
 import toast from "react-hot-toast";
 import { sendEmail } from "../utils/sendEmail";
+import { trackLead } from "@/lib/analytics";
 import { validateContactForm } from "../utils/validateForm.js";
 
 export default function AssessmentModal({ isOpen, onClose }) {
@@ -34,6 +35,7 @@ export default function AssessmentModal({ isOpen, onClose }) {
     try {
       await sendEmail(formData);
       toast.success("Assessment request sent successfully!");
+      trackLead("contact_form");
       setFormData({ name: "", email: "", subject: "AI Readiness Assessment Request", message: "" });
       setErrors({});
       onClose();

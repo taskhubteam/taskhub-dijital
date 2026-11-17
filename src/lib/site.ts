@@ -37,8 +37,10 @@ export const SOCIALS = {
   instagram: "https://www.instagram.com/taskhubdijital/",
 } as const;
 
-/** GA4 measurement id — leave empty until a property exists (no tag is rendered then). */
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "";
+/** GA4 web stream "taskhubdijital.com" (stream 16356367532). Public by design. */
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || "G-DTHV71Q962";
+/** GA only runs on the live domain — never on localhost, previews or the admin. */
+export const GA_HOSTS = ["taskhubdijital.com"];
 
 /** Public marketing pages (sitemap, llms.txt, chat assistant link allow-list). */
 export const PAGES = [

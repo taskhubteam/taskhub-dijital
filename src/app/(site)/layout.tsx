@@ -5,7 +5,7 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { ThemeProvider } from "@/context/ThemeContext";
 import { ORGANIZATION_LD, WEBSITE_LD } from "@/lib/seo";
-import { GA_MEASUREMENT_ID } from "@/lib/site";
+import { GA_HOSTS, GA_MEASUREMENT_ID } from "@/lib/site";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -19,15 +19,10 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <WhatsAppButton />
       {children}
       {GA_MEASUREMENT_ID && (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-            strategy="lazyOnload"
-          />
-          <Script id="ga" strategy="lazyOnload">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`}
-          </Script>
-        </>
+        // Loaded after the page is idle so it never competes with first paint. Production host only.
+        <Script id="ga" strategy="lazyOnload">
+          {`if(${JSON.stringify(GA_HOSTS)}.indexOf(location.hostname)>-1){window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';document.head.appendChild(s);}`}
+        </Script>
       )}
     </ThemeProvider>
   );
