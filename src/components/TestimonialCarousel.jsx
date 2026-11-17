@@ -81,14 +81,14 @@ export default function TestimonialCarousel() {
         <div className="relative max-w-4xl mx-auto">
           {/* Navigation Arrows */}
           <button onClick={prevTestimonial}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-20 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-16 z-20 hidden md:flex w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
             aria-label="Previous project"
           >
             <ChevronLeft className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
           </button>
 
           <button onClick={nextTestimonial}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-20 w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-16 z-20 hidden md:flex w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group hover:scale-110"
             aria-label="Next project"
           >
             <ChevronRight className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />

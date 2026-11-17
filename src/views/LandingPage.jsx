@@ -175,7 +175,7 @@ export default function LandingPage({ faq = null }) {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-primary inline-flex items-center gap-2 px-8 py-4 text-lg"
+                  className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg"
                 >
                   Get Started
                   <ArrowRight className="w-5 h-5" />

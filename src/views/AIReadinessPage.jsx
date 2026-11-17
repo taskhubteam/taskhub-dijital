@@ -154,7 +154,7 @@ export default function AIReadinessPage() {
             </motion.div>
 
             <h1 className="hero-rise text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              AI-Ready Websites &amp;{" "}
+              AI-Ready Websites&nbsp;&amp;{" "}
               <br/>
               <span className="gradient-text">MERN Stack Development</span>
             </h1>
@@ -317,7 +317,7 @@ export default function AIReadinessPage() {
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                    <div className="px-4 py-1.5 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 text-white text-sm font-semibold shadow-lg">
+                    <div className="whitespace-nowrap px-4 py-1.5 rounded-full bg-gradient-to-r from-primary-600 to-primary-700 text-white text-sm font-semibold shadow-lg">
                       Most Popular
                     </div>
                   </div>
@@ -428,7 +428,7 @@ export default function AIReadinessPage() {
             <motion.button whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 group"
+              className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 group"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

@@ -161,7 +161,7 @@ export default function CareersPage() {
                 <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={scrollToPositions}
-                  className="btn-primary text-lg px-10 py-5"
+                  className="btn-primary text-base px-6 py-3 sm:text-lg sm:px-10 sm:py-5"
                 >
                   Send Your Résumé
                   <ArrowRight className="w-6 h-6" />
@@ -169,7 +169,7 @@ export default function CareersPage() {
                 <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={scrollToCulture}
-                  className="btn-secondary text-lg px-10 py-5"
+                  className="btn-secondary text-base px-6 py-3 sm:text-lg sm:px-10 sm:py-5"
                 >
                   Learn About Our Culture
                 </motion.button>
@@ -391,7 +391,7 @@ export default function CareersPage() {
                 <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={scrollToPositions}
-                  className="inline-flex items-center gap-3 px-10 py-5 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 text-lg"
+                  className="inline-flex items-center gap-3 px-6 py-3 sm:px-10 sm:py-5 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 text-lg"
                 >
                   Browse Open Roles
                   <Briefcase className="w-6 h-6" />
@@ -399,7 +399,7 @@ export default function CareersPage() {
                 <motion.button whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={applyByEmail}
-                  className="inline-flex items-center gap-3 px-10 py-5 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 transition-all duration-300 text-lg"
+                  className="inline-flex items-center gap-3 px-6 py-3 sm:px-10 sm:py-5 rounded-xl font-semibold text-white bg-white/10 hover:bg-white/20 backdrop-blur-sm border-2 border-white/30 transition-all duration-300 text-lg"
                 >
                   Email Your Application
                   <Send className="w-6 h-6" />

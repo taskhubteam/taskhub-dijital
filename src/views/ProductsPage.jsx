@@ -161,7 +161,7 @@ export default function ProductsPage() {
             </motion.div>
 
             <h1 className="hero-rise text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
-              WordPress, Shopify &amp;{" "}
+              WordPress, Shopify&nbsp;&amp;{" "}
               <br/>
               <span className="gradient-text">MERN Development</span>
             </h1>
@@ -374,7 +374,7 @@ export default function ProductsPage() {
             <motion.button whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToContact}
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 group relative overflow-hidden"
+              className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 group relative overflow-hidden"
             >
               <motion.div animate={{
                   scale: [1, 1.5, 1],

@@ -218,7 +218,7 @@ export default function TraditionalWebsitesPage() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="btn-primary text-lg px-10 py-5"
+                className="btn-primary text-base px-6 py-3 sm:text-lg sm:px-10 sm:py-5"
               >
                 Get Started Today
                 <ArrowRight className="w-6 h-6" />
@@ -517,7 +517,7 @@ export default function TraditionalWebsitesPage() {
               <motion.button whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={scrollToContact}
-                className="inline-flex items-center gap-3 px-10 py-5 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 text-lg"
+                className="inline-flex items-center gap-3 px-6 py-3 sm:px-10 sm:py-5 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 text-lg"
               >
                 Start Your Project
                 <ArrowRight className="w-6 h-6" />
