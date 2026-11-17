@@ -100,7 +100,13 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
 - **Hero content must be visible at first paint**: in hero sections use `initial={false}` on motion
   elements and the CSS `.hero-rise` class on the H1 (transform-only). Never fade above-the-fold text from
   opacity 0. Heavy visuals (Three.js `HeroSphere`) load via `next/dynamic` with `ssr: false`.
-- One H1 per page, no skipped heading levels, titles ≤ 60 chars, descriptions 120–158 chars, images
+- **No main-thread animation loops**: decorative motion uses CSS keyframes (transform/opacity only —
+  see `.ab-*` and `.marquee-track` in globals.css). `HeroSphere` (Three.js) loads via
+  `DeferredHeroSphere` on first interaction or 4 s after load and pauses off-screen/hidden; the
+  integrations orbit only spins while on screen; `CustomCursor` is off on touch devices and idles.
+  PSI mobile was 71 (TBT 870 ms, main-thread 40 s) before this; after: 92–97, TBT ~10 ms.
+- Don't enable `experimental.inlineCss`: Next repeats the 123 KB CSS ~6× in the RSC payload (3× bigger HTML).
+- - One H1 per page, no skipped heading levels, titles ≤ 60 chars, descriptions 120–158 chars, images
   with width/height + alt. Logo is `public/images/logo.webp` (17 KB); OG image `images/og-image.jpg`.
 - Structured data must match visible content. Never add reviews/ratings to schema.
 - Pricing (source of truth = live pages): home **Starter $800 / Gold $1,500 / Diamond $2,500** + monthly;
@@ -136,7 +142,9 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
 - [ ] Owner: style the GHL form in GoHighLevel to match the site.
 - [ ] Owner: decide on `GROQ_API_KEY` (delete with `npx wrangler secret delete GROQ_API_KEY` or rotate).
 - [ ] Owner: send GA4 property ID + measurement ID; enable Analytics Data API (+ Admin API).
-- [ ] Owner: Bing Webmaster Tools → import from GSC.
+- [x] 2026-11-17: Bing verification file `public/BingSiteAuth.xml` (copied from `creds/`) is live.
+- [ ] Owner: in Bing Webmaster Tools verify + submit `https://taskhubdijital.com/sitemap.xml`.
+- [ ] Optional: turn off Cloudflare Web Analytics auto-injection (extra `beacon.min.js` flagged by PSI) if GA4 is used instead.
 - [ ] Fix Cloudflare Workers Builds (GitHub auto-deploy) or keep deploying manually.
 - [ ] Optional: daily cron that pings IndexNow for posts that went live that day.
 - [ ] Optional: set Hostinger mail CNAMEs (autoconfig, autodiscover, hostingermail-a/b/c) to DNS only.

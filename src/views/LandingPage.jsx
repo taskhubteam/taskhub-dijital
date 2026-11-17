@@ -16,10 +16,7 @@ import ContactInfo from "../components/ContactInfo.jsx";
 import ContactForm from "../components/ContactForm.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
-import dynamic from "next/dynamic";
-
-// Three.js is heavy: load the decorative hero sphere after first paint so the headline renders fast.
-const HeroSphere = dynamic(() => import("../components/HeroSphere.jsx"), { ssr: false });
+import DeferredHeroSphere from "../components/DeferredHeroSphere.jsx";
 import WordPressPricingCard from "../components/WordPressPricingCard.jsx";
 import AddonsRevisionsPricingCard from "../components/AddonsRevisionsPricingCard.jsx";
 import IntegrationsSection from "../components/IntegrationsSection.jsx";
@@ -144,7 +141,7 @@ export default function LandingPage({ faq = null }) {
           id="hero"
           className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden bg-white dark:bg-gray-950"
         >
-          <HeroSphere />
+          <DeferredHeroSphere />
           
           <div className="max-w-6xl mx-auto relative z-10 text-center pt-32 pb-20">
             <motion.div

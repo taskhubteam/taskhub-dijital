@@ -580,3 +580,26 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-rise { animation: none; }
 }
+
+/* ─── AnimatedBackground: compositor-only CSS animations (see components/AnimatedBackground.jsx) ─── */
+@keyframes ab-orb-1 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(50px, 30px) scale(1.2); } }
+@keyframes ab-orb-2 { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(-30px, 50px) scale(1.3); } }
+@keyframes ab-spin { from { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.1); } to { transform: rotate(360deg) scale(1); } }
+@keyframes ab-spin-float { 0% { transform: rotate(360deg) translateY(0); } 50% { transform: rotate(180deg) translateY(-20px); } 100% { transform: rotate(0deg) translateY(0); } }
+@keyframes ab-particle { 0%, 100% { transform: translateY(0); opacity: 0.2; } 50% { transform: translateY(-30px); opacity: 0.5; } }
+@keyframes ab-wave { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.25); } }
+.ab-orb-1 { animation: ab-orb-1 20s ease-in-out infinite; will-change: transform; }
+.ab-orb-2 { animation: ab-orb-2 25s ease-in-out 2s infinite; will-change: transform; }
+.ab-spin { animation: ab-spin 30s linear infinite; }
+.ab-spin-float { animation: ab-spin-float 15s ease-in-out infinite; }
+.ab-particle { animation-name: ab-particle; animation-timing-function: ease-in-out; animation-iteration-count: infinite; opacity: 0.2; }
+.ab-wave { animation: ab-wave 10s ease-in-out infinite; transform-origin: bottom; }
+@media (prefers-reduced-motion: reduce) {
+  .ab-orb-1, .ab-orb-2, .ab-spin, .ab-spin-float, .ab-particle, .ab-wave { animation: none; }
+}
+
+/* Client logo marquee (ClientsSection) */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-33.333%); } }
+.marquee-track { animation: marquee 40s linear infinite; will-change: transform; }
+.marquee-host:hover .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }

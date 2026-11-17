@@ -10,26 +10,36 @@ export default function CustomCursor() {
   useEffect(() => {
     const ring = ringRef.current;
     if (!ring) return;
-
-    const onMove = (e) => {
-      posRef.current.mx = e.clientX;
-      posRef.current.my = e.clientY;
-    };
+    // Touch devices have no cursor: skip entirely (no listeners, no animation loop).
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      ring.style.display = 'none';
+      return;
+    }
 
     const tick = () => {
       const pos = posRef.current;
       pos.cx += (pos.mx - pos.cx) * 0.13;
       pos.cy += (pos.my - pos.cy) * 0.13;
       ring.style.transform = `translate(${pos.cx - 14}px, ${pos.cy - 14}px)`;
-      rafRef.current = requestAnimationFrame(tick);
+      // Only keep animating while the ring is still catching up with the pointer.
+      if (Math.abs(pos.mx - pos.cx) > 0.1 || Math.abs(pos.my - pos.cy) > 0.1) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        rafRef.current = null;
+      }
+    };
+
+    const onMove = (e) => {
+      posRef.current.mx = e.clientX;
+      posRef.current.my = e.clientY;
+      if (!rafRef.current) rafRef.current = requestAnimationFrame(tick);
     };
 
     window.addEventListener('mousemove', onMove, { passive: true });
-    rafRef.current = requestAnimationFrame(tick);
 
     return () => {
       window.removeEventListener('mousemove', onMove);
-      cancelAnimationFrame(rafRef.current);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
   }, []);
 

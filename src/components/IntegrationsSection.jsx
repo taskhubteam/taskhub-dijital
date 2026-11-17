@@ -80,11 +80,12 @@ export default function IntegrationsSection() {
     const tl = gsap.timeline({ paused: true });
     tl.to(orbit, { rotateY: 360, duration: 30, ease: 'none', repeat: -1 });
 
+    // Spin only while the section is on screen — no work when scrolled away.
     const st = ScrollTrigger.create({
       trigger: sectionRef.current,
-      start: 'top 80%',
-      once: true,
-      onEnter: () => tl.play(),
+      start: 'top bottom',
+      end: 'bottom top',
+      onToggle: (self) => (self.isActive ? tl.play() : tl.pause()),
     });
 
     return () => { tl.kill(); st.kill(); };

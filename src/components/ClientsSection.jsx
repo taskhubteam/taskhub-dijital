@@ -19,7 +19,6 @@ const clients = [
 ];
 
 export default function ClientsSection() {
-  const [isPaused, setIsPaused] = useState(false);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: false, margin: "-100px" });
 
@@ -72,27 +71,10 @@ export default function ClientsSection() {
           <div className="absolute inset-0 backdrop-blur-xl bg-white/40 dark:bg-gray-800/40 rounded-3xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl" />
           
           {/* Logo carousel */}
-          <div className="relative overflow-hidden py-12 px-4"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
+          <div className="marquee-host relative overflow-hidden py-12 px-4">
             <div className="flex">
-              <motion.div className="flex gap-12 md:gap-16 lg:gap-20"
-                animate={{
-                  x: isPaused ? undefined : [0, "-33.333%"],
-                }}
-                transition={{
-                  x: {
-                    repeat: Infinity,
-                    repeatType: "loop",
-                    duration: 40,
-                    ease: "linear",
-                  },
-                }}
-                style={{
-                  animationPlayState: isPaused ? "paused" : "running",
-                }}
-              >
+              {/* CSS marquee (compositor-only); pauses on hover and when reduced motion is preferred */}
+              <div className="marquee-track flex gap-12 md:gap-16 lg:gap-20">
                 {triplicatedClients.map((logo, index) => (
                   <motion.div key={index}
                     className="group relative flex-shrink-0 w-32 h-20 md:w-40 md:h-24 lg:w-48 lg:h-28 cursor-pointer"
@@ -116,7 +98,7 @@ export default function ClientsSection() {
                     </div>
                   </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
             {/* Left gradient fade */}

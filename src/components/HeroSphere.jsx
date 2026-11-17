@@ -20,7 +20,9 @@ export default function HeroSphere() {
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'low-power' });
     renderer.setSize(w, h);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    // Cap resolution on phones: a decorative sphere doesn't need 3x pixels.
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, coarse ? 1.5 : 2));
     renderer.setClearColor(0x000000, 0);
     mount.appendChild(renderer.domElement);
 
@@ -82,12 +84,25 @@ export default function HeroSphere() {
     let rafId;
     let contextLost = false;
 
+    // Only draw while the sphere is on screen and the tab is visible.
+    let onScreen = true;
+    const io = new IntersectionObserver(([entry]) => {
+      onScreen = entry.isIntersecting;
+      if (onScreen && !rafId && !contextLost) tick();
+    });
+    io.observe(mount);
+
     const tick = () => {
-      if (contextLost) return;
+      rafId = null;
+      if (contextLost || !onScreen || document.hidden) return;
       rafId = requestAnimationFrame(tick);
       group.rotation.x += (my - group.rotation.x) * 0.022;
       renderer.render(scene, camera);
     };
+    const onVisibility = () => {
+      if (!document.hidden && !rafId && !contextLost) tick();
+    };
+    document.addEventListener('visibilitychange', onVisibility);
     tick();
 
     // WebGL context loss — prevent default so browser can restore it
@@ -115,6 +130,8 @@ export default function HeroSphere() {
     return () => {
       // Stop everything first
       cancelAnimationFrame(rafId);
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
       rotationTween.kill();
       contextLost = true;
 

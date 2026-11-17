@@ -32,7 +32,7 @@ export default function Footer() {
           <div>
             <Link href="/" aria-label="TaskHub Dijital home" className="inline-block">
               <img
-                src="/images/logo.webp"
+                src="/images/logo-sm.webp"
                 alt="TaskHub Dijital logo"
                 width="78"
                 height="48"

@@ -56,7 +56,7 @@ export default function Navbar() {
             className="cursor-pointer flex-shrink-0"
           >
             <img
-              src="/images/logo.webp"
+              src="/images/logo-sm.webp"
               alt="TaskHub Dijital logo"
               width="91"
               height="56"
