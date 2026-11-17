@@ -22,20 +22,21 @@ export default function GHLContactForm() {
   }, []);
 
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-gray-200 dark:ring-gray-700 transition-all duration-300">
-      <div className="flex items-center gap-4 bg-gradient-to-r from-primary-600 to-primary-700 px-6 py-5 sm:px-8">
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white/15">
+    <div className="overflow-hidden rounded-2xl bg-[#fffcfc] shadow-2xl ring-1 ring-gray-200 dark:ring-gray-700 transition-all duration-300">
+      <div className="flex items-center gap-3 sm:gap-4 bg-gradient-to-r from-primary-600 to-primary-700 px-5 py-4 sm:px-8 sm:py-5">
+        <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-white/15">
           <Send className="h-5 w-5 text-white" aria-hidden="true" />
         </div>
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white">Send Us a Message</h2>
+          <h2 className="text-lg sm:text-2xl font-bold text-white">Send Us a Message</h2>
           <p className="text-sm text-white/85">Tell us about your project and we&apos;ll get back to you.</p>
         </div>
       </div>
-      <div className="bg-white px-2 py-4 sm:px-4">
+      {/* No extra padding: the GHL form has its own; background matches its #FFFCFC so no inner box shows. */}
+      <div className="bg-[#fffcfc]">
         <iframe
           src={`https://api.leadconnectorhq.com/widget/form/${FORM_ID}`}
-          style={{ width: "100%", height: "620px", border: "none", borderRadius: "12px", background: "#fff" }}
+          style={{ width: "100%", height: "620px", border: "none", display: "block", background: "#fffcfc" }}
           id={`inline-${FORM_ID}`}
           data-layout="{'id':'INLINE'}"
           data-trigger-type="alwaysShow"

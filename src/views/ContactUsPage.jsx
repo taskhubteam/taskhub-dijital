@@ -73,7 +73,7 @@ export default function ContactUsPage() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="space-y-8"
             >
-              <div className="glass-card p-8 hover:shadow-2xl transition-all duration-300">
+              <div className="glass-card p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   Contact Information
                 </h2>
@@ -113,7 +113,7 @@ export default function ContactUsPage() {
               <motion.div initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6 }}
-                className="glass-card p-8 bg-gradient-to-br from-primary-50 to-white dark:from-primary-900/20 dark:to-gray-900 border-2 border-primary-200 dark:border-primary-800"
+                className="glass-card p-6 sm:p-8 bg-gradient-to-br from-primary-50 to-white dark:from-primary-900/20 dark:to-gray-900 border-2 border-primary-200 dark:border-primary-800"
               >
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
                   Why Choose Us?
