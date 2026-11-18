@@ -63,9 +63,13 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   (admin → Messages) **and** emailed via **Brevo** from `no-reply@taskhubdijital.com` (domain
   authenticated) to `taskhubdijital@gmail.com`, CC `taskhubteam1@gmail.com` (`src/lib/brevo.ts`).
   Brevo IP allow-listing must stay **off** (Workers have no fixed IP). EmailJS was removed.
-- **/contact uses a GoHighLevel (GHL) iframe form** (`src/components/GHLContactForm.jsx`). Do not
-  replace it. Its inner styling can only change in the GHL builder (owner will set button #dc2626,
-  radius 12px, Inter, white background); the site wraps it in a branded card.
+- **/contact uses a GoHighLevel (GHL) iframe form** (`src/components/GHLContactForm.jsx`, form id
+  `FO8fYwQmYQ42ElcmflCg`). Do not replace it. The site wraps it in a branded card whose background is
+  `#fffcfc` (= GHL's form background) with no inner padding, iframe height 620px, `display:block`.
+  Remaining whitespace (fixed narrow form width, top padding, centering) and the navy submit button are
+  inside the cross-origin iframe — only fixable in the GHL builder → Styles/Layout: form width 100%,
+  padding ≤16px, white/transparent background, button `#dc2626` white text radius 12px, fields radius
+  12px, font Inter. Changes there show live without a redeploy.
 - **WhatsApp** floating button +1 (469) 396-4221 (`WHATSAPP_*` in `src/lib/site.ts`,
   `src/components/WhatsAppButton.tsx`). It replaced the AI chat (Groq) at the owner's request.
 - **Google Search Console**: Domain property `sc-domain:taskhubdijital.com`; service account
@@ -112,12 +116,19 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   integrations orbit only spins while on screen; `CustomCursor` is off on touch devices and idles.
   Lighthouse 2026-11-17 (live, home): desktop 100/100/100/100, mobile 100/100/100/100.
 - Don't enable `experimental.inlineCss`: Next repeats the 123 KB CSS ~6× in the RSC payload (3× bigger HTML).
-- - One H1 per page, no skipped heading levels, titles ≤ 60 chars, descriptions 120–158 chars, images
+- One H1 per page, no skipped heading levels, titles ≤ 60 chars, descriptions 120–158 chars, images
   with width/height + alt. Logo is `public/images/logo.webp` (17 KB); OG image `images/og-image.jpg`.
 - Structured data must match visible content. Never add reviews/ratings to schema.
 - No fake urgency: no restarting countdowns or "limited time" claims (one was removed from the WordPress card).
 - Mobile: big hero/CTA buttons use `px-6 py-3 text-base` below `sm`; badges that hang over a card edge
-  need `whitespace-nowrap`.
+  need `whitespace-nowrap`. `.btn-primary`/`.btn-secondary` include `justify-center`, so `w-full`
+  buttons (pricing cards, forms) stay centered — don't remove it. Join short words in headlines with
+  `&nbsp;` (e.g. "AI&nbsp;&amp;") to avoid orphaned symbols on small screens.
+- Mobile QA: headless Chrome screenshots at 500px width (its minimum) and check no horizontal overflow
+  at 390px; the Chrome extension can be blocked by other extensions.
+- Footer (`src/components/Footer.jsx`, server component): compact two-column — brand + NAP with icons
+  left, 3-column link grid + social icons right; bottom bar © + "Powered by" left, Privacy · Terms right;
+  `pb-16 sm:pr-52` keeps it clear of the WhatsApp button.
 - Pricing (source of truth = live pages): home **Starter $800 / Gold $1,500 / Diamond $2,500** + monthly;
   `/traditional-websites` **Essential $2,500 / Growth $4,500 / Professional $6,500 / Enterprise $9,500**
   (renamed so they don't clash); hosting $49.99 / $69.99 / $99.99 per month; setup $49.99 / $69.99;
@@ -148,7 +159,9 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
 
 ## Status & TODO
 
-- [ ] Owner: style the GHL form in GoHighLevel to match the site.
+- [x] 2026-11-17: full-width buttons centered site-wide; /contact form card made seamless (#fffcfc,
+  no extra padding, compact mobile header/cards).
+- [ ] Owner: style the GHL form in GoHighLevel to match the site (settings listed under Integrations).
 - [ ] Owner: decide on `GROQ_API_KEY` (delete with `npx wrangler secret delete GROQ_API_KEY` or rotate).
 - [ ] Owner: send GA4 numeric property ID; add the service account as Viewer; enable Analytics Data API.
 - [ ] Owner: in GA4 mark `generate_lead` as a key event once it appears (Admin → Events).
