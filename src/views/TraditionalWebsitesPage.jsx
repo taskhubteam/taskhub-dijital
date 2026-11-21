@@ -24,7 +24,9 @@ import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
 import FlipStat from "../components/FlipStat.jsx";
 import ProcessTimeline3D from "../components/ProcessTimeline3D.jsx";
-import { scrollToContact } from "../utils/scrollToContact.js";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 const services = [
   {
@@ -212,17 +214,17 @@ export default function TraditionalWebsitesPage() {
                 Built with trust, performance, and scalability at the core. Designed for the US market.
               </motion.p>
 
-              <motion.button initial={false}
+              <MotionLink initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                href="/contact"
                 className="btn-primary text-base px-6 py-3 sm:text-lg sm:px-10 sm:py-5"
               >
                 Get Started Today
                 <ArrowRight className="w-6 h-6" />
-              </motion.button>
+              </MotionLink>
             </motion.div>
 
             {/* Stats — 3D flip-in on scroll */}
@@ -472,10 +474,8 @@ export default function TraditionalWebsitesPage() {
                     </ul>
 
                     {/* CTA */}
-                    <a
-                      href="https://taskhubrecruitmentsolutions.com/schedule/"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <Link
+                      href="/contact"
                       className={`w-full py-3.5 px-6 rounded-lg font-bold text-base transition-all duration-300 text-center mt-auto block ${
                         plan.popular
                           ? "bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl hover:shadow-primary-500/50 hover:scale-105"
@@ -483,7 +483,7 @@ export default function TraditionalWebsitesPage() {
                       }`}
                     >
                       LET'S TALK →
-                    </a>
+                    </Link>
 
                     {/* Footer note */}
                     <p className="text-center text-xs text-gray-500 dark:text-gray-400 mt-4">
@@ -514,14 +514,14 @@ export default function TraditionalWebsitesPage() {
                 Join hundreds of successful businesses who trust us with their online presence. Let's create something amazing together.
               </p>
               
-              <motion.button whileHover={{ scale: 1.05 }}
+              <MotionLink whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                href="/contact"
                 className="inline-flex items-center gap-3 px-6 py-3 sm:px-10 sm:py-5 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 text-lg"
               >
                 Start Your Project
                 <ArrowRight className="w-6 h-6" />
-              </motion.button>
+              </MotionLink>
 
               <div className="mt-12 flex items-center justify-center gap-8 text-white/80 text-sm">
                 <div className="flex items-center gap-2">

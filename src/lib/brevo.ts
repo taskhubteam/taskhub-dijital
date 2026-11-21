@@ -20,7 +20,20 @@ export type ContactEmail = {
   subject: string;
   budget: string;
   body: string;
+  /** Extra label/value rows (e.g. phone, location) shown above the message. */
+  extra?: [string, string][];
+  /** Extra copies (e.g. from the CONTACT_COPY_TO secret for the /contact form). */
+  copyTo?: string[];
+  /** Brevo tag, defaults to "contact-form". */
+  tag?: string;
 };
+
+/** Comma-separated addresses in an env var → unique, valid-looking addresses. */
+export function emailList(value: string | undefined): string[] {
+  return [...new Set((value || "").split(/[,;\s]+/).map((e) => e.trim().toLowerCase()))].filter((e) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e),
+  );
+}
 
 const esc = (s: string) =>
   s.replace(
@@ -38,8 +51,11 @@ export async function sendContactEmail(msg: ContactEmail): Promise<void> {
     ["Name", msg.name],
     ["Email", msg.email],
     ["Subject", msg.subject || "—"],
-    ["Budget", msg.budget || "—"],
+    ...(msg.budget ? ([["Budget", msg.budget]] as [string, string][]) : []),
+    ...(msg.extra || []),
   ];
+  const known = new Set([...TO, ...CC].map((r) => r.email));
+  const cc = [...CC, ...(msg.copyTo || []).filter((e) => !known.has(e)).map((email) => ({ email }))];
   const htmlContent = `<div style="font-family:system-ui,-apple-system,Segoe UI,sans-serif;font-size:15px;color:#111;max-width:620px">
   <h2 style="margin:0 0 16px;font-size:18px">New message from ${SITE_NAME}</h2>
   <table style="border-collapse:collapse;margin-bottom:16px">${rows
@@ -59,12 +75,12 @@ export async function sendContactEmail(msg: ContactEmail): Promise<void> {
     body: JSON.stringify({
       sender: SENDER(),
       to: TO,
-      cc: CC,
+      cc,
       replyTo: { email: msg.email, name: msg.name },
       subject,
       htmlContent,
       textContent,
-      tags: ["contact-form"],
+      tags: [msg.tag || "contact-form"],
     }),
   });
   if (!res.ok) throw new Error(`Brevo send failed: ${res.status} ${await res.text()}`);

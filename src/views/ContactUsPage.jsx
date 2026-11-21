@@ -2,12 +2,13 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, MessageSquare } from "lucide-react";
+import { Mail, Phone, MapPin, MessageSquare, CalendarCheck, ArrowRight } from "lucide-react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
-// import ContactForm from "../components/ContactForm.jsx";
-import GHLContactForm from "../components/GHLContactForm.jsx";
+import ContactForm from "../components/ContactForm.jsx";
+import { trackLead } from "@/lib/analytics";
+import { SCHEDULE_URL } from "@/lib/site";
 
 export default function ContactUsPage() {
   const contactDetails = [
@@ -73,6 +74,34 @@ export default function ContactUsPage() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="space-y-8"
             >
+              {/* Book a free call */}
+              <div className="glass-card p-6 sm:p-8 border-2 border-primary-200 dark:border-primary-800">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-xl bg-primary-600 shrink-0">
+                    <CalendarCheck className="w-6 h-6 text-white" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                      Book a Free Call
+                    </h2>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">
+                      Prefer to talk it through? Pick a time that suits you for a free consultation about
+                      your website, AI or hosting project.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={SCHEDULE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => trackLead("book_call")}
+                  className="btn-primary group mt-6 w-full px-6 py-3 text-base"
+                >
+                  Book a Free Call
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true" />
+                </a>
+              </div>
+
               <div className="glass-card p-6 sm:p-8 hover:shadow-2xl transition-all duration-300">
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                   Contact Information
@@ -143,9 +172,9 @@ export default function ContactUsPage() {
             <motion.div initial={false}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
+              className="order-first lg:order-none lg:sticky lg:top-28"
             >
-              {/* <ContactForm /> */}
-              <GHLContactForm />
+              <ContactForm />
             </motion.div>
           </div>
         </div>

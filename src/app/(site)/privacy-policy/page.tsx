@@ -4,7 +4,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbLd, pageMetadata, webPageLd } from "@/lib/seo";
 import { ADDRESS, EMAIL, LEGAL_NAME, PHONE_DISPLAY, SITE_NAME, SITE_URL, WHATSAPP_DISPLAY } from "@/lib/site";
 
-const UPDATED = "2026-11-16";
+const UPDATED = "2026-11-21";
 const title = "Privacy Policy";
 const description =
   "How TaskHub Dijital collects, uses and protects personal information when you visit taskhubdijital.com, contact us or use our web and hosting services.";
@@ -73,8 +73,8 @@ export default function PrivacyPolicyPage() {
             own browser (local storage). It is not sent to us.
           </li>
           <li>
-            <strong>Analytics:</strong> we may use Google Analytics to understand, in aggregate, how visitors use
-            the site, for example which pages are viewed. When enabled, it uses cookies or similar technology.
+            <strong>Analytics:</strong> we use Google Analytics to understand, in aggregate, how visitors use the
+            site, for example which pages are viewed. It uses cookies or similar technology.
           </li>
         </ul>
 
@@ -101,20 +101,19 @@ export default function PrivacyPolicyPage() {
             delivery.
           </li>
           <li>
-            <strong>Brevo</strong> delivers the email notifications for messages sent through the forms on our
-            home page.
+            <strong>Brevo</strong> delivers the email notifications for messages sent through the form on our{" "}
+            <Link href="/contact">contact page</Link>.
           </li>
           <li>
-            <strong>GoHighLevel (LeadConnector)</strong> powers the contact form on our{" "}
-            <Link href="/contact">contact page</Link> and stores the details you submit there. That form may use a
-            security check from Cloudflare to block spam.
+            <strong>GoHighLevel (LeadConnector)</strong> is our customer relationship system. Details you submit
+            through our contact form are saved there so our team can follow up with you.
           </li>
           <li>
             <strong>WhatsApp</strong> (Meta) handles conversations if you contact us through the WhatsApp button
             ({WHATSAPP_DISPLAY}).
           </li>
           <li>
-            <strong>Google</strong> may provide website analytics and search performance data.
+            <strong>Google</strong> provides website analytics and search performance data.
           </li>
           <li>
             <strong>jsDelivr</strong> serves some technology logos shown on our home page.
@@ -128,8 +127,7 @@ export default function PrivacyPolicyPage() {
         <h2>5. Cookies</h2>
         <p>
           Our public website does not use advertising cookies. Cookies or similar technology may be set by
-          analytics (if enabled), by the GoHighLevel form on our contact page and by our security provider to
-          protect the site. A cookie is also used to keep our staff signed in to our private admin area. You can
+          Google Analytics and by our security provider to protect the site. A cookie is also used to keep our staff signed in to our private admin area. You can
           block or delete cookies in your browser settings, although some features may then not work.
         </p>
 

@@ -3,7 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Wrench, Clock, CheckCircle } from "lucide-react";
-import { scrollToContact } from "../utils/scrollToContact.js";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 export default function AddonsRevisionsPricingCard() {
   return (
@@ -72,14 +74,14 @@ export default function AddonsRevisionsPricingCard() {
         </div>
 
         {/* CTA Button */}
-        <motion.button whileHover={{ scale: 1.05 }}
+        <MotionLink whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={scrollToContact}
+          href="/contact"
           className="w-full bg-primary-600 hover:bg-primary-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-primary-500/50 flex items-center justify-center gap-2"
         >
           <Clock className="w-5 h-5" />
           Request Changes
-        </motion.button>
+        </MotionLink>
       </div>
     </motion.div>
   );

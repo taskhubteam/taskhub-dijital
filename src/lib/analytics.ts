@@ -7,6 +7,6 @@ export function track(event: string, params: Record<string, unknown> = {}) {
 }
 
 /** A qualified lead — mark `generate_lead` as a key event in GA4. */
-export function trackLead(method: "contact_form" | "whatsapp" | "email" | "calendly") {
+export function trackLead(method: "contact_form" | "contact_page" | "book_call" | "whatsapp" | "email" | "calendly") {
   track("generate_lead", { method, page_path: location.pathname });
 }

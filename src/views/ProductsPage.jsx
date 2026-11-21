@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { scrollToContact } from "../utils/scrollToContact.js";
 import { 
   Code, 
   ShoppingBag, 
@@ -22,6 +21,9 @@ import {
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 export default function ProductsPage() {
 
@@ -171,14 +173,14 @@ export default function ProductsPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.button whileHover={{ scale: 1.05 }}
+              <MotionLink whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                href="/contact"
                 className="btn-primary group"
               >
                 Get a Free Consultation
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              </MotionLink>
               <motion.button whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" })}
@@ -371,9 +373,9 @@ export default function ProductsPage() {
             <p className="text-xl text-white/90 mb-10">
               Start your digital transformation with industry-leading experts
             </p>
-            <motion.button whileHover={{ scale: 1.05 }}
+            <MotionLink whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={scrollToContact}
+              href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 group relative overflow-hidden"
             >
               <motion.div animate={{
@@ -389,7 +391,7 @@ export default function ProductsPage() {
               />
               <span className="relative">Start Your Project</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform relative" />
-            </motion.button>
+            </MotionLink>
           </motion.div>
         </div>
       </section>

@@ -2,7 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { scrollToContact } from "../utils/scrollToContact.js";
+import Link from "next/link";
 
 export default function PricingCard({ plan, index }) {
 
@@ -99,9 +99,9 @@ export default function PricingCard({ plan, index }) {
         </ul>
 
         {/* CTA Button */}
-        <button 
-          onClick={scrollToContact}
-          className={`w-full py-3.5 px-6 rounded-lg font-bold text-base transition-all duration-300 mt-auto ${
+        <Link 
+          href="/contact"
+          className={`block w-full text-center py-3.5 px-6 rounded-lg font-bold text-base transition-all duration-300 mt-auto ${
             plan.popular 
               ? "bg-primary-600 hover:bg-primary-700 text-white shadow-lg hover:shadow-xl hover:shadow-primary-500/50 transform hover:scale-105" 
               : plan.bestForStarters
@@ -112,7 +112,7 @@ export default function PricingCard({ plan, index }) {
           }`}
         >
           {plan.popular ? "Choose Plan" : "Get Started"}
-        </button>
+        </Link>
       </div>
     </motion.div>
   );

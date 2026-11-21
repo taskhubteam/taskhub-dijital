@@ -15,7 +15,9 @@ import {
 } from "lucide-react";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import { scrollToContact } from "../utils/scrollToContact.js";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 export default function AIReadinessPage() {
 
@@ -164,14 +166,14 @@ export default function AIReadinessPage() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <motion.button whileHover={{ scale: 1.05 }}
+              <MotionLink whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                href="/contact"
                 className="btn-primary group"
               >
                 Get a Quote
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
+              </MotionLink>
               <motion.button whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => document.querySelector("#pricing")?.scrollIntoView({ behavior: "smooth" })}
@@ -340,13 +342,13 @@ export default function AIReadinessPage() {
                       </li>
                     ))}
                   </ul>
-                  <motion.button whileHover={{ scale: 1.05 }}
+                  <MotionLink whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    onClick={scrollToContact}
+                    href="/contact"
                     className={plan.popular ? 'btn-primary w-full' : 'btn-secondary w-full'}
                   >
                     Get Started
-                  </motion.button>
+                  </MotionLink>
                 </div>
               </motion.div>
             ))}
@@ -425,14 +427,14 @@ export default function AIReadinessPage() {
             <p className="text-xl text-white/90 mb-10">
               Let's transform your vision into a cutting-edge reality
             </p>
-            <motion.button whileHover={{ scale: 1.05 }}
+            <MotionLink whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={scrollToContact}
+              href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/50 group"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+            </MotionLink>
           </motion.div>
         </div>
       </section>

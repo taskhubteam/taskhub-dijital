@@ -58,10 +58,17 @@ export default function Navbar() {
             <img
               src="/images/logo-sm.webp"
               alt="TaskHub Dijital logo"
-              width="91"
+              width="93"
               height="56"
               fetchPriority="high"
-              className="h-14 w-auto object-contain select-none"
+              className="h-14 w-auto object-contain select-none dark:hidden"
+            />
+            <img
+              src="/images/logo-sm-dark.webp"
+              alt="TaskHub Dijital logo"
+              width="93"
+              height="56"
+              className="hidden h-14 w-auto object-contain select-none dark:block"
             />
           </MotionLink>
 

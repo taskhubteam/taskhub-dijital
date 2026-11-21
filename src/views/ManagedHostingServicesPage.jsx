@@ -17,7 +17,9 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
-import { scrollToContact } from "../utils/scrollToContact.js";
+import Link from "next/link";
+
+const MotionLink = motion.create(Link);
 
 const features = [
   {
@@ -122,17 +124,17 @@ export default function ManagedHostingServicesPage() {
                 Fully managed hosting and domain setup for US businesses — fast, secure and backed by real support.
               </motion.p>
 
-              <motion.button initial={false}
+              <MotionLink initial={false}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                href="/contact"
                 className="btn-primary text-base px-6 py-3 sm:text-lg sm:px-10 sm:py-5"
               >
                 Get Started Today
                 <ArrowRight className="w-6 h-6" />
-              </motion.button>
+              </MotionLink>
             </motion.div>
 
             {/* Stats */}
@@ -276,14 +278,14 @@ export default function ManagedHostingServicesPage() {
                     ))}
                   </ul>
 
-                  <button onClick={scrollToContact}
+                  <Link href="/contact"
                     className={`w-full ${
                       plan.popular ? "btn-primary" : "btn-secondary"
                     }`}
                   >
                     {plan.popular ? "Get Growth Plan" : "Choose Plan"}
                     <ArrowRight className="w-5 h-5" />
-                  </button>
+                  </Link>
 
                   <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                     <p className="text-xs text-center text-gray-500 dark:text-gray-400 italic">
@@ -375,14 +377,14 @@ export default function ManagedHostingServicesPage() {
                 Join hundreds of successful businesses who trust us with their online presence. Get started today with our premium hosting solutions.
               </p>
               
-              <motion.button whileHover={{ scale: 1.05 }}
+              <MotionLink whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
+                href="/contact"
                 className="inline-flex items-center gap-3 px-6 py-3 sm:px-10 sm:py-5 rounded-xl font-semibold text-primary-600 bg-white hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-white/20 text-lg"
               >
                 Start Now
                 <ArrowRight className="w-6 h-6" />
-              </motion.button>
+              </MotionLink>
 
               <div className="mt-12 flex items-center justify-center gap-8 text-white/80 text-sm">
                 <div className="flex items-center gap-2">

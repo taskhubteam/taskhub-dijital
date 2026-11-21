@@ -34,10 +34,18 @@ export default function Footer() {
               <img
                 src="/images/logo-sm.webp"
                 alt="TaskHub Dijital logo"
-                width="78"
+                width="80"
                 height="48"
                 loading="lazy"
-                className="h-12 w-auto object-contain hover:scale-105 transition-transform duration-300"
+                className="h-12 w-auto object-contain hover:scale-105 transition-transform duration-300 dark:hidden"
+              />
+              <img
+                src="/images/logo-sm-dark.webp"
+                alt="TaskHub Dijital logo"
+                width="80"
+                height="48"
+                loading="lazy"
+                className="hidden h-12 w-auto object-contain hover:scale-105 transition-transform duration-300 dark:block"
               />
             </Link>
             <p className={`mt-3 max-w-sm text-sm ${muted}`}>

@@ -63,13 +63,18 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   (admin → Messages) **and** emailed via **Brevo** from `no-reply@taskhubdijital.com` (domain
   authenticated) to `taskhubdijital@gmail.com`, CC `taskhubteam1@gmail.com` (`src/lib/brevo.ts`).
   Brevo IP allow-listing must stay **off** (Workers have no fixed IP). EmailJS was removed.
-- **/contact uses a GoHighLevel (GHL) iframe form** (`src/components/GHLContactForm.jsx`, form id
-  `FO8fYwQmYQ42ElcmflCg`). Do not replace it. The site wraps it in a branded card whose background is
-  `#fffcfc` (= GHL's form background) with no inner padding, iframe height 620px, `display:block`.
-  Remaining whitespace (fixed narrow form width, top padding, centering) and the navy submit button are
-  inside the cross-origin iframe — only fixable in the GHL builder → Styles/Layout: form width 100%,
-  padding ≤16px, white/transparent background, button `#dc2626` white text radius 12px, fields radius
-  12px, font Inter. Changes there show live without a redeploy.
+- **/contact uses our own form** (`src/components/ContactForm.jsx` → `submitContactPage` in
+  `src/lib/api/messages.ts`, fields = the old GHL form: first/last name, email, phone, city, state,
+  message + honeypot). On submit: saved to D1 (admin → Messages), emailed via Brevo (to/cc above plus
+  the `CONTACT_COPY_TO` secret = comma-separated extra inboxes, kept out of this public repo), and
+  upserted into **GoHighLevel** by `src/lib/ghl.ts` (tag `website-contact-form`, message → custom field
+  `contact.contactmessage` + a note). GHL sync needs the `GHL_API_TOKEN` secret (Private Integration,
+  contacts write); location id `6526b8c3b412c83e9edb9c6f` (override `GHL_LOCATION_ID`). Without the token
+  GHL is skipped silently. The old GHL iframe (form `FO8fYwQmYQ42ElcmflCg`) was removed 2026-11-21 at the
+  owner's request. GHL automations should trigger on "Contact Tag Added: website-contact-form".
+- **CTAs**: every "Get Started"/pricing/hero button links to `/contact` (no scroll-to-section, the home
+  "Get In Touch" section was removed). The external booking link `SCHEDULE_URL` appears only as
+  "Book a free call" on /contact, /portfolio and blog posts.
 - **WhatsApp** floating button +1 (469) 396-4221 (`WHATSAPP_*` in `src/lib/site.ts`,
   `src/components/WhatsAppButton.tsx`). It replaced the AI chat (Groq) at the owner's request.
 - **Google Search Console**: Domain property `sc-domain:taskhubdijital.com`; service account
@@ -117,7 +122,9 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   Lighthouse 2026-11-17 (live, home): desktop 100/100/100/100, mobile 100/100/100/100.
 - Don't enable `experimental.inlineCss`: Next repeats the 123 KB CSS ~6× in the RSC payload (3× bigger HTML).
 - One H1 per page, no skipped heading levels, titles ≤ 60 chars, descriptions 120–158 chars, images
-  with width/height + alt. Logo is `public/images/logo.webp` (17 KB); OG image `images/og-image.jpg`.
+  with width/height + alt. Logo ("TaskHub Dijital", from the owner's Carrd site, background removed): `logo-sm.webp` (header/footer)
+  + `logo-sm-dark.webp` (lighter "Dijital" for dark mode, swapped with `dark:hidden`/`dark:block`),
+  `logo.webp`/`logo-dark.webp` 400px, `logo.png` (JSON-LD). OG image `images/og-image.jpg`.
 - Structured data must match visible content. Never add reviews/ratings to schema.
 - No fake urgency: no restarting countdowns or "limited time" claims (one was removed from the WordPress card).
 - Mobile: big hero/CTA buttons use `px-6 py-3 text-base` below `sm`; badges that hang over a card edge
@@ -134,7 +141,7 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
   (renamed so they don't clash); hosting $49.99 / $69.99 / $99.99 per month; setup $49.99 / $69.99;
   add-ons $10/hr; custom MERN $2.5k–$150k+, $60–$120/hr. Change prices everywhere (pages, JSON-LD
   offers, FAQ, search index, blog posts in D1).
-- Brand spelling: **TaskHub Dijital** (the logo image itself says "Digital" — owner may re-export it).
+- Brand spelling: **TaskHub Dijital** (logo fixed 2026-11-21).
 
 ## Blog
 
@@ -161,7 +168,8 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
 
 - [x] 2026-11-17: full-width buttons centered site-wide; /contact form card made seamless (#fffcfc,
   no extra padding, compact mobile header/cards).
-- [ ] Owner: style the GHL form in GoHighLevel to match the site (settings listed under Integrations).
+- [ ] Owner: create a GHL Private Integration token → `npx wrangler secret put GHL_API_TOKEN`; add a GHL
+  workflow on tag `website-contact-form` if follow-ups are needed.
 - [ ] Owner: decide on `GROQ_API_KEY` (delete with `npx wrangler secret delete GROQ_API_KEY` or rotate).
 - [ ] Owner: send GA4 numeric property ID; add the service account as Viewer; enable Analytics Data API.
 - [ ] Owner: in GA4 mark `generate_lead` as a key event once it appears (Admin → Events).
@@ -171,6 +179,6 @@ GitHub: push over HTTPS with the `taskhubteam` gh login (SSH resolves to `mofizu
 - [ ] Fix Cloudflare Workers Builds (GitHub auto-deploy) or keep deploying manually.
 - [ ] Optional: daily cron that pings IndexNow for posts that went live that day.
 - [ ] Optional: set Hostinger mail CNAMEs (autoconfig, autodiscover, hostingermail-a/b/c) to DNS only.
-- [ ] Optional: delete the old `nextjs` branch on GitHub; re-export logo with "Dijital" spelling.
+- [ ] Optional: delete the old `nextjs` branch on GitHub.
 - Ideas: more service landing pages (e.g. WordPress development, Shopify development), case studies
   with real client quotes (only with permission), keep publishing posts after Dec 1.

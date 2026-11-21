@@ -3,11 +3,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Check, Globe, Lock, Headphones, Package, ArrowRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function WordPressPricingCard() {
-  const router = useRouter();
-  const navigate = (href) => router.push(href);
   const features = [
     "Custom WordPress website design",
     "Basic business websites, blogs, landing pages",
@@ -93,12 +91,12 @@ export default function WordPressPricingCard() {
           </ul>
 
           {/* Get Started Button */}
-          <button onClick={() => navigate("/contact")}
+          <Link href="/contact"
             className="btn-primary w-full group"
           >
             Get Started
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-200" />
-          </button>
+          </Link>
         </div>
       </div>
     </motion.div>

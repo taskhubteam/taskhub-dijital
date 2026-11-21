@@ -35,6 +35,6 @@ export const HOME_FAQS: Faq[] = [
   },
   {
     q: "How do I get started?",
-    a: "Book a free call from the Get Started button, send a message through the contact page, email taskhubdijital@gmail.com or call 469-577-0392. We will discuss your goals and recommend the right plan.",
+    a: "Use the contact page to book a free call or send us a message, email taskhubdijital@gmail.com or call 469-577-0392. We will discuss your goals and recommend the right plan.",
   },
 ];

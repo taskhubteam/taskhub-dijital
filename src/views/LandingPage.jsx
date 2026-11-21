@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   Sparkles, Code, Smartphone, Cloud, Brain, Zap,
@@ -12,8 +13,6 @@ import Footer from "../components/Footer.jsx";
 import ServiceCard from "../components/ServiceCard.jsx";
 import PricingCard from "../components/PricingCard.jsx";
 import StatCard from "../components/StatCard.jsx";
-import ContactInfo from "../components/ContactInfo.jsx";
-import ContactForm from "../components/ContactForm.jsx";
 import AnimatedBackground from "../components/AnimatedBackground.jsx";
 import PlexusBackground from "../components/PlexusBackground.jsx";
 import DeferredHeroSphere from "../components/DeferredHeroSphere.jsx";
@@ -22,7 +21,8 @@ import AddonsRevisionsPricingCard from "../components/AddonsRevisionsPricingCard
 import IntegrationsSection from "../components/IntegrationsSection.jsx";
 import TestimonialCarousel from "../components/TestimonialCarousel.jsx";
 import ClientsSection from "../components/ClientsSection.jsx";
-import AssessmentModal from "../components/AssessmentModal.jsx";
+
+const MotionLink = motion.create(Link);
 
 const services = [
   {
@@ -129,8 +129,6 @@ const pricingPlans = [
 
 /** @param {{ faq?: import("react").ReactNode }} props */
 export default function LandingPage({ faq = null }) {
-  const [isAssessmentModalOpen, setIsAssessmentModalOpen] = useState(false);
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950">
       <Navbar />
@@ -170,16 +168,14 @@ export default function LandingPage({ faq = null }) {
                 transition={{ delay: 0.5, duration: 0.8 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center items-center"
               >
-                <motion.a href="https://taskhubrecruitmentsolutions.com/schedule/"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <MotionLink href="/contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="btn-primary inline-flex items-center gap-2 px-6 py-3 text-base sm:px-8 sm:py-4 sm:text-lg"
                 >
                   Get Started
                   <ArrowRight className="w-5 h-5" />
-                </motion.a>
+                </MotionLink>
               </motion.div>
             </motion.div>
           </div>
@@ -355,14 +351,9 @@ export default function LandingPage({ faq = null }) {
                           </li>
                         ))}
                       </ul>
-                      <a
-                        href="https://taskhubrecruitmentsolutions.com/schedule/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-full btn-primary inline-block text-center"
-                      >
+                      <Link href="/contact" className="w-full btn-primary">
                         Get Started
-                      </a>
+                      </Link>
                     </motion.div>
                   ))}
                 </div>
@@ -551,52 +542,10 @@ export default function LandingPage({ faq = null }) {
         {/* FAQ (server-rendered, passed in by app/(site)/page.tsx) */}
         {faq}
 
-        {/* Contact Section */}
-        <section id="contact" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950 overflow-hidden">
-          <AnimatedBackground />
-          <div className="max-w-7xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              className="text-center mb-16"
-            >
-              <h2 className="section-title mb-4">
-                Get In Touch
-              </h2>
-              <p className="section-subtitle">
-                Ready to start your project? Let's discuss how we can help
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-12">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-              >
-                <ContactInfo />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false }}
-              >
-                <ContactForm />
-              </motion.div>
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />
       
-      {/* Assessment Modal */}
-      <AssessmentModal 
-        isOpen={isAssessmentModalOpen} 
-        onClose={() => setIsAssessmentModalOpen(false)} 
-      />
     </div>
   );
 }
